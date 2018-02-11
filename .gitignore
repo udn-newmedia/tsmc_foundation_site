@@ -5,7 +5,7 @@ node_modules
 npm-debug.log
 
 # assets
-assets
+assets/indexvideo.mp4
 
 # Nuxt build
 .nuxt
