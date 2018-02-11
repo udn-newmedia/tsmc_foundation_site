@@ -1,82 +1,84 @@
 <template>
   <div id="index">
-    <HeadBar :bookmark-display="stickyAnchors">
-      <!-- <a href="http://udn.com" target="_blank">以活到90</a>
-      <a href="http://udn.com" target="_blank">不退也不休，利用上半</a>       -->
-    </HeadBar>
-    <!-- <HeadBar background-color="#000" color="#e4c8a9"></HeadBar> -->
+    <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
     <div class="fullscreen centercenter">
       <h1>愛互聯</h1>
     </div>
     <ContentWrapper class="section">
       <div class="row">
-        <div class="col-lg-5 col-sm-12">
-          <h3>橫越445公里路</h3>
-          <p>做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。</p>
-          <p><br></p>
-          <p>高雄氣爆滿月時，災民在街道掛起一幅幅紅布條感謝台積電。感謝什麼？災後第一時間，台積電慈善基金會董事長張淑芬，感性地看到災民有家歸不得的傷痛，台積電工程師們，則見災民在斷垣殘壁中，生計被迫中斷，一個景，兩個情，他們決定捐錢也做事。</p>
-          <div class="subpageLink">
-            <button>最新動態</button>
-          </div>
-          <p><br></p>
-          <p><br></p>
-        </div>
-        <div class="col-lg-1 hidden-mobile"></div>
-        <div class="col-lg-6 hidden-mobile">
-          <img :src="indexWeb1">
-        </div>
-        <div class="hidden-pc">
-          <img :src="indexMob1">
-        </div>        
-        <!-- <p class="col-lg-12"><br></p>
-        <p class="col-lg-12"><br></p> -->
+        <p>台積電基金會2014年起，走訪遍布全台的醫療、社福單位，尋找一樣對獨居老人，有協助意願的夥伴，串接起志同道合的點與線，打造全國性的獨居老人照顧網──「愛互聯」。</p>
+        <p><br></p>
+        <p>針對獨老醫療，位於各縣市的愛互聯醫療單位，首先為低收入的獨居老人，提供掛號服務專線，並減免掛號費，降低經濟弱勢的獨居老人醫療門檻。</p>
+        <p><br></p>
+        <p>接著，基金會再與在地民間社福單位志工攜手，協助獨老前往合作醫療院所就診，並協助診後的服藥、起居，更重要的，愛互聯為獨老的需求，一起找資源。</p>
+        <p><br></p>
+        <p>愛互聯目前在全台，「兵分六區」投入服務行動（北部、竹苗、台中、台南、高雄、花東），今年還有14家偏遠地區醫院，和更多的社福單位，表示有意願加入串連。</p>
       </div>
     </ContentWrapper>
-    <EmbededVideo :src="indexvideo" :srcWeb="indexvideo"></EmbededVideo>
     <ContentWrapper class="section">
-      <div class="row section">
-        <div class="col-lg-5 hidden-mobile">
-          <img :src="indexWeb2">
+      <div class="row">
+        <div class="zone">
+            <h3>北部</h3>
         </div>
-        <div class="hidden-pc">
-          <img :src="indexMob2">
+        <div class="unit">
+            <div class="partner"><a href="https://www.vghtpe.gov.tw/Index.action" target="_blank">台北榮民總醫院</a></div>
+            <div class="partner"><a href="http://www.ofo.org.tw" target="_blank">老五老基金會</a></div>
         </div>
-        <p class="hidden-pc"><br></p>
-        <p class="hidden-pc"><br></p>        
-        <div class="col-lg-1"></div>
-        <div class="col-lg-6">
-          <p>台積電重建團隊進駐災區，發揮蓋晶圓廠的聰明腦袋與最高執行力，與協力廠商挨家挨戶拜訪，「請問我們可以幫忙嗎？」，被石頭砸破的屋頂，被炸歪的紗窗，店家門前滿目瘡痍的道路，台積電員工在災區穿梭，一一幫災民排除了，這是智慧做慈善。</p>
-          <p><br></p>
-          <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
-          <div class="subpageLink">
-            <button>我們的故事</button>
+      </div>
+      <br/> <br/>
+      <div class="row">
+          <div class="zone">
+              <h3>竹苗</h3>
+          </div>                
+          <div class="unit">
+              <div class="partner"><a href="http://www.ofo.org.tw/" target="_blank">老五老基金會</a></div>
+              <div class="partner"><a href="http://www.mil.mohw.gov.tw/index.asp" target="_blank">部立苗栗醫院</a></div>
           </div>
-        </div>
       </div>
-    </ContentWrapper>
-    <ContentWrapper backgroundColor='#e0dfdf'>
-      <p><br></p>
-      <p><br></p>
-      <div class="row iconWrapper">
-        <div class="col-lg-2 col-xs-6 icon">
-          <img :src="indexicon1">
-          <p>愛互聯</p>          
-        </div>
-        <div class="col-lg-2 col-xs-6 icon">
-          <img :src="indexicon2">
-          <p>我們的故事</p>          
-        </div>
-        <div class="col-lg-2 col-xs-6 icon">
-          <img :src="indexicon3">
-          <p>我們做的事</p>
-        </div>
-        <div class="col-lg-2 col-xs-6 icon">
-          <img :src="indexicon4">
-          <p>留言區</p>
-        </div>
+      <br/> <br/>
+      <div class="row">
+          <div class="zone">
+              <h3>台中</h3>
+          </div>
+          <div class="unit">
+              <div class="partner"><a href="http://www.cmuh.cmu.edu.tw" target="_blank">中國醫藥大學附設醫院</a></div>
+              <div class="partner"><a href="http://www.fyh.mohw.gov.tw" target="_blank">部立豐原醫院</a></div>
+              <div class="partner"><a href="http://www.ltl-charity.org.tw" target="_blank">林增連基金會</a></div>
+              <div class="partner"><a href="http://www.ofo.org.tw" target="_blank">老五老基金會</a></div>
+          </div>
       </div>
-      <p><br></p>
-      <p><br></p>
+      <br/> <br/>
+      <div class="row">
+          <div class="zone">
+              <h3>台南</h3>
+          </div>
+          <div class="unit">
+              <div class="partner"><a href="https://www.facebook.com/puli393" target="_blank">台灣普力關懷協會</a></div>
+              <div class="partner"><a href="https://www.tnhosp.mohw.gov.tw" target="_blank">部立台南醫院</a></div>
+              <div class="partner"><a href="http://www.cnpc.mohw.gov.tw" target="_blank">部立嘉南療養院</a></div>
+              <div class="partner"><a href="http://www.sinlau.org.tw" target="_blank">新樓醫院</a></div>
+          </div>
+      </div>
+      <br/> <br/>
+      <div class="row">
+          <div class="zone">                
+              <h3>高屏</h3>
+          </div>
+          <div class="unit">
+              <div class="partner"><a href="http://web.fy.edu.tw/bin/home.php" target="_blank">輔英科技大學</a></div>
+              <div class="partner"><a href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank">恆春旅遊醫院</a></div>
+          </div>
+      </div>
+      <br/> <br/>
+      <div class="row">                
+          <div class="zone">
+              <h3>花東</h3>
+          </div>
+          <div class="unit">                    
+              <div class="partner"><a href="http://www.mch.org.tw/" target="_blank">基督教門諾會醫院</a></div>
+              <div class="partner"><a href="https://mf.eoffering.org.tw" target="_blank">門諾基金會</a></div>
+          </div>
+      </div>
     </ContentWrapper>
     <ContentWrapper backgroundColor='#292b2e' class="footer">
       <p><br></p>
@@ -97,9 +99,7 @@
 
 <script>
 import HeadBar from '~/components/HeadBar.vue'
-// import HeadBar from 'udn-newmedia-vue-components/src/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
-import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
 import indexvideo from '~/assets/indexvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
@@ -115,20 +115,11 @@ export default {
   data: function () {
     return {
       stickyAnchors: true,
-      indexvideo: indexvideo,
-      indexMob1: indexMob1,
-      indexWeb1: indexWeb1,
-      indexMob2: indexMob2,
-      indexWeb2: indexWeb2,
-      indexicon1: indexicon1,
-      indexicon2: indexicon2,
-      indexicon3: indexicon3,
-      indexicon4: indexicon4,
       tsmcLogo: tsmcLogo
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo
+    HeadBar, ContentWrapper
   }
 }
 </script>
@@ -226,5 +217,27 @@ export default {
     margin-top: 100px;
     margin-bottom: 100px;
   }
+}
+
+.zone h3{
+  font-weight: bold;
+}
+
+.unit{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.unit .partner{
+  margin: 5px 20px 20px 0;
+  padding: 10px;
+  border-radius: 3px;
+  background-color: #e0dfdf;  
+}
+
+.unit .partner a{
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 </style>
