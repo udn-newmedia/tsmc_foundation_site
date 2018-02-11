@@ -1,13 +1,16 @@
 <template>
   <div id="index">
-    <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
+    <HeadBar :bookmark-display="stickyAnchors">
+      <!-- <a href="http://udn.com" target="_blank">以活到90</a>
+      <a href="http://udn.com" target="_blank">不退也不休，利用上半</a>       -->
+    </HeadBar>
+    <!-- <HeadBar background-color="#000" color="#e4c8a9"></HeadBar> -->
     <div class="fullscreen centercenter">
-      <!-- <h1>首頁山頭</h1> -->
-        <Bodymovin jsonfile="./index/data.json"></Bodymovin>
+      <h1>愛互聯</h1>
     </div>
     <ContentWrapper class="section">
       <div class="row">
-        <div class="column col-lg-5 col-sm-12">
+        <div class="col-lg-5 col-sm-12">
           <h3>橫越445公里路</h3>
           <p>做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。</p>
           <p><br></p>
@@ -19,7 +22,7 @@
           <p><br></p>
         </div>
         <div class="col-lg-1 hidden-mobile"></div>
-        <div class="column col-lg-6 hidden-mobile">
+        <div class="col-lg-6 hidden-mobile">
           <img :src="indexWeb1">
         </div>
         <div class="hidden-pc">
@@ -29,9 +32,7 @@
         <p class="col-lg-12"><br></p> -->
       </div>
     </ContentWrapper>
-    <ContentWrapper>
-      <EmbededVideo :src="indexvideo" :srcWeb="indexvideo"></EmbededVideo>
-    </ContentWrapper>
+    <EmbededVideo :src="indexvideo" :srcWeb="indexvideo"></EmbededVideo>
     <ContentWrapper class="section">
       <div class="row section">
         <div class="col-lg-5 hidden-mobile">
@@ -99,7 +100,6 @@ import HeadBar from '~/components/HeadBar.vue'
 // import HeadBar from 'udn-newmedia-vue-components/src/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
-import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import indexvideo from '~/assets/indexvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
@@ -110,7 +110,6 @@ import indexicon2 from '~/assets/ICON-2.png'
 import indexicon3 from '~/assets/ICON-3.png'
 import indexicon4 from '~/assets/ICON-4.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
-import newest from '~/assets/newest.svg'
 
 export default {
   data: function () {
@@ -125,12 +124,11 @@ export default {
       indexicon2: indexicon2,
       indexicon3: indexicon3,
       indexicon4: indexicon4,
-      tsmcLogo: tsmcLogo,
-      newest: newest
+      tsmcLogo: tsmcLogo
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Bodymovin
+    HeadBar, ContentWrapper, EmbededVideo
   }
 }
 </script>
@@ -228,9 +226,5 @@ export default {
     margin-top: 100px;
     margin-bottom: 100px;
   }
-}
-
-.column img{
-  width: 100%;
 }
 </style>
