@@ -1,4 +1,9 @@
 module.exports = {
+  router: {
+    // base: '/upf/newmedia/ubrandstudio/'
+    base: '/tsmc_foundation_site/'
+  },
+
   /*
   ** Headers of the page
   */

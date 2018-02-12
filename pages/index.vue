@@ -1,9 +1,12 @@
 <template>
   <div id="index">
     <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
-    <div class="fullscreen centercenter">
-      <!-- <h1>首頁山頭</h1> -->
-        <Bodymovin jsonfile="./index/data.json"></Bodymovin>
+    <div class="fullscreen centercenter" style="position: relative; overflow: hidden;">
+      <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
+      <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%;"></Bodymovin>
+      <ContentWrapper style="padding:0; z-index: 2;">
+        <Bodymovin jsonfile="./index_cover/web.json" MOBjsonfile="./index_cover/mob.json" PADjsonfile="./index_cover/pad.json" style="width: 100%;　z-index: 2;"></Bodymovin>
+      </ContentWrapper>
     </div>
     <ContentWrapper class="section">
       <div class="row">
@@ -25,8 +28,6 @@
         <div class="hidden-pc">
           <img :src="indexMob1">
         </div>        
-        <!-- <p class="col-lg-12"><br></p>
-        <p class="col-lg-12"><br></p> -->
       </div>
     </ContentWrapper>
     <ContentWrapper>

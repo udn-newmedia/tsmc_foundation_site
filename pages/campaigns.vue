@@ -1,8 +1,13 @@
 <template>
   <div id="campaigns">
     <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
-    <div class="fullscreen centercenter">
-      <h1>我們<br>做的事</h1>
+    <div class="fullscreen centercenter" style="position: relative;">
+      <ContentWrapper class="hidden-mobile" style="position: relative;">
+        <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
+        <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
+      </ContentWrapper>
+      <Bodymovin class="hidden-pc" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
+      <Bodymovin class="hidden-pc" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
     </div>
     <ContentWrapper class="section" background-color="#f2ede4">
       <div class="row">
@@ -187,6 +192,7 @@
 <script>
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
+import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
 import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
 import mobpic1 from '~/assets/campaigns_mob1.jpg'
@@ -232,7 +238,7 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, ColumnTwo, Quote
+    HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin
   },
   methods: {
     toggleLess: function (whichone) {
