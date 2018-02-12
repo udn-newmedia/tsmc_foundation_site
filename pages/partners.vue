@@ -1,8 +1,18 @@
 <template>
-  <div id="index">
+  <div id="partners">
     <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
-    <div class="fullscreen centercenter">
-      <h1>愛互聯</h1>
+    <div class="fullscreen centercenter" style="background: #e4c8a9;">
+      <ContentWrapper>
+        <!-- <h1>愛互聯</h1> -->
+        <img :src="titleimg" alt="愛互聯" style="width: 280px; height: 300px; transform: translateY(-25%);">
+      </ContentWrapper>
+    </div>
+    <div class="cover">
+      <img :src="member01" alt="愛互聯"
+        :style="{opacity: img1opacity}">
+      <img :src="member02" alt="愛互聯"
+        :style="{opacity: img2opacity}" 
+        style="position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%);">
     </div>
     <ContentWrapper class="section">
       <div class="row">
@@ -100,36 +110,49 @@
 <script>
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
-import indexvideo from '~/assets/indexvideo.mp4'
-import indexMob1 from '~/assets/index_mob1.jpg'
-import indexWeb1 from '~/assets/index_web1.jpg'
-import indexMob2 from '~/assets/index_mob2.jpg'
-import indexWeb2 from '~/assets/index_web2.jpg'
-import indexicon1 from '~/assets/ICON-1.png'
-import indexicon2 from '~/assets/ICON-2.png'
-import indexicon3 from '~/assets/ICON-3.png'
-import indexicon4 from '~/assets/ICON-4.png'
+import member01 from '~/assets/member01.png'
+import member02 from '~/assets/member02.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
+import titleimg from '~/assets/title_partners.svg'
 
 export default {
+  components: {
+    HeadBar, ContentWrapper
+  },
   data: function () {
     return {
       stickyAnchors: true,
-      tsmcLogo: tsmcLogo
+      tsmcLogo: tsmcLogo,
+      member01: member01,
+      member02: member02,
+      showfirstimg: true,
+      titleimg: titleimg
     }
   },
-  components: {
-    HeadBar, ContentWrapper
-  }
+  computed: {
+    img1opacity: function () {
+      return this.showfirstimg?'1':'0' 
+    },
+    img2opacity: function () {
+      return this.showfirstimg?'0':'1' 
+    }
+  },
+  mounted: function () {
+    setTimeout(()=>{
+      this.showfirstimg = !this.showfirstimg
+    }, 500)
+  },
 }
 </script>
 
 <style>
-#index {
+#partners {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
   word-wrap: break-word;
   text-align: justify;
+  position: relative;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 1023px){  
@@ -208,14 +231,14 @@ export default {
 }
 
 .section {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 @media screen and (min-width: 1024px){
   .section {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
 }
 
@@ -240,4 +263,23 @@ export default {
   text-decoration: none;
   font-weight: bold;
 }
+
+.cover{
+  position: absolute; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 100vh;
+  left: 50%;
+  transform: translateX(-40%) translateY(-75vh);
+  width: 120%;
+}
+
+.cover img{
+  will-change: 'opacity';
+  will-change: opacity;
+  transition: opacity 0.5s;
+  transition-timing-function: ease-out;
+}
+
 </style>

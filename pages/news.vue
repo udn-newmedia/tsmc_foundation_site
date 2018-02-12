@@ -4,8 +4,9 @@
     <ContentWrapper class="section firstsection">
       <div class="row">
         <div class="col-lg-3 col-sm-12">
-          <h1 class="bigtitle">最新<br>動態</h1>
-          <p class="hidden-mobile"><br></p>
+          <!-- <h1 class="bigtitle">最新<br>動態</h1>
+          <p class="hidden-mobile"><br></p> -->
+          <img class="covertitle" :src="titleimg" alt="最新動態">
         </div>
         <div class="col-lg-2 hidden-mobile"></div>
         <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1;">
@@ -87,6 +88,8 @@ import indexMob2 from '~/assets/index_mob2.jpg'
 import indexWeb2 from '~/assets/index_web2.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import newsphoto from '~/assets/photo.jpg'
+import titleimg from '~/assets/title_news.svg'
+import titleimgmob from '~/assets/title_news_mob.svg'
 
 export default {
   data: function () {
@@ -99,6 +102,8 @@ export default {
       tsmcLogo: tsmcLogo,
       newsvideo: newsvideo,
       newsphoto: newsphoto,
+      titleimg: titleimg,
+      titleimgmob: titleimgmob,
       page: 1,
       newslist: [
         {
@@ -396,4 +401,17 @@ nav{
   cursor: pointer;
 }
 
+.covertitle{
+  width: 100px;
+  height: 200px;
+  
+}
+
+@media screen and (min-width: 1024px){
+  .covertitle{
+    width: 200px; 
+    height: 400px; 
+    margin: 20px 0;
+  }
+}
 </style>
