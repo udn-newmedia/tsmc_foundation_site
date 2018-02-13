@@ -20,6 +20,13 @@ export default {
     return {
     }
   },
+  watch: {
+    show: function (newval, oldval) {
+      if (newval) {
+        document.getElementById(this.mainContainer).setAttribute('class', 'blur');
+      }
+    }
+  },
   mounted: function () {
     if (this.show) {
       document.getElementById(this.mainContainer).setAttribute('class', 'blur');

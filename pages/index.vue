@@ -152,7 +152,7 @@ export default {
     this.$eventHub.$on('closeOverlay', this.closeOverlay)
   },
   beforeDestroy() {
-    this.$eventHub.$off('closeOverlay');
+    this.$eventHub.$off('closeOverlay')
   },  
   methods: {
     showComments: function () {

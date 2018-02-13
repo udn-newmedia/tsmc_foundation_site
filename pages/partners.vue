@@ -1,115 +1,125 @@
 <template>
-  <div id="partners">
-    <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
-    <div class="fullscreen centercenter" style="background: #e4c8a9;">
-      <ContentWrapper>
-        <!-- <h1>愛互聯</h1> -->
-        <img :src="titleimg" alt="愛互聯" style="width: 280px; height: 300px; transform: translateY(-25%);">
+  <div>
+    <div id="partners">
+      <HeadBar :bookmark-display="stickyAnchors">
+        <div slot="comment" class="links">
+          <div class="link">
+            <a @click.prevent="showComments">留言區</a>
+          </div>
+        </div>
+      </HeadBar>
+      <div class="fullscreen centercenter" style="background: #e4c8a9;">
+        <ContentWrapper>
+          <!-- <h1>愛互聯</h1> -->
+          <img :src="titleimg" alt="愛互聯" style="width: 280px; height: 300px; transform: translateY(-25%);">
+        </ContentWrapper>
+      </div>
+      <div class="cover">
+        <img :src="member01" alt="愛互聯"
+          :style="{opacity: img1opacity}">
+        <img :src="member02" alt="愛互聯"
+          :style="{opacity: img2opacity}" 
+          style="position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%);">
+      </div>
+      <ContentWrapper class="section">
+        <div class="row">
+          <p>台積電基金會2014年起，走訪遍布全台的醫療、社福單位，尋找一樣對獨居老人，有協助意願的夥伴，串接起志同道合的點與線，打造全國性的獨居老人照顧網──「愛互聯」。</p>
+          <p><br></p>
+          <p>針對獨老醫療，位於各縣市的愛互聯醫療單位，首先為低收入的獨居老人，提供掛號服務專線，並減免掛號費，降低經濟弱勢的獨居老人醫療門檻。</p>
+          <p><br></p>
+          <p>接著，基金會再與在地民間社福單位志工攜手，協助獨老前往合作醫療院所就診，並協助診後的服藥、起居，更重要的，愛互聯為獨老的需求，一起找資源。</p>
+          <p><br></p>
+          <p>愛互聯目前在全台，「兵分六區」投入服務行動（北部、竹苗、台中、台南、高雄、花東），今年還有14家偏遠地區醫院，和更多的社福單位，表示有意願加入串連。</p>
+        </div>
       </ContentWrapper>
-    </div>
-    <div class="cover">
-      <img :src="member01" alt="愛互聯"
-        :style="{opacity: img1opacity}">
-      <img :src="member02" alt="愛互聯"
-        :style="{opacity: img2opacity}" 
-        style="position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%);">
-    </div>
-    <ContentWrapper class="section">
-      <div class="row">
-        <p>台積電基金會2014年起，走訪遍布全台的醫療、社福單位，尋找一樣對獨居老人，有協助意願的夥伴，串接起志同道合的點與線，打造全國性的獨居老人照顧網──「愛互聯」。</p>
-        <p><br></p>
-        <p>針對獨老醫療，位於各縣市的愛互聯醫療單位，首先為低收入的獨居老人，提供掛號服務專線，並減免掛號費，降低經濟弱勢的獨居老人醫療門檻。</p>
-        <p><br></p>
-        <p>接著，基金會再與在地民間社福單位志工攜手，協助獨老前往合作醫療院所就診，並協助診後的服藥、起居，更重要的，愛互聯為獨老的需求，一起找資源。</p>
-        <p><br></p>
-        <p>愛互聯目前在全台，「兵分六區」投入服務行動（北部、竹苗、台中、台南、高雄、花東），今年還有14家偏遠地區醫院，和更多的社福單位，表示有意願加入串連。</p>
-      </div>
-    </ContentWrapper>
-    <ContentWrapper class="section">
-      <div class="row">
-        <div class="zone">
-            <h3>北部</h3>
-        </div>
-        <div class="unit">
-            <div class="partner"><a class="btn" href="https://www.vghtpe.gov.tw/Index.action" target="_blank"><span>台北榮民總醫院</span></a></div>
-            <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
-        </div>
-      </div>
-      <br/> <br/>
-      <div class="row">
+      <ContentWrapper class="section">
+        <div class="row">
           <div class="zone">
-              <h3>竹苗</h3>
-          </div>                
-          <div class="unit">
-              <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank"><span>老五老基金會</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank"><span>部立苗栗醫院</span></a></div>
-          </div>
-      </div>
-      <br/> <br/>
-      <div class="row">
-          <div class="zone">
-              <h3>台中</h3>
+              <h3>北部</h3>
           </div>
           <div class="unit">
-              <div class="partner"><a class="btn" href="http://www.cmuh.cmu.edu.tw" target="_blank"><span>中國醫藥大學附設醫院</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.fyh.mohw.gov.tw" target="_blank"><span>部立豐原醫院</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.ltl-charity.org.tw" target="_blank"><span>林增連基金會</span></a></div>
+              <div class="partner"><a class="btn" href="https://www.vghtpe.gov.tw/Index.action" target="_blank"><span>台北榮民總醫院</span></a></div>
               <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
           </div>
-      </div>
-      <br/> <br/>
-      <div class="row">
-          <div class="zone">
-              <h3>台南</h3>
-          </div>
-          <div class="unit">
-              <div class="partner"><a class="btn" href="https://www.facebook.com/puli393" target="_blank"><span>台灣普力關懷協會</span></a></div>
-              <div class="partner"><a class="btn" href="https://www.tnhosp.mohw.gov.tw" target="_blank"><span>部立台南醫院</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.cnpc.mohw.gov.tw" target="_blank"><span>部立嘉南療養院</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.sinlau.org.tw" target="_blank"><span>新樓醫院</span></a></div>
-          </div>
-      </div>
-      <br/> <br/>
-      <div class="row">
-          <div class="zone">                
-              <h3>高屏</h3>
-          </div>
-          <div class="unit">
-              <div class="partner"><a class="btn" href="http://web.fy.edu.tw/bin/home.php" target="_blank"><span>輔英科技大學</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank"><span>恆春旅遊醫院</span></a></div>
-          </div>
-      </div>
-      <br/> <br/>
-      <div class="row">                
-          <div class="zone">
-              <h3>花東</h3>
-          </div>
-          <div class="unit">                    
-              <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank"><span>基督教門諾會醫院</span></a></div>
-              <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank"><span>門諾基金會</span></a></div>
-          </div>
-      </div>
-    </ContentWrapper>
-    <ContentWrapper backgroundColor='#292b2e' class="footer">
-      <p><br></p>
-      <p><br></p>
-      <div class="row" style="position: relative;">
-        <div class="col-lg-6 tsmclogo">
-          <img :src="tsmcLogo">
         </div>
-        <div class="col-lg-6 tsmcfoundation">
-          <p>台積電慈善基金會</p>
-          <p>電話 : 03-563-6688 ext. 712-5030</p>
-          <p>地址 : 300 新竹科學園區力行六路8號</p>
-        </div>        
-      </div>
-    </ContentWrapper>      
+        <br/> <br/>
+        <div class="row">
+            <div class="zone">
+                <h3>竹苗</h3>
+            </div>                
+            <div class="unit">
+                <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank"><span>老五老基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank"><span>部立苗栗醫院</span></a></div>
+            </div>
+        </div>
+        <br/> <br/>
+        <div class="row">
+            <div class="zone">
+                <h3>台中</h3>
+            </div>
+            <div class="unit">
+                <div class="partner"><a class="btn" href="http://www.cmuh.cmu.edu.tw" target="_blank"><span>中國醫藥大學附設醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.fyh.mohw.gov.tw" target="_blank"><span>部立豐原醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.ltl-charity.org.tw" target="_blank"><span>林增連基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
+            </div>
+        </div>
+        <br/> <br/>
+        <div class="row">
+            <div class="zone">
+                <h3>台南</h3>
+            </div>
+            <div class="unit">
+                <div class="partner"><a class="btn" href="https://www.facebook.com/puli393" target="_blank"><span>台灣普力關懷協會</span></a></div>
+                <div class="partner"><a class="btn" href="https://www.tnhosp.mohw.gov.tw" target="_blank"><span>部立台南醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.cnpc.mohw.gov.tw" target="_blank"><span>部立嘉南療養院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.sinlau.org.tw" target="_blank"><span>新樓醫院</span></a></div>
+            </div>
+        </div>
+        <br/> <br/>
+        <div class="row">
+            <div class="zone">                
+                <h3>高屏</h3>
+            </div>
+            <div class="unit">
+                <div class="partner"><a class="btn" href="http://web.fy.edu.tw/bin/home.php" target="_blank"><span>輔英科技大學</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank"><span>恆春旅遊醫院</span></a></div>
+            </div>
+        </div>
+        <br/> <br/>
+        <div class="row">                
+            <div class="zone">
+                <h3>花東</h3>
+            </div>
+            <div class="unit">                    
+                <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank"><span>基督教門諾會醫院</span></a></div>
+                <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank"><span>門諾基金會</span></a></div>
+            </div>
+        </div>
+      </ContentWrapper>
+      <ContentWrapper backgroundColor='#292b2e' class="footer">
+        <p><br></p>
+        <p><br></p>
+        <div class="row" style="position: relative;">
+          <div class="col-lg-6 tsmclogo">
+            <img :src="tsmcLogo">
+          </div>
+          <div class="col-lg-6 tsmcfoundation">
+            <p>台積電慈善基金會</p>
+            <p>電話 : 03-563-6688 ext. 712-5030</p>
+            <p>地址 : 300 新竹科學園區力行六路8號</p>
+          </div>        
+        </div>
+      </ContentWrapper>      
+    </div>
+    <Overlay mainContainer="partners" :show="showMessageBoard"></Overlay>    
   </div>
 </template>
 
 <script>
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
+import Overlay from '~/components/Overlay.vue'
 import member01 from '~/assets/member01.png'
 import member02 from '~/assets/member02.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
@@ -117,7 +127,7 @@ import titleimg from '~/assets/title_partners.svg'
 
 export default {
   components: {
-    HeadBar, ContentWrapper
+    HeadBar, ContentWrapper, Overlay
   },
   data: function () {
     return {
@@ -126,7 +136,8 @@ export default {
       member01: member01,
       member02: member02,
       showfirstimg: true,
-      titleimg: titleimg
+      titleimg: titleimg,
+      showMessageBoard: false
     }
   },
   computed: {
@@ -142,6 +153,20 @@ export default {
       this.showfirstimg = !this.showfirstimg
     }, 500)
   },
+  created() {
+    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  },
+  beforeDestroy() {
+    this.$eventHub.$off('closeOverlay')
+  },  
+  methods: {
+    showComments: function () {
+      this.showMessageBoard = true
+    },
+    closeOverlay: function () {
+      this.showMessageBoard = false      
+    }
+  }
 }
 </script>
 

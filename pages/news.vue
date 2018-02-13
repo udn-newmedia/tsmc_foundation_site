@@ -1,15 +1,39 @@
 <template>
-  <div id="news">
-    <HeadBar :bookmark-display="stickyAnchors"></HeadBar>
-    <ContentWrapper class="section firstsection">
-      <div class="row">
-        <div class="col-lg-3 col-sm-12">
-          <!-- <h1 class="bigtitle">最新<br>動態</h1>
-          <p class="hidden-mobile"><br></p> -->
-          <img class="covertitle" :src="titleimg" alt="最新動態">
+  <div>
+    <div id="news">
+      <HeadBar :bookmark-display="stickyAnchors">
+        <div slot="comment" class="links">
+          <div class="link">
+            <a @click.prevent="showComments">留言區</a>
+          </div>
         </div>
-        <div class="col-lg-2 hidden-mobile"></div>
-        <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1; padding-bottom: 0">
+      </HeadBar>
+      <ContentWrapper class="section firstsection">
+        <div class="row">
+          <div class="col-lg-3 col-sm-12">
+            <!-- <h1 class="bigtitle">最新<br>動態</h1>
+            <p class="hidden-mobile"><br></p> -->
+            <img class="covertitle" :src="titleimg" alt="最新動態">
+          </div>
+          <div class="col-lg-2 hidden-mobile"></div>
+          <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1; padding-bottom: 0">
+            <h2>{{covernewstitle}}</h2>
+            <h2>{{covernewssubtitle}}</h2>
+            <p>{{newslist[0].text}}</p>
+            <div class="subpageLink">
+              <a class="btn">
+                <span>完整內文</span>
+              </a>
+            </div>          
+            <!-- <button>完整內文</button> -->
+          </div>
+        </div>
+      </ContentWrapper>
+      <ContentWrapper>
+        <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="transparent"></EmbededVideo>
+      </ContentWrapper>
+      <ContentWrapper>
+        <div class="newsblock hidden-pc" style="z-index: 1;">
           <h2>{{covernewstitle}}</h2>
           <h2>{{covernewssubtitle}}</h2>
           <p>{{newslist[0].text}}</p>
@@ -20,83 +44,69 @@
           </div>          
           <!-- <button>完整內文</button> -->
         </div>
-      </div>
-    </ContentWrapper>
-    <ContentWrapper>
-      <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="transparent"></EmbededVideo>
-    </ContentWrapper>
-    <ContentWrapper>
-      <div class="newsblock hidden-pc" style="z-index: 1;">
-        <h2>{{covernewstitle}}</h2>
-        <h2>{{covernewssubtitle}}</h2>
-        <p>{{newslist[0].text}}</p>
-        <div class="subpageLink">
-          <a class="btn">
-            <span>完整內文</span>
-          </a>
-        </div>          
-        <!-- <button>完整內文</button> -->
-      </div>
-    </ContentWrapper>
-    <ContentWrapper class="section">
-      <div class="news">
-        <div class="newsblock"
-          v-for="news in contentList"
-          :key="news.title">
-          <img :src="newsphoto">
-          <p class="title">{{news.title}}</p>
-          <p>{{news.text}}</p>
-          <p><br></p>
-          <div class="subpageLink">
-            <a class="btn">
-              <span>完整內文</span>
-            </a>
+      </ContentWrapper>
+      <ContentWrapper class="section">
+        <div class="news">
+          <div class="newsblock"
+            v-for="news in contentList"
+            :key="news.title">
+            <img :src="newsphoto">
+            <p class="title">{{news.title}}</p>
+            <p>{{news.text}}</p>
+            <p><br></p>
+            <div class="subpageLink">
+              <a class="btn">
+                <span>完整內文</span>
+              </a>
+            </div>
+            <!-- <button>完整內文</button> -->
           </div>
-          <!-- <button>完整內文</button> -->
         </div>
-      </div>
-    </ContentWrapper>
-    <nav class="section" aria-label="Page navigation example">
-      <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" @click.prevent="changePage('previous')" aria-label="Previous">
-            <span aria-hidden="true" class="arrow">&laquo;</span>
-            <span class="sr-only">Previous</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" @click.prevent="changePage('1')">1</a></li>
-        <li class="page-item"><a class="page-link" @click.prevent="changePage('2')">2</a></li>
-        <li class="page-item"><a class="page-link" @click.prevent="changePage('3')">3</a></li>
-        <li class="page-item">
-          <a class="page-link" @click.prevent="changePage('next')" aria-label="Next">
-            <span aria-hidden="true" class="arrow">&raquo;</span>
-            <span class="sr-only">Next</span>
-          </a>
-        </li>
-      </ul>
-    </nav>    
-    <ContentWrapper backgroundColor='#292b2e' class="footer">
-      <p><br></p>
-      <p><br></p>
-      <div class="row" style="position: relative;">
-        <div class="col-lg-6 tsmclogo">
-          <img :src="tsmcLogo">
+      </ContentWrapper>
+      <nav class="section" aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" @click.prevent="changePage('previous')" aria-label="Previous">
+              <span aria-hidden="true" class="arrow">&laquo;</span>
+              <span class="sr-only">Previous</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" @click.prevent="changePage('1')">1</a></li>
+          <li class="page-item"><a class="page-link" @click.prevent="changePage('2')">2</a></li>
+          <li class="page-item"><a class="page-link" @click.prevent="changePage('3')">3</a></li>
+          <li class="page-item">
+            <a class="page-link" @click.prevent="changePage('next')" aria-label="Next">
+              <span aria-hidden="true" class="arrow">&raquo;</span>
+              <span class="sr-only">Next</span>
+            </a>
+          </li>
+        </ul>
+      </nav>    
+      <ContentWrapper backgroundColor='#292b2e' class="footer">
+        <p><br></p>
+        <p><br></p>
+        <div class="row" style="position: relative;">
+          <div class="col-lg-6 tsmclogo">
+            <img :src="tsmcLogo">
+          </div>
+          <div class="col-lg-6 tsmcfoundation">
+            <p>台積電慈善基金會</p>
+            <p>電話 : 03-563-6688 ext. 712-5030</p>
+            <p>地址 : 300 新竹科學園區力行六路8號</p>
+          </div>        
         </div>
-        <div class="col-lg-6 tsmcfoundation">
-          <p>台積電慈善基金會</p>
-          <p>電話 : 03-563-6688 ext. 712-5030</p>
-          <p>地址 : 300 新竹科學園區力行六路8號</p>
-        </div>        
-      </div>
-    </ContentWrapper>      
+      </ContentWrapper>      
+    </div>
+    <Overlay mainContainer="news" :show="showMessageBoard"></Overlay>    
   </div>
 </template>
 
 <script>
 import HeadBar from '~/components/HeadBar.vue'
+import ContentWrapper from '~/components/Content.vue'
+import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
 import newsvideo from '~/assets/indexvideo.mp4'
-import ContentWrapper from '~/components/Content.vue'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
 import indexMob2 from '~/assets/index_mob2.jpg'
@@ -119,6 +129,7 @@ export default {
       newsphoto: newsphoto,
       titleimg: titleimg,
       titleimgmob: titleimgmob,
+      showMessageBoard: false,
       page: 1,
       newslist: [
         {
@@ -217,8 +228,14 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo
+    HeadBar, ContentWrapper, EmbededVideo, Overlay
   },
+  created() {
+    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  },
+  beforeDestroy() {
+    this.$eventHub.$off('closeOverlay')
+  },  
   methods: {
     changePage: function (msg) {
       switch (msg) {
@@ -242,6 +259,12 @@ export default {
           this.page = 3
           break
       }
+    },
+    showComments: function () {
+      this.showMessageBoard = true
+    },
+    closeOverlay: function () {
+      this.showMessageBoard = false      
     }
   }
 }
