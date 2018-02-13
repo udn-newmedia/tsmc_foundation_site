@@ -104,17 +104,22 @@
         </div>
       </ContentWrapper>     
     </div>
-    <Overlay mainContainer="index" :show="showMessageBoard"></Overlay>
+    <Overlay mainContainer="index" :show="showMessageBoard">
+      <FBComment :href="location"></FBComment>
+    </Overlay>
   </div>     
 </template>
 
 <script>
+import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 // import HeadBar from 'udn-newmedia-vue-components/src/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
 import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
+import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
+import $eventBus from'~/plugins/eventBus.js'
 import indexvideo from '~/assets/indexvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
@@ -127,9 +132,27 @@ import indexicon4 from '~/assets/ICON-4.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import newest from '~/assets/newest.svg'
 
+if (process.browser) {
+  require('~/plugins/fb-sdk.js')
+}
+
 export default {
+  head () {
+    return {
+      title: '台積電慈善基金會 ',
+      meta: [
+        { property: 'fb:admins', content: '1010324812347164' },
+        { property: 'og:title', content: '台積電慈善基金會' },
+        { property: 'og:url', content: 'http://nmdap.udn.com.tw/tsmc_foundation_site/' },
+        { property: 'og:description', content: '' },
+        { hid: 'description', name: 'description', content: '' },
+        { name: 'keywords', content: '' }
+      ]
+    }
+  },  
   data: function () {
     return {
+      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',
       stickyAnchors: true,
       indexvideo: indexvideo,
       indexMob1: indexMob1,
@@ -142,30 +165,39 @@ export default {
       indexicon4: indexicon4,
       tsmcLogo: tsmcLogo,
       newest: newest,
-      showMessageBoard: false
+      showMessageBoard: false,
+      isFBReady: false
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Bodymovin, Overlay
+    HeadBar, ContentWrapper, EmbededVideo, Bodymovin, Overlay, FBComment
   },
-  created() {
-    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  created: function () {
+    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
-  beforeDestroy() {
-    this.$eventHub.$off('closeOverlay')
-  },  
+  mounted: function () {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },
+  beforeDestroy: function () {
+    this.$eventBus.$off('closeOverlay')
+    window.removeEventListener('fb-sdk-ready', this.onFBReady)    
+  },
   methods: {
     showComments: function () {
       this.showMessageBoard = true
     },
     closeOverlay: function () {
       this.showMessageBoard = false      
+    },
+    onFBReady: function () {
+      this.isFBReady = true
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 #index {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;

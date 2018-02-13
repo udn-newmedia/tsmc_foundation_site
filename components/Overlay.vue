@@ -35,7 +35,7 @@ export default {
   methods: {
     close: function () {
       // this.showornot = false
-      this.$eventHub.$emit('closeOverlay')
+      this.$eventBus.$emit('closeOverlay')
       document.getElementById(this.mainContainer).classList.remove('blur');
     }
   }
@@ -50,15 +50,15 @@ export default {
   top: 0px;
   right: 0px;
   bottom: 0px;
-  background: rgba(255,255,255,.8);
+  background: rgba(0,0,0,.7);
   z-index: 999999;
 }
 #popup {
   position: absolute;
-  width: 400px;
-  height: 200px;
+  width: 800px;
+  height: 500px;
   background: rgb(255,255,255);
-  border: 5px solid rgb(90,90,90);
+  /* border: 5px solid rgb(90,90,90); */
   left: 0px;
   right: 0px;
   top: 0px;
@@ -80,6 +80,7 @@ export default {
   right: 0;
   top: 0;
   border: 1px solid black;
+  background: black;
   width: 30px;
   height: 30px;
   border-radius: 50px;
@@ -92,7 +93,7 @@ export default {
   height: 2px;
   width: 50%;
   margin: 0;
-  background: #000;
+  background: #fff;
   border-radius: 2px;
 }
 

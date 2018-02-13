@@ -120,6 +120,7 @@
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
+import $eventBus from'~/plugins/eventBus.js'
 import member01 from '~/assets/member01.png'
 import member02 from '~/assets/member02.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
@@ -153,11 +154,11 @@ export default {
       this.showfirstimg = !this.showfirstimg
     }, 500)
   },
-  created() {
-    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  created: function () {
+    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
-  beforeDestroy() {
-    this.$eventHub.$off('closeOverlay')
+  beforeDestroy: function () {
+    this.$eventBus.$off('closeOverlay')
   },  
   methods: {
     showComments: function () {
@@ -170,7 +171,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #partners {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;

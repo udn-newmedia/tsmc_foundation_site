@@ -117,6 +117,7 @@ import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vu
 import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
 import ColumnThree from 'udn-newmedia-vue-components/src/components/ColumnThree.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
+import $eventBus from'~/plugins/eventBus.js'
 import indexvideo from '~/assets/indexvideo.mp4'
 import pic1 from '~/assets/aboutus1.jpg'
 import pic2 from '~/assets/aboutus2.jpg'
@@ -142,11 +143,11 @@ export default {
   components: {
     HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay
   },
-  created() {
-    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  created: function () {
+    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
-  beforeDestroy() {
-    this.$eventHub.$off('closeOverlay')
+  beforeDestroy: function () {
+    this.$eventBus.$off('closeOverlay')
   }, 
   methods: {
     showComments: function () {
@@ -159,7 +160,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #aboutus {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;

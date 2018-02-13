@@ -13,7 +13,7 @@ module.exports = {
       { charset: 'utf-8' },
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'An official website of tsmc foundation.' }
+      { hid: 'description', name: 'description', content: 'The official website of tsmc foundation.' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'https://udn.com/upf/newmedia/image/udn-icon.ico' },

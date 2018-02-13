@@ -106,6 +106,7 @@ import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
+import $eventBus from'~/plugins/eventBus.js'
 import newsvideo from '~/assets/indexvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
@@ -230,11 +231,11 @@ export default {
   components: {
     HeadBar, ContentWrapper, EmbededVideo, Overlay
   },
-  created() {
-    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  created: function () {
+    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
-  beforeDestroy() {
-    this.$eventHub.$off('closeOverlay')
+  beforeDestroy: function () {
+    this.$eventBus.$off('closeOverlay')
   },  
   methods: {
     changePage: function (msg) {
@@ -270,7 +271,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #news {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;

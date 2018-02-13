@@ -227,6 +227,7 @@ import Overlay from '~/components/Overlay.vue'
 import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
 import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
+import $eventBus from'~/plugins/eventBus.js'
 import mobpic1 from '~/assets/campaigns_mob1.jpg'
 import webpic1 from '~/assets/campaigns_web1.jpg'
 import mobpic2 from '~/assets/campaigns_mob2.jpg'
@@ -273,11 +274,11 @@ export default {
   components: {
     HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay
   },
-  created() {
-    this.$eventHub.$on('closeOverlay', this.closeOverlay)
+  created: function () {
+    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
-  beforeDestroy() {
-    this.$eventHub.$off('closeOverlay')
+  beforeDestroy: function () {
+    this.$eventBus.$off('closeOverlay')
   },  
   methods: {
     toggleLess: function (whichone) {
@@ -295,7 +296,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #campaigns {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;

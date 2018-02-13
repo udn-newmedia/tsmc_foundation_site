@@ -144,6 +144,18 @@ export default {
     transition: opacity 0.7s ease;
 }
 
+@media screen and (max-width: 1023px){  
+  .hidden-mobile{
+    display: none!important;
+  }
+}
+
+@media screen and (min-width: 1024px){  
+  .hidden-pc{
+    display: none!important;
+  }
+}
+
 #icon {
     position: absolute;
     top: 0;
@@ -349,5 +361,9 @@ export default {
 
 .links .link{
     cursor: pointer;
+}
+
+.link a{
+    text-decoration: none;
 }
 </style>
