@@ -111,33 +111,43 @@
         </div>
       </ContentWrapper>      
     </div>
-    <Overlay mainContainer="partners" :show="showMessageBoard"></Overlay>    
+    <Overlay mainContainer="partners" :show="showMessageBoard">
+      <FBComment :href="location"></FBComment>
+    </Overlay>    
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
+import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import member01 from '~/assets/member01.png'
 import member02 from '~/assets/member02.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import titleimg from '~/assets/title_partners.svg'
 
+if (process.browser) {
+  require('~/plugins/fb-sdk.js')
+}
+
 export default {
   components: {
-    HeadBar, ContentWrapper, Overlay
+    HeadBar, ContentWrapper, Overlay, FBComment
   },
   data: function () {
     return {
+      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
       stickyAnchors: true,
       tsmcLogo: tsmcLogo,
       member01: member01,
       member02: member02,
       showfirstimg: true,
       titleimg: titleimg,
-      showMessageBoard: false
+      showMessageBoard: false,
+      isFBReady: false
     }
   },
   computed: {
@@ -156,6 +166,10 @@ export default {
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
+  mounted: function () {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
   },  
@@ -165,6 +179,9 @@ export default {
     },
     closeOverlay: function () {
       this.showMessageBoard = false      
+    },
+    onFBReady: function () {
+      this.isFBReady = true
     }
   }
 }

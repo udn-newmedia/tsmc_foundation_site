@@ -97,11 +97,14 @@
         </div>
       </ContentWrapper>      
     </div>
-    <Overlay mainContainer="aboutus" :show="showMessageBoard"></Overlay>
+    <Overlay mainContainer="aboutus" :show="showMessageBoard">
+      <FBComment :href="location"></FBComment>      
+    </Overlay>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 // import HeadBar from 'udn-newmedia-vue-components/src/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
@@ -110,6 +113,7 @@ import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vu
 import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
 import ColumnThree from 'udn-newmedia-vue-components/src/components/ColumnThree.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
+import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import indexvideo from '~/assets/indexvideo.mp4'
 import pic1 from '~/assets/aboutus1.jpg'
@@ -119,9 +123,14 @@ import pic4 from '~/assets/aboutus4.jpg'
 import pic5 from '~/assets/aboutus5.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 
+if (process.browser) {
+  require('~/plugins/fb-sdk.js')
+}
+
 export default {
   data: function () {
     return {
+      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
       stickyAnchors: true,
       indexvideo: indexvideo,
       tsmcLogo: tsmcLogo,
@@ -130,15 +139,20 @@ export default {
       pic3: pic3,
       pic4: pic4,
       pic5: pic5,
-      showMessageBoard: false
+      showMessageBoard: false,
+      isFBReady: false
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay
+    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
+  mounted: function () {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },    
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
   }, 
@@ -148,6 +162,9 @@ export default {
     },
     closeOverlay: function () {
       this.showMessageBoard = false      
+    },
+    onFBReady: function () {
+      this.isFBReady = true
     }    
   }
 }

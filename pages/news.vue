@@ -94,15 +94,19 @@
         </div>
       </ContentWrapper>      
     </div>
-    <Overlay mainContainer="news" :show="showMessageBoard"></Overlay>    
+    <Overlay mainContainer="news" :show="showMessageBoard">
+      <FBComment :href="location"></FBComment>
+    </Overlay>    
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
+import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import newsvideo from '~/assets/indexvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
@@ -115,9 +119,14 @@ import titleimg from '~/assets/title_news.svg'
 import titleimgmob from '~/assets/title_news_mob.svg'
 import titlefont from '../static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf'
 
+if (process.browser) {
+  require('~/plugins/fb-sdk.js')
+}
+
 export default {
   data: function () {
     return {
+      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
       stickyAnchors: true,
       indexMob1: indexMob1,
       indexWeb1: indexWeb1,
@@ -130,6 +139,7 @@ export default {
       titleimgmob: titleimgmob,
       showMessageBoard: false,
       page: 1,
+      isFBReady: false,      
       newslist: [
         {
           title: '重回教育體制 埋下讓台灣暖起來的種子',
@@ -227,13 +237,18 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Overlay
+    HeadBar, ContentWrapper, EmbededVideo, Overlay, FBComment
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
+  mounted: function () {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },  
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
+    window.removeEventListener('fb-sdk-ready', this.onFBReady)
   },  
   methods: {
     changePage: function (msg) {
@@ -264,6 +279,9 @@ export default {
     },
     closeOverlay: function () {
       this.showMessageBoard = false      
+    },
+    onFBReady: function () {
+      this.isFBReady = true
     }
   }
 }

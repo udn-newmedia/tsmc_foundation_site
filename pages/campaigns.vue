@@ -219,17 +219,21 @@
         </div>
       </ContentWrapper>      
     </div>
-    <Overlay mainContainer="campaigns" :show="showMessageBoard"></Overlay>    
+    <Overlay mainContainer="campaigns" :show="showMessageBoard">
+      <FBComment :href="location"></FBComment>      
+    </Overlay>    
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
 import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
+import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import mobpic1 from '~/assets/campaigns_mob1.jpg'
 import webpic1 from '~/assets/campaigns_web1.jpg'
@@ -249,9 +253,14 @@ import mobpic9 from '~/assets/campaigns_mob9.jpg'
 import webpic9 from '~/assets/campaigns_web9.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 
+if (process.browser) {
+  require('~/plugins/fb-sdk.js')
+}
+
 export default {
   data: function () {
     return {
+      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',
       stickyAnchors: true,
       mobpic1: mobpic1,
       webpic1: webpic1,
@@ -271,15 +280,20 @@ export default {
       webpic9: webpic9,
       tsmcLogo: tsmcLogo,
       isLess: [true, true, true, true],
-      showMessageBoard: false
+      showMessageBoard: false,
+      isFBReady: false
     }
   },
   components: {
-    HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay
+    HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay, FBComment
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
+  mounted: function () {
+    this.isFBReady = Vue.FB != undefined
+    window.addEventListener('fb-sdk-ready', this.onFBReady)
+  },    
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
   },  
@@ -294,6 +308,9 @@ export default {
     },
     closeOverlay: function () {
       this.showMessageBoard = false      
+    },
+    onFBReady: function () {
+      this.isFBReady = true
     }
   }
 }
