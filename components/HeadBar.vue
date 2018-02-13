@@ -24,7 +24,13 @@
                     <div class="link">
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
-                </div>                
+                </div>
+                <slot name="comment"></slot>
+                <!-- <div class="links">
+                    <div class="link">
+                        <a @click.prevent="show">留言區</a>
+                    </div>
+                </div>                 -->
             </div>
             <div id="hbutton" class="hidden-lg">
                 <div id="nav-icon" :class="{open: isOpen}"
@@ -71,11 +77,11 @@ export default {
         {
           link: '/partners',
           title: '愛互聯'          
-        },
-        {
-          link: '',
-          title: '留言區'
         }
+        // {
+        //   link: '',
+        //   title: '留言區'
+        // }
       ]
     }
   },
@@ -107,7 +113,7 @@ export default {
       //     "eventAction": "click",
       //     "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [Ham Click]"
       // });
-    }
+    },
     // handleScroll: function(event) {
     //   let currentH = window.pageYOffset
     //   if (currentH < window.innerHeight / 2) {
@@ -120,6 +126,9 @@ export default {
     //     }
     //   }
     // }
+    show: function () {
+      console.log('test')       
+    }
   }
 }
 </script>
@@ -336,5 +345,9 @@ export default {
     border-bottom: solid 1px black;
     height: 60px;
     line-height: 60px;
+}
+
+.links .link{
+    cursor: pointer;
 }
 </style>
