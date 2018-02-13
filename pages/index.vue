@@ -23,9 +23,10 @@
             <p><br></p>
             <p>高雄氣爆滿月時，災民在街道掛起一幅幅紅布條感謝台積電。感謝什麼？災後第一時間，台積電慈善基金會董事長張淑芬，感性地看到災民有家歸不得的傷痛，台積電工程師們，則見災民在斷垣殘壁中，生計被迫中斷，一個景，兩個情，他們決定捐錢也做事。</p>
             <div class="subpageLink">
-              <a class="btn">
+              <nuxt-link class="btn" to="/news"><span>最新動態</span></nuxt-link>
+              <!-- <a class="btn">
                 <span>最新動態</span>
-              </a>
+              </a> -->
             </div>          
             <p><br></p>
             <p><br></p>
@@ -58,9 +59,10 @@
             <p><br></p>
             <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
             <div class="subpageLink">
-              <a class="btn">
+              <nuxt-link class="btn" to="/aboutus"><span>我們的故事</span></nuxt-link>              
+              <!-- <a class="btn">
                 <span>我們的故事</span>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -69,19 +71,19 @@
         <p><br></p>
         <p><br></p>
         <div class="row iconWrapper">
-          <div class="col-lg-2 col-xs-6 icon">
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
             <img :src="indexicon1">
-            <p>愛互聯</p>          
-          </div>
-          <div class="col-lg-2 col-xs-6 icon">
+            <p>愛互聯</p>
+          </nuxt-link>              
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus">
             <img :src="indexicon2">
             <p>我們的故事</p>          
-          </div>
-          <div class="col-lg-2 col-xs-6 icon">
+          </nuxt-link>              
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns">
             <img :src="indexicon3">
             <p>我們做的事</p>
-          </div>
-          <div class="col-lg-2 col-xs-6 icon">
+          </nuxt-link>              
+          <div class="col-lg-2 col-xs-6 icon" @click="showComments">
             <img :src="indexicon4">
             <p>留言區</p>
           </div>
@@ -348,5 +350,14 @@ export default {
  display: block;
  float: right;
  margin-top: 50px;
+}
+
+.iconWrapper a{
+  color: #000;
+  text-decoration: none;
+}
+
+.icon{
+  cursor: pointer;
 }
 </style>
