@@ -8,10 +8,13 @@
           </div>
         </div>        
       </HeadBar>
-      <div class="fullscreen centercenter" style="position: relative;">
-        <ContentWrapper class="hidden-mobile" style="position: relative;">
-          <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-          <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
+      <div class="fullscreen centercenter">
+        <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;">
+          <h1 class="bigtitle" style="position: absolute; top: 20%;">我們的<br>故事</h1>
+          <div class="anim">
+            <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
+            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
+          </div>
         </ContentWrapper>
         <Bodymovin class="hidden-pc" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
         <Bodymovin class="hidden-pc" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
@@ -297,6 +300,11 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'GenJyuuGothic';
+  src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
+}
+
 #campaigns {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
@@ -325,6 +333,22 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1.bigtitle.bigtitle {
+  font-family: 'GenJyuuGothic';
+  font-size: 49px;
+  font-weight: bold;
+  color: #1e8455;
+}
+
+@media screen and (min-width: 1024px){
+  h1.bigtitle.bigtitle {
+    position: absolute;
+    left: 0;
+    top: 20%;
+    font-size: 100px;
+  }  
 }
 
 .subpageLink {
@@ -530,4 +554,9 @@ export default {
  margin-top: 50px;
 }
 
+@media screen and (min-width: 1024px){
+  .anim{
+    transform: translateX(20%);
+  }
+}
 </style>

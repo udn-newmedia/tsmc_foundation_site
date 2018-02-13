@@ -9,12 +9,9 @@
         </div>
       </HeadBar>
       <ContentWrapper class="section firstsection">
+        <h1 class="bigtitle" style="position: absolute; top: 20%;">最新<br>動態</h1>
         <div class="row">
-          <div class="col-lg-3 col-sm-12">
-            <!-- <h1 class="bigtitle">最新<br>動態</h1>
-            <p class="hidden-mobile"><br></p> -->
-            <img class="covertitle" :src="titleimg" alt="最新動態">
-          </div>
+          <div class="col-lg-3 col-sm-12"></div>
           <div class="col-lg-2 hidden-mobile"></div>
           <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1; padding-bottom: 0">
             <h2>{{covernewstitle}}</h2>
@@ -71,9 +68,9 @@
               <span class="sr-only">Previous</span>
             </a>
           </li>
-          <li class="page-item"><a class="page-link" @click.prevent="changePage('1')">1</a></li>
-          <li class="page-item"><a class="page-link" @click.prevent="changePage('2')">2</a></li>
-          <li class="page-item"><a class="page-link" @click.prevent="changePage('3')">3</a></li>
+          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 1}" @click.prevent="changePage('1')">1</a></li>
+          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 2}" @click.prevent="changePage('2')">2</a></li>
+          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 3}" @click.prevent="changePage('3')">3</a></li>
           <li class="page-item">
             <a class="page-link" @click.prevent="changePage('next')" aria-label="Next">
               <span aria-hidden="true" class="arrow">&raquo;</span>
@@ -116,6 +113,7 @@ import tsmcLogo from '~/assets/logo_tsmc.svg'
 import newsphoto from '~/assets/photo.jpg'
 import titleimg from '~/assets/title_news.svg'
 import titleimgmob from '~/assets/title_news_mob.svg'
+import titlefont from '../static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf'
 
 export default {
   data: function () {
@@ -272,6 +270,11 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'GenJyuuGothic';
+  src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
+}
+
 #news {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
@@ -303,6 +306,7 @@ export default {
 }
 
 h1.bigtitle.bigtitle {
+  font-family: 'GenJyuuGothic';
   font-size: 49px;
   font-weight: bold;
   color: white;
@@ -440,6 +444,11 @@ nav{
   cursor: pointer;
 }
 
+.pagination>li>a.page-link.activePage{
+  background-color: black;
+  color: white;
+}
+
 .covertitle{
   width: 100px;
   height: 200px;
@@ -514,5 +523,12 @@ nav{
  float: right;
 }
 
+.absolutefullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
 
 </style>

@@ -10,16 +10,9 @@
       </HeadBar>
       <div class="relative" style="position: relative;">
         <EmbededVideo :src="indexvideo" :srcWeb="indexvideo" style="z-index: 0;"></EmbededVideo>
-          <ContentWrapper class="absolutefullscreen">
-            <div class="row">
-              <div class="col-lg-5 col-sm-12">
-                <h1 class="bigtitle">我們的<br>故事</h1>
-                <p class="hidden-mobile"><br></p>
-              </div>
-              <div class="col-lg-2 hidden-mobile"></div>
-              <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1;"></div>
-            </div>
-          </ContentWrapper>      
+        <ContentWrapper class="absolutefullscreen centercenter">
+          <h1 class="bigtitle" style="position: absolute; top: 20%;">我們的<br>故事</h1>
+        </ContentWrapper>      
       </div>
       <ContentWrapper class="section">
         <Quote 
@@ -161,6 +154,11 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'GenJyuuGothic';
+  src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
+}
+
 #aboutus {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
@@ -193,6 +191,7 @@ export default {
 }
 
 h1.bigtitle.bigtitle {
+  font-family: 'GenJyuuGothic';  
   font-size: 49px;
   font-weight: bold;
   color: white;
@@ -201,7 +200,6 @@ h1.bigtitle.bigtitle {
 @media screen and (min-width: 1024px){
   h1.bigtitle.bigtitle {
     font-size: 100px;
-    transform: translateY(-75%);
   }  
 }
 

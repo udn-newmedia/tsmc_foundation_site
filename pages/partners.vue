@@ -9,9 +9,8 @@
         </div>
       </HeadBar>
       <div class="fullscreen centercenter" style="background: #e4c8a9;">
-        <ContentWrapper>
-          <!-- <h1>愛互聯</h1> -->
-          <img :src="titleimg" alt="愛互聯" style="width: 280px; height: 300px; transform: translateY(-25%);">
+        <ContentWrapper style="position: relative; height: 100%;">
+          <h1 class="bigtitle" style="position: absolute; top: 20%;">愛互聯</h1>
         </ContentWrapper>
       </div>
       <div class="cover">
@@ -172,6 +171,11 @@ export default {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: 'GenJyuuGothic';
+  src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
+}
+
 #partners {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
@@ -202,6 +206,19 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+h1.bigtitle.bigtitle {
+  font-family: 'GenJyuuGothic';
+  font-size: 49px;
+  font-weight: bold;
+  color: #fff;
+}
+
+@media screen and (min-width: 1024px){
+  h1.bigtitle.bigtitle {
+    font-size: 100px;
+  }  
 }
 
 .subpageLink {
