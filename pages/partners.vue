@@ -31,8 +31,8 @@
             <h3>北部</h3>
         </div>
         <div class="unit">
-            <div class="partner"><a href="https://www.vghtpe.gov.tw/Index.action" target="_blank">台北榮民總醫院</a></div>
-            <div class="partner"><a href="http://www.ofo.org.tw" target="_blank">老五老基金會</a></div>
+            <div class="partner"><a class="btn" href="https://www.vghtpe.gov.tw/Index.action" target="_blank"><span>台北榮民總醫院</span></a></div>
+            <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
         </div>
       </div>
       <br/> <br/>
@@ -41,8 +41,8 @@
               <h3>竹苗</h3>
           </div>                
           <div class="unit">
-              <div class="partner"><a href="http://www.ofo.org.tw/" target="_blank">老五老基金會</a></div>
-              <div class="partner"><a href="http://www.mil.mohw.gov.tw/index.asp" target="_blank">部立苗栗醫院</a></div>
+              <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank"><span>老五老基金會</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank"><span>部立苗栗醫院</span></a></div>
           </div>
       </div>
       <br/> <br/>
@@ -51,10 +51,10 @@
               <h3>台中</h3>
           </div>
           <div class="unit">
-              <div class="partner"><a href="http://www.cmuh.cmu.edu.tw" target="_blank">中國醫藥大學附設醫院</a></div>
-              <div class="partner"><a href="http://www.fyh.mohw.gov.tw" target="_blank">部立豐原醫院</a></div>
-              <div class="partner"><a href="http://www.ltl-charity.org.tw" target="_blank">林增連基金會</a></div>
-              <div class="partner"><a href="http://www.ofo.org.tw" target="_blank">老五老基金會</a></div>
+              <div class="partner"><a class="btn" href="http://www.cmuh.cmu.edu.tw" target="_blank"><span>中國醫藥大學附設醫院</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.fyh.mohw.gov.tw" target="_blank"><span>部立豐原醫院</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.ltl-charity.org.tw" target="_blank"><span>林增連基金會</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
           </div>
       </div>
       <br/> <br/>
@@ -63,10 +63,10 @@
               <h3>台南</h3>
           </div>
           <div class="unit">
-              <div class="partner"><a href="https://www.facebook.com/puli393" target="_blank">台灣普力關懷協會</a></div>
-              <div class="partner"><a href="https://www.tnhosp.mohw.gov.tw" target="_blank">部立台南醫院</a></div>
-              <div class="partner"><a href="http://www.cnpc.mohw.gov.tw" target="_blank">部立嘉南療養院</a></div>
-              <div class="partner"><a href="http://www.sinlau.org.tw" target="_blank">新樓醫院</a></div>
+              <div class="partner"><a class="btn" href="https://www.facebook.com/puli393" target="_blank"><span>台灣普力關懷協會</span></a></div>
+              <div class="partner"><a class="btn" href="https://www.tnhosp.mohw.gov.tw" target="_blank"><span>部立台南醫院</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.cnpc.mohw.gov.tw" target="_blank"><span>部立嘉南療養院</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.sinlau.org.tw" target="_blank"><span>新樓醫院</span></a></div>
           </div>
       </div>
       <br/> <br/>
@@ -75,8 +75,8 @@
               <h3>高屏</h3>
           </div>
           <div class="unit">
-              <div class="partner"><a href="http://web.fy.edu.tw/bin/home.php" target="_blank">輔英科技大學</a></div>
-              <div class="partner"><a href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank">恆春旅遊醫院</a></div>
+              <div class="partner"><a class="btn" href="http://web.fy.edu.tw/bin/home.php" target="_blank"><span>輔英科技大學</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank"><span>恆春旅遊醫院</span></a></div>
           </div>
       </div>
       <br/> <br/>
@@ -85,8 +85,8 @@
               <h3>花東</h3>
           </div>
           <div class="unit">                    
-              <div class="partner"><a href="http://www.mch.org.tw/" target="_blank">基督教門諾會醫院</a></div>
-              <div class="partner"><a href="https://mf.eoffering.org.tw" target="_blank">門諾基金會</a></div>
+              <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank"><span>基督教門諾會醫院</span></a></div>
+              <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank"><span>門諾基金會</span></a></div>
           </div>
       </div>
     </ContentWrapper>
@@ -253,7 +253,6 @@ export default {
 
 .unit .partner{
   margin: 5px 20px 20px 0;
-  padding: 10px;
   border-radius: 3px;
   background-color: #e0dfdf;  
 }
@@ -280,6 +279,51 @@ export default {
   will-change: opacity;
   transition: opacity 0.5s;
   transition-timing-function: ease-out;
+}
+
+.btn span {
+  color: #000;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform-origin: center left;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.btn:before,
+.btn:after {
+  content: '';
+  background: #70cbfa;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.btn:before {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.btn:after {
+  bottom: 0;
+  left: 0;
+}
+.btn:hover:before {
+  width: 0;
+  left: 0;
+}
+.btn:hover:after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.partner {
+ position: relative; 
+ display: block;
+ float: right;
+ margin-top: 50px;
 }
 
 </style>

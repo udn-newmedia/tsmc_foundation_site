@@ -9,11 +9,16 @@
           <img class="covertitle" :src="titleimg" alt="最新動態">
         </div>
         <div class="col-lg-2 hidden-mobile"></div>
-        <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1;">
+        <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1; padding-bottom: 0">
           <h2>{{covernewstitle}}</h2>
           <h2>{{covernewssubtitle}}</h2>
           <p>{{newslist[0].text}}</p>
-          <button>完整內文</button>
+          <div class="subpageLink">
+            <a class="btn">
+              <span>完整內文</span>
+            </a>
+          </div>          
+          <!-- <button>完整內文</button> -->
         </div>
       </div>
     </ContentWrapper>
@@ -25,7 +30,12 @@
         <h2>{{covernewstitle}}</h2>
         <h2>{{covernewssubtitle}}</h2>
         <p>{{newslist[0].text}}</p>
-        <button>完整內文</button>
+        <div class="subpageLink">
+          <a class="btn">
+            <span>完整內文</span>
+          </a>
+        </div>          
+        <!-- <button>完整內文</button> -->
       </div>
     </ContentWrapper>
     <ContentWrapper class="section">
@@ -37,7 +47,12 @@
           <p class="title">{{news.title}}</p>
           <p>{{news.text}}</p>
           <p><br></p>
-          <button>完整內文</button>
+          <div class="subpageLink">
+            <a class="btn">
+              <span>完整內文</span>
+            </a>
+          </div>
+          <!-- <button>完整內文</button> -->
         </div>
       </div>
     </ContentWrapper>
@@ -404,7 +419,7 @@ nav{
 .covertitle{
   width: 100px;
   height: 200px;
-  
+
 }
 
 @media screen and (min-width: 1024px){
@@ -414,4 +429,66 @@ nav{
     margin: 20px 0;
   }
 }
+
+.btn {
+  cursor: pointer;
+  background-color: #000;
+  /* width: 330px; */
+  /* height: 64px; */
+  line-height: 60px;
+  z-index: 0;
+  box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
+}
+.btn span {
+  color: #fff;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform-origin: center left;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.btn:before,
+.btn:after {
+  content: '';
+  background: #70cbfa;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.btn:before {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.btn:after {
+  bottom: 0;
+  left: 0;
+}
+.btn:hover:before {
+  width: 0;
+  left: 0;
+}
+.btn:hover:after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.subpageLink {
+ position: absolute;
+ bottom: 0;
+ right: 20px;
+ transform: translateY(50%);
+}
+
+.titleblock .subpageLink {
+ position: relative; 
+ display: block;
+ float: right;
+}
+
+
 </style>

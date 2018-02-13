@@ -76,7 +76,12 @@
                   <p>她相信「孝道」是改變社會的起點，基金會今年起，積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，讓台南市成為示範區。中央與地方將攜手整合教材與資源，首批由8所國中小種子學校，結合正式課程及非正式活動，啟動孝道教育。</p>                                                
                 </div>
               </div>
-              <button @click="toggleLess(0)">看更多</button>
+              <!-- <button @click="toggleLess(0)">看更多</button> -->
+              <div class="subpageLink" @click="toggleLess(0)">
+                <a class="btn">
+                  <span>看更多</span>
+                </a>
+              </div>          
             </div>
           </div>
           <img class="right" :src="webpic2">
@@ -104,7 +109,12 @@
                   <p>今年，台積電慈善基金會更要走入偏鄉，為偏鄉獨居長輩的醫療想辦法，更多暖心故事，現在進行式。</p>
                 </div>
               </div>
-              <button @click="toggleLess(1)">看更多</button>
+              <!-- <button @click="toggleLess(1)">看更多</button> -->
+              <div class="subpageLink" @click="toggleLess(1)">
+                <a class="btn">
+                  <span>看更多</span>
+                </a>
+              </div>          
             </div>
           </div>
         </div>
@@ -134,7 +144,12 @@
                   <p>愛地球，台積電年省9100萬度電，更為樂得為其他企業、學校、醫院與社福機構「電路健檢」，抓出漏電、改善危險老舊線路，將專業與環保理念無償向外分享。「學校跟我們說謝謝，我都說不用！」，董事長張淑芬說，志工只請校方幫忙宣傳到家長會、其他學校，還有哪裡想省電，台積電都願意幫忙。</p>
                 </div>
               </div>
-              <button @click="toggleLess(2)">看更多</button>
+              <!-- <button @click="toggleLess(2)">看更多</button> -->
+              <div class="subpageLink" @click="toggleLess(2)">
+                <a class="btn">
+                  <span>看更多</span>
+                </a>
+              </div>          
             </div>
           </div>
           <img class="right" :src="webpic6">
@@ -168,7 +183,12 @@
                   <p>蘇迪勒颱風，摧毀花蓮秀林鄉400多位部落孩童，由一面鐵皮搭建的課後學堂。台積電志工發揮專長勘查丈量，並募集607位同事愛心，3個月內打造新教室，更風塵僕僕，利用休假日往返花蓮當「老師」，「多一個孩子在身邊，少一個出去學壞，每趟來花蓮，都很有意義」。</p>
                 </div>
               </div>
-              <button @click="toggleLess(3)">看更多</button>
+              <!-- <button @click="toggleLess(3)">看更多</button> -->
+              <div class="subpageLink" @click="toggleLess(3)">
+                <a class="btn">
+                  <span>看更多</span>
+                </a>
+              </div>          
             </div>
           </div>
         </div>
@@ -427,4 +447,63 @@ export default {
     padding-bottom: 80px;
   }
 }
+
+.btn {
+  cursor: pointer;
+  background-color: #000;
+  border: none;
+  line-height: 60px;
+  z-index: 0;
+  box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
+}
+
+.textarea .btn{
+  transform: translateY(50%);
+}
+
+.btn span {
+  color: #fff;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform-origin: center left;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.btn:before,
+.btn:after {
+  content: '';
+  background: #70cbfa;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.btn:before {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.btn:after {
+  bottom: 0;
+  left: 0;
+}
+.btn:hover:before {
+  width: 0;
+  left: 0;
+}
+.btn:hover:after {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+.subpageLink {
+ position: relative; 
+ display: block;
+ float: right;
+ margin-top: 50px;
+}
+
 </style>

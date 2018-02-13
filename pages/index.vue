@@ -16,8 +16,10 @@
           <p><br></p>
           <p>高雄氣爆滿月時，災民在街道掛起一幅幅紅布條感謝台積電。感謝什麼？災後第一時間，台積電慈善基金會董事長張淑芬，感性地看到災民有家歸不得的傷痛，台積電工程師們，則見災民在斷垣殘壁中，生計被迫中斷，一個景，兩個情，他們決定捐錢也做事。</p>
           <div class="subpageLink">
-            <button>最新動態</button>
-          </div>
+            <a class="btn">
+              <span>最新動態</span>
+            </a>
+          </div>          
           <p><br></p>
           <p><br></p>
         </div>
@@ -49,7 +51,9 @@
           <p><br></p>
           <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
           <div class="subpageLink">
-            <button>我們的故事</button>
+            <a class="btn">
+              <span>我們的故事</span>
+            </a>
           </div>
         </div>
       </div>
@@ -235,22 +239,57 @@ export default {
   width: 100%;
 }
 
-button{
-  color: #FFF;
-  border: 2px solid rgb(216, 2, 134);
-  border-radius: 0px;
-  padding: 18px 36px;
-  display: inline-block;
-  font-size: 14px;
-  letter-spacing: 1px;
+.btn {
   cursor: pointer;
-  box-shadow: inset 0 0 0 0 #D80286;
-  -webkit-transition: ease-out 0.4s;
-  -moz-transition: ease-out 0.4s;
-  transition: ease-out 0.4s;  
+  background-color: #000;
+  /* width: 330px; */
+  /* height: 64px; */
+  line-height: 60px;
+  z-index: 0;
+  box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
+}
+.btn span {
+  color: #fff;
+  display: block;
+  padding-left: 10px;
+  padding-right: 10px;
+  transform-origin: center left;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+.btn:before,
+.btn:after {
+  content: '';
+  background: #70cbfa;
+  height: 100%;
+  width: 0;
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.btn:before {
+  top: 0;
+  left: 0;
+  right: auto;
+}
+.btn:after {
+  bottom: 0;
+  left: 0;
+}
+.btn:hover:before {
+  width: 0;
+  left: 0;
+}
+.btn:hover:after {
+  width: 100%;
+  left: 0;
+  right: auto;
 }
 
-button:hover {
-  box-shadow: inset 400px 0 0 0 #D80286;
+.subpageLink {
+ position: relative; 
+ display: block;
+ float: right;
+ margin-top: 50px;
 }
 </style>
