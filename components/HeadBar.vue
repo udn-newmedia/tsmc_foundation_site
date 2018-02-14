@@ -52,6 +52,13 @@ import tsmcLogo from '~/assets/logo_tsmc.svg'
 import ContentWrapper from './Content'
 
 export default {
+/** 
+ * 本元件之功能：
+ *  head bar，釘在網頁最上緣，內含其他子頁連結
+ * 變數:
+ *  -titlelist: 子頁連結和留言區
+ *  -showlinks: 一開始連結們皆不顯示，待使用者scroll後才顯示
+*/    
   name: 'Headbar',
   props: ['color', 'buttonColor', 'bookmarkDisplay'],
   components: {ContentWrapper},
@@ -103,6 +110,7 @@ export default {
     // })        
   },
   beforeMount: function () {
+    // 等待使用者scroll後，連結區才顯示  
     window.addEventListener('scroll', this.handleScroll)
   },
   beforeDestroyed: function () {

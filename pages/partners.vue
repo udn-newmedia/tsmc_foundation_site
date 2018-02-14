@@ -135,10 +135,15 @@ if (process.browser) {
   require('~/plugins/fb-sdk.js')
 }
 
-export default {
+export default {  
   components: {
     HeadBar, ContentWrapper, Overlay, FBComment, FadeInDown
   },
+  /** 
+   * 變數:
+   *  - showMessageBoard: (true or false) 是否顯示留言區 
+   *  - showfirstimg: 首頁滿版圖為兩張圖組成，以showfirstimg作為參數來替換，當showfirstimg為false時則顯示第二張圖
+  */ 
   data: function () {
     return {
       location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
@@ -161,9 +166,11 @@ export default {
     }
   },
   created: function () {
+    // 關閉留言區
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
+    // 載入 fb sdk
     setTimeout(()=>{
       this.showfirstimg = !this.showfirstimg
       this.isFBReady = Vue.FB != undefined

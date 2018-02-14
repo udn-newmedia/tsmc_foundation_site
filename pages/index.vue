@@ -143,6 +143,7 @@ if (process.browser) {
 }
 
 export default {
+  // 複寫原來nuxt.config.js之meta
   head () {
     return {
       title: '台積電慈善基金會 ',
@@ -179,9 +180,11 @@ export default {
     HeadBar, ContentWrapper, EmbededVideo, Bodymovin, Overlay, FBComment, FadeInDown
   },
   created: function () {
+    // 關掉留言區
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
+    // 載入FBsdk
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
   },

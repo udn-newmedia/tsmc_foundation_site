@@ -264,6 +264,11 @@ if (process.browser) {
 }
 
 export default {
+  /** 
+   * 變數:
+   *  - showMessageBoard: (true or false) 是否顯示留言區 
+   *  - isLess: (true or false) 每個區塊訊息展開與否，展開則為 false
+  */    
   data: function () {
     return {
       location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',
@@ -294,9 +299,11 @@ export default {
     HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay, FBComment, FadeInDown
   },
   created: function () {
+    // 關閉留言區
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
+    // 載入 FB sdk
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
   },    

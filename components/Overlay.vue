@@ -11,7 +11,13 @@
 </template>
 
 <script>
-
+/** 
+ * 本元件之功能：
+ *  留言區，周圍都蓋黑幕，顯示FB留言板
+ * 參數:
+ *  -mainContainer: 要模糊和蓋黑幕的Element
+ *  -show: 是否顯示留言區
+*/    
 export default {
   name: 'Overlay',
   props: ['mainContainer','show'],
