@@ -1,5 +1,5 @@
 <template>
-  <div class="animsition">
+  <FadeInDown>
     <div id="partners">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -115,7 +115,7 @@
     <Overlay mainContainer="partners" :show="showMessageBoard">
       <FBComment :href="location"></FBComment>
     </Overlay>    
-  </div>
+  </FadeInDown>
 </template>
 
 <script>
@@ -124,6 +124,7 @@ import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
+import FadeInDown from '~/components/FadeInDown.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import member01 from '~/assets/member01.png'
 import member02 from '~/assets/member02.png'
@@ -136,7 +137,7 @@ if (process.browser) {
 
 export default {
   components: {
-    HeadBar, ContentWrapper, Overlay, FBComment
+    HeadBar, ContentWrapper, Overlay, FBComment, FadeInDown
   },
   data: function () {
     return {

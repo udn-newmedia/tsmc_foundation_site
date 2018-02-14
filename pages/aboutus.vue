@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <FadeInDown>
     <div id="aboutus">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -101,7 +101,7 @@
     <Overlay mainContainer="aboutus" :show="showMessageBoard">
       <FBComment :href="location"></FBComment>      
     </Overlay>
-  </div>
+  </FadeInDown>
 </template>
 
 <script>
@@ -115,6 +115,7 @@ import Quote from 'udn-newmedia-vue-components/src/components/Quote.vue'
 import ColumnThree from 'udn-newmedia-vue-components/src/components/ColumnThree.vue'
 import ColumnTwo from 'udn-newmedia-vue-components/src/components/ColumnTwo.vue'
 import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
+import FadeInDown from '~/components/FadeInDown.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import indexvideo from '~/assets/indexvideo.mp4'
 import pic1 from '~/assets/aboutus1.jpg'
@@ -149,7 +150,7 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment
+    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment, FadeInDown
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)

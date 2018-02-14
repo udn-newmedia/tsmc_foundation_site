@@ -1,5 +1,5 @@
 <template>
-  <div class="animsition" ref="indexContainer">
+  <FadeInDown>
     <div id="index">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -112,7 +112,7 @@
     <Overlay mainContainer="index" :show="showMessageBoard">
       <FBComment :href="location"></FBComment>
     </Overlay>
-  </div>     
+  </FadeInDown>
 </template>
 
 <script>
@@ -121,6 +121,7 @@ import HeadBar from '~/components/HeadBar.vue'
 // import HeadBar from 'udn-newmedia-vue-components/src/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
+import FadeInDown from '~/components/FadeInDown.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
 import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
@@ -175,13 +176,12 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Bodymovin, Overlay, FBComment
+    HeadBar, ContentWrapper, EmbededVideo, Bodymovin, Overlay, FBComment, FadeInDown
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
-    this.$refs.indexContainer.classList.remove('animsition')
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
   },

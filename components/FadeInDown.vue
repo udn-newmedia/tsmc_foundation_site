@@ -1,5 +1,5 @@
 <template>
-  <div class="fade-out-down-sm">
+  <div class="fadeindown">
     <slot></slot>
   </div>
 </template>
@@ -11,33 +11,23 @@ export default {
 </script>
 
 <style>
-@keyframes fade-in-down-sm {
+.fadeindown {
+  animation-duration: 1s;
+  transition-timing-function: ease-in-out;
+  /* transition-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86); */
+  animation-fill-mode: both;
+  animation-name: fadeInDown;
+}
+
+@keyframes fadeInDown {
   0% {
-    transform: translateY(-100px);
     opacity: 0;
+    transform: translate3d(0, -5%, 0);
   }
+
   100% {
-    transform: translateY(0);
     opacity: 1;
-  }
-}
-
-.fade-in-down-sm {
-  animation-name: fade-in-down-sm;
-}
-
-@keyframes fade-out-down-sm {
-  0% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-}
-
-.fade-out-down-sm {
-  animation-name: fade-out-down-sm;
+    transform: none;
+  }  
 }
 </style>
