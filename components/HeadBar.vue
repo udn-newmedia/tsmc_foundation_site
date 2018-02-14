@@ -5,7 +5,7 @@
             <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc">
                 <slot></slot>
                 <div class="link"></div>
-                <div class="links" 
+                <div class="links"
                     v-for="link in titlelist"
                     :key="link.title">
                     <div class="link">
@@ -17,7 +17,8 @@
                 <!-- <a href="."><img :src="logo"></a> -->
                 <nuxt-link to="/"><img :src="logo"></nuxt-link>
             </div>
-            <div class="icons hidden-mobile">
+            <div class="icons hidden-mobile"
+                    v-show="showlinks">
                 <div class="links" 
                     v-for="link in titlelist"
                     :key="link.title">
@@ -61,6 +62,7 @@ export default {
       inner: 'inner',
       outer: 'outer',
       logo: tsmcLogo,
+      showlinks: false,
       titlelist: [
         {
           link: '/news',
@@ -100,13 +102,22 @@ export default {
     //     }, 500)
     // })        
   },
+  beforeMount: function () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeDestroyed: function () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  destroyed: function () {
+    window.removeEventListener('scroll', this.handleScroll)
+  },  
   mounted: function () {
-    // window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
     handleClick: function () {
       this.isOpen = !this.isOpen
-    //   console.log('hamburger click')
+      // console.log('hamburger click')
       // ga("send", {
       //     "hitType": "event",
       //     "eventCategory": "Ham Click",
@@ -114,20 +125,19 @@ export default {
       //     "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [Ham Click]"
       // });
     },
-    // handleScroll: function(event) {
-    //   let currentH = window.pageYOffset
-    //   if (currentH < window.innerHeight / 2) {
-    //     this.top = 0
-    //   }else {
-    //     if (window.innerWidth <= 1024) {
-    //         this.top = 4
-    //     }else {
-    //         this.top = 6
-    //     }
-    //   }
-    // }
-    show: function () {
-      console.log('test')       
+    handleScroll: function(event) {
+      this.showlinks = true
+      window.removeEventListener('scroll', this.handleScroll) 
+      //   let currentH = window.pageYOffset
+      //   if (currentH < window.innerHeight / 2) {
+      //     this.top = 0
+      //   }else {
+      //     if (window.innerWidth <= 1024) {
+      //         this.top = 4
+      //     }else {
+      //         this.top = 6
+      //     }
+      //   }
     }
   }
 }

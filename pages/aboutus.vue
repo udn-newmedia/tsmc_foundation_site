@@ -9,7 +9,8 @@
         </div>                        
       </HeadBar>
       <div class="relative" style="position: relative;">
-        <EmbededVideo :src="indexvideo" :srcWeb="indexvideo" style="z-index: 0;"></EmbededVideo>
+        <div class="bg-web hidden-mobile"></div>
+        <div class="bg-mob hidden-pc"></div>
         <ContentWrapper class="absolutefullscreen centercenter">
           <h1 class="bigtitle" style="position: absolute; top: 20%;">我們的<br>故事</h1>
         </ContentWrapper>      
@@ -122,6 +123,8 @@ import pic3 from '~/assets/aboutus3.jpg'
 import pic4 from '~/assets/aboutus4.jpg'
 import pic5 from '~/assets/aboutus5.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
+// import bgWeb from '~/assets/aboutus_bg_web.jpg'
+// import bgMob from '~/assets/aboutus_bg_mob.jpg'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
@@ -139,6 +142,8 @@ export default {
       pic3: pic3,
       pic4: pic4,
       pic5: pic5,
+      // bgWeb: bgWeb,
+      // bgMob: bgMob,
       showMessageBoard: false,
       isFBReady: false
     }
@@ -194,6 +199,11 @@ export default {
   .hidden-pc{
     display: none!important;
   }
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100vh;
 }
 
 .absolutefullscreen {
@@ -281,6 +291,23 @@ h1.bigtitle.bigtitle {
   .section {
     margin-top: 100px;
     margin-bottom: 100px;
+  }
+}
+
+.bg-mob{
+  width: 100%;
+  height: 100vh;
+  background-image: url('~/assets/aboutus_bg_mob.jpg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;   
+}
+
+@media screen and (min-width: 1024px){
+  .bg-web{
+    width: 100%;
+    height: 100vh;
+    background-image: url('~/assets/aboutus_bg_web.jpg');
   }
 }
 </style>

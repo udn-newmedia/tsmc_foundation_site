@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animsition">
     <div id="news">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -8,6 +8,9 @@
           </div>
         </div>
       </HeadBar>
+      <div class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
+        <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; width: 100%;"></Bodymovin>        
+      </div>
       <ContentWrapper class="section firstsection">
         <h1 class="bigtitle" style="position: absolute; top: 20%;">最新<br>動態</h1>
         <div class="row">
@@ -19,10 +22,11 @@
             <p>{{newslist[0].text}}</p>
             <div class="subpageLink">
               <a class="btn">
-                <span>完整內文</span>
+                <span>完整內文
+                  <i class="fa fa-external-link" aria-hidden="true"></i>                  
+                </span>
               </a>
             </div>          
-            <!-- <button>完整內文</button> -->
           </div>
         </div>
       </ContentWrapper>
@@ -36,10 +40,11 @@
           <p>{{newslist[0].text}}</p>
           <div class="subpageLink">
             <a class="btn">
-              <span>完整內文</span>
+              <span>完整內文
+                <i class="fa fa-external-link" aria-hidden="true"></i>                                  
+              </span>
             </a>
           </div>          
-          <!-- <button>完整內文</button> -->
         </div>
       </ContentWrapper>
       <ContentWrapper class="section">
@@ -53,10 +58,11 @@
             <p><br></p>
             <div class="subpageLink">
               <a class="btn">
-                <span>完整內文</span>
+                <span>完整內文
+                  <i class="fa fa-external-link" aria-hidden="true"></i>                                                    
+                </span>
               </a>
             </div>
-            <!-- <button>完整內文</button> -->
           </div>
         </div>
       </ContentWrapper>
@@ -106,6 +112,7 @@ import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from 'udn-newmedia-vue-components/components/EmbededVideo.vue'
+import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import $eventBus from'~/plugins/eventBus.js'
 import newsvideo from '~/assets/indexvideo.mp4'
@@ -121,6 +128,7 @@ import titlefont from '../static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
+  // require('~/plugins/pageLoadAnim.js')  
 }
 
 export default {
@@ -237,7 +245,7 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Overlay, FBComment
+    HeadBar, ContentWrapper, EmbededVideo, Overlay, FBComment, Bodymovin
   },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
@@ -311,6 +319,11 @@ export default {
   .hidden-pc{
     display: none!important;
   }
+}
+
+.fullscreen {
+  width: 100%;
+  height: 100vh;
 }
 
 .centercenter {
@@ -549,4 +562,7 @@ nav{
   height: 100vh;
 }
 
+.fa.fa-external-link{
+  padding: 0 5px;
+}
 </style>

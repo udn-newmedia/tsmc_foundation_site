@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animsition">
     <div id="campaigns">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -10,7 +10,7 @@
       </HeadBar>
       <div class="fullscreen centercenter">
         <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;">
-          <h1 class="bigtitle" style="position: absolute; top: 20%;">我們的<br>故事</h1>
+          <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們的<br>故事</h1>
           <div class="anim">
             <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
             <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
@@ -86,10 +86,11 @@
                     <p>她相信「孝道」是改變社會的起點，基金會今年起，積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，讓台南市成為示範區。中央與地方將攜手整合教材與資源，首批由8所國中小種子學校，結合正式課程及非正式活動，啟動孝道教育。</p>                                                
                   </div>
                 </div>
-                <!-- <button @click="toggleLess(0)">看更多</button> -->
                 <div class="subpageLink" @click="toggleLess(0)">
                   <a class="btn">
-                    <span>看更多</span>
+                    <span>看更多
+                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                    </span>
                   </a>
                 </div>          
               </div>
@@ -119,10 +120,11 @@
                     <p>今年，台積電慈善基金會更要走入偏鄉，為偏鄉獨居長輩的醫療想辦法，更多暖心故事，現在進行式。</p>
                   </div>
                 </div>
-                <!-- <button @click="toggleLess(1)">看更多</button> -->
                 <div class="subpageLink" @click="toggleLess(1)">
                   <a class="btn">
-                    <span>看更多</span>
+                    <span>看更多
+                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                    </span>
                   </a>
                 </div>          
               </div>
@@ -154,10 +156,11 @@
                     <p>愛地球，台積電年省9100萬度電，更為樂得為其他企業、學校、醫院與社福機構「電路健檢」，抓出漏電、改善危險老舊線路，將專業與環保理念無償向外分享。「學校跟我們說謝謝，我都說不用！」，董事長張淑芬說，志工只請校方幫忙宣傳到家長會、其他學校，還有哪裡想省電，台積電都願意幫忙。</p>
                   </div>
                 </div>
-                <!-- <button @click="toggleLess(2)">看更多</button> -->
                 <div class="subpageLink" @click="toggleLess(2)">
                   <a class="btn">
-                    <span>看更多</span>
+                    <span>看更多
+                      <i class="fa fa-plus" aria-hidden="true"></i>                                            
+                    </span>
                   </a>
                 </div>          
               </div>
@@ -193,10 +196,11 @@
                     <p>蘇迪勒颱風，摧毀花蓮秀林鄉400多位部落孩童，由一面鐵皮搭建的課後學堂。台積電志工發揮專長勘查丈量，並募集607位同事愛心，3個月內打造新教室，更風塵僕僕，利用休假日往返花蓮當「老師」，「多一個孩子在身邊，少一個出去學壞，每趟來花蓮，都很有意義」。</p>
                   </div>
                 </div>
-                <!-- <button @click="toggleLess(3)">看更多</button> -->
                 <div class="subpageLink" @click="toggleLess(3)">
                   <a class="btn">
-                    <span>看更多</span>
+                    <span>看更多
+                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                    </span>
                   </a>
                 </div>          
               </div>
@@ -255,6 +259,7 @@ import tsmcLogo from '~/assets/logo_tsmc.svg'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
+  // require('~/plugins/pageLoadAnim.js')
 }
 
 export default {
@@ -575,5 +580,9 @@ h1.bigtitle.bigtitle {
   .anim{
     transform: translateX(20%);
   }
+}
+
+.fa.fa-plus{
+  padding: 0 5px;
 }
 </style>

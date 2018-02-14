@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animsition" ref="indexContainer">
     <div id="index">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -12,7 +12,8 @@
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%;"></Bodymovin>
         <ContentWrapper style="padding:0; z-index: 2;">
-          <Bodymovin jsonfile="./index_cover/web.json" MOBjsonfile="./index_cover/mob.json" PADjsonfile="./index_cover/pad.json" style="width: 100%;　z-index: 2;"></Bodymovin>
+          <Bodymovin jsonfile="./index_cover/web/data.json" MOBjsonfile="./index_cover/mobile/data.json" PADjsonfile="./index_cover/pad/data.json" style="width: 100%;　z-index: 2;"></Bodymovin>
+          <!-- <Bodymovin jsonfile="./index_cover/web.json" MOBjsonfile="./index_cover/mob.json" PADjsonfile="./index_cover/pad.json" style="width: 100%;　z-index: 2;"></Bodymovin> -->
         </ContentWrapper>
       </div>
       <ContentWrapper class="section">
@@ -23,10 +24,11 @@
             <p><br></p>
             <p>高雄氣爆滿月時，災民在街道掛起一幅幅紅布條感謝台積電。感謝什麼？災後第一時間，台積電慈善基金會董事長張淑芬，感性地看到災民有家歸不得的傷痛，台積電工程師們，則見災民在斷垣殘壁中，生計被迫中斷，一個景，兩個情，他們決定捐錢也做事。</p>
             <div class="subpageLink">
-              <nuxt-link class="btn" to="/news"><span>最新動態</span></nuxt-link>
-              <!-- <a class="btn">
-                <span>最新動態</span>
-              </a> -->
+              <nuxt-link class="btn" to="/news">
+                <span>最新動態
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </span>
+              </nuxt-link>
             </div>          
             <p><br></p>
             <p><br></p>
@@ -59,10 +61,11 @@
             <p><br></p>
             <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
             <div class="subpageLink">
-              <nuxt-link class="btn" to="/aboutus"><span>我們的故事</span></nuxt-link>              
-              <!-- <a class="btn">
-                <span>我們的故事</span>
-              </a> -->
+              <nuxt-link class="btn" to="/aboutus">
+                <span>我們的故事
+                  <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </span>
+              </nuxt-link>              
             </div>
           </div>
         </div>
@@ -178,6 +181,7 @@ export default {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
+    this.$refs.indexContainer.classList.remove('animsition')
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
   },
@@ -359,5 +363,9 @@ export default {
 
 .icon{
   cursor: pointer;
+}
+
+.fa.fa-arrow-right{
+  padding: 0 5px;
 }
 </style>

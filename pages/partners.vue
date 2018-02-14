@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="animsition">
     <div id="partners">
       <HeadBar :bookmark-display="stickyAnchors">
         <div slot="comment" class="links">
@@ -15,7 +15,8 @@
       </div>
       <div class="cover">
         <img :src="member01" alt="愛互聯"
-          :style="{opacity: img1opacity}">
+          :style="{opacity: img1opacity}"
+          >
         <img :src="member02" alt="愛互聯"
           :style="{opacity: img2opacity}" 
           style="position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%);">
@@ -158,17 +159,15 @@ export default {
       return this.showfirstimg?'0':'1' 
     }
   },
-  mounted: function () {
-    setTimeout(()=>{
-      this.showfirstimg = !this.showfirstimg
-    }, 500)
-  },
   created: function () {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
-    this.isFBReady = Vue.FB != undefined
-    window.addEventListener('fb-sdk-ready', this.onFBReady)
+    setTimeout(()=>{
+      this.showfirstimg = !this.showfirstimg
+      this.isFBReady = Vue.FB != undefined
+      window.addEventListener('fb-sdk-ready', this.onFBReady)      
+    }, 500)
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')

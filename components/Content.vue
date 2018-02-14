@@ -80,7 +80,7 @@ p,a{
 }
 @media screen and (min-width: 1024px){
     .container{
-        width: 955px;
+        width: 962px;
     }
     p>br{
         line-height: 50px;
