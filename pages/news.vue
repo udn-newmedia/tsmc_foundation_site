@@ -11,28 +11,32 @@
       <div class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; width: 100%;"></Bodymovin>        
       </div>
-      <ContentWrapper class="section firstsection">
+      <ContentWrapper class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
         <h1 class="bigtitle" style="position: absolute; top: 20%;">最新<br>動態</h1>
-        <div class="row">
-          <div class="col-lg-3 col-sm-12"></div>
-          <div class="col-lg-2 hidden-mobile"></div>
-          <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 1; padding-bottom: 0">
-            <h2>{{covernewstitle}}</h2>
-            <h2>{{covernewssubtitle}}</h2>
-            <p>{{newslist[0].text}}</p>
-            <div class="subpageLink">
-              <a class="btn">
-                <span>完整內文
-                  <i class="fa fa-external-link" aria-hidden="true"></i>                  
-                </span>
-              </a>
-            </div>          
+      </ContentWrapper>
+      <div class="covertransform">
+        <ContentWrapper class="section firstsection">
+          <div class="row">
+            <div class="col-lg-3 col-sm-12"></div>
+            <div class="col-lg-2 hidden-mobile"></div>
+            <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 99; padding-bottom: 0">
+              <h2>{{covernewstitle}}</h2>
+              <h2>{{covernewssubtitle}}</h2>
+              <p>{{newslist[0].text}}</p>
+              <div class="subpageLink">
+                <a class="btn">
+                  <span>完整內文
+                    <i class="fa fa-external-link" aria-hidden="true"></i>                  
+                  </span>
+                </a>
+              </div>          
+            </div>
           </div>
-        </div>
-      </ContentWrapper>
-      <ContentWrapper>
-        <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="transparent"></EmbededVideo>
-      </ContentWrapper>
+        </ContentWrapper>
+        <ContentWrapper>
+          <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="transparent"></EmbededVideo>
+        </ContentWrapper>
+      </div>
       <ContentWrapper>
         <div class="newsblock hidden-pc" style="z-index: 1;">
           <h2>{{covernewstitle}}</h2>
@@ -401,27 +405,35 @@ h1.bigtitle.bigtitle {
 }
 
 .section {
-  margin-top: 50px;
+  padding-top: 50px;
   margin-bottom: 50px;
 }
 
 .section.firstsection {
-  margin-top: 80px;
+  padding-top: 80px;
   margin-bottom: 0;
   padding-top: 50px;
 }
 
 @media screen and (min-width: 1024px){
   .section {
-    margin-top: 100px;
     margin-bottom: 100px;
   }
   .section.firstsection {
-    margin-top: 80px;
     padding-top: 100px;
   }
   .newsvideo{
     transform: translateY(-5%);    
+  }
+}
+
+.covertransform{
+  transform: translateY(80px);
+}
+
+@media screen and (min-width: 1024px){
+  .covertransform{
+    transform: translateY(100px);
   }
 }
 

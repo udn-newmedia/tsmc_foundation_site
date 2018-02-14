@@ -10,7 +10,7 @@
       </HeadBar>
       <div class="fullscreen centercenter">
         <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;">
-          <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們的<br>故事</h1>
+          <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們<br>做的事</h1>
           <div class="anim">
             <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
             <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
