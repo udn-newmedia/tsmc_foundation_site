@@ -1,16 +1,10 @@
 <template>
   <div class="row">
-      <div class="col-md-6 left">
-        <!-- <picture> -->
-          <!-- <source :srcset="img1" media="(max-width: 1023px)"> -->
-          <img :src="imgweb1">
-        <!-- </picture>         -->
+      <div class="col-md-6 col-sm-6 left">
+        <img :src="imgweb1">
       </div>
-      <div class="col-md-6 right">
-        <!-- <picture> -->
-          <!-- <source :srcset="img2" media="(max-width: 1023px)"> -->
-          <img :src="imgweb2">
-        <!-- </picture>         -->
+      <div class="col-md-6 col-sm-6 right">
+        <img :src="imgweb2">
       </div>
       <div class="img-say">{{imgsay}}</div>
   </div>
@@ -22,7 +16,7 @@ export default {
     props: ['img1', 'img2', 'imgweb1', 'imgweb2', 'imgsay'],
     computed: {
       imgRWD1: function(){
-        if(window.innerWidth <= 768){
+        if(window.innerWidth < 768){
             return this.img1
         }
         else{
@@ -30,7 +24,7 @@ export default {
         }
       },
       imgRWD2: function(){
-        if(window.innerWidth <= 768){
+        if(window.innerWidth < 768){
             return this.img2
         }
         else{
@@ -62,7 +56,7 @@ export default {
   @media screen and (min-width: 768px) and (max-width: 1024px){
     .col-md-6{
       margin-top: 15px;
-      padding: 0;
+      padding: 10px;
     }
   }
   @media screen and (min-width: 1025px){

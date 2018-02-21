@@ -19,12 +19,12 @@
         <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
           <h1 class="bigtitle hidden-pc" style="position: absolute; top: 10%; z-index: 3;">我們<br>做的事</h1>
         </ContentWrapper>
-        <Bodymovin class="hidden-pc" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-        <Bodymovin class="hidden-pc" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(20%);"></Bodymovin>
+        <Bodymovin class="hidden-pc mobbodymov bg" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json"></Bodymovin>
+        <Bodymovin class="hidden-pc mobbodymov fg" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json"></Bodymovin>
       </div>
-      <ContentWrapper class="section" background-color="#f2ede4">
+      <ContentWrapper class="section firstsection" background-color="#f2ede4">
         <div class="row">
-          <div class="col-lg-7 col-sm-12">
+          <div class="col-lg-7 col-sm-7 col-xs-12">
             <h3><b>當八千顆聰明的腦遇上公益</b></h3>
             <p><br></p>
             <p>談及丈夫張忠謀，如何看待台積電做公益，張淑芬笑著說，「首先就被交代了兩個『不准』」，第一不准強迫他的員工，第二不准碰錢，她爽朗回應，「那正好，我沒有數目觀念！」</p>
@@ -33,26 +33,26 @@
             <p><br></p>
             <p>她更順水推舟，立下做公益的原則：不亂捐錢、不對外募款。任何的救災必先確實估價，一塊錢一定當兩塊錢用，善款一定從公司會計，直接轉進救災帳戶，「直接、不浪費，這是我們對股東，應該負的責任」。</p>
             <p><br></p>
-            <div class="hidden-mobile">
+            <div class="hidden-xs">
               <p>張淑芬身體力行，帶頭投入服務，台積電從2009年1500名志工，至今已達8000人，她形容自己像老母雞...</p>
               <p><br></p>
               <p>當8000顆台積電的聰明腦，一起投向公益，張淑芬說，原本只有一個小小的善念萌芽，會有好多點子進來加分，聚沙成塔的力量，最後讓事情變成十分，「我說，這就是智慧的慈悲」。</p>
             </div>
           </div>
-          <div class="col-lg-1 hidden-mobile"></div>
-          <div class="col-lg-4 hidden-mobile">
+          <div class="col-lg-1 col-sm-1 hidden-xs"></div>
+          <div class="col-lg-4 col-sm-4 hidden-xs">
             <h3><br></h3>
             <p><br></p>
             <img :src="webpic1" style="width: 100%;">
             <h3 style="line-height: 1.8;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
           </div>
-          <div class="hidden-pc">
+          <div class="hidden-sm hidden-md hidden-lg">
             <h3><br></h3>
             <p><br></p>
             <img :src="mobpic1">
             <h3 style="line-height: 1.8;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
           </div>
-          <div class="hidden-pc">
+          <div class="hidden-sm hidden-md hidden-lg">
             <p><br></p>
             <p>張淑芬身體力行，帶頭投入服務，台積電從2009年1500名志工，至今已達8000人，她形容自己像老母雞...</p>
             <p><br></p>
@@ -65,8 +65,8 @@
       <div style="background: #e0dfdf">
         <ContentWrapper background-color="#e0dfdf" class="workblocks">
           <div class="row">
-            <div class="col-lg-8 workblock shiftupward">
-              <div class="col-lg-10 textarea">
+            <div class="col-lg-8 col-sm-8 workblock shiftupward">
+              <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
                   <h2>孝道推廣</h2>
                   <h3><b>重回教育體制<br>埋下讓台灣暖起來的種子</b></h3>
@@ -104,10 +104,10 @@
         <ContentWrapper background-color="#e0dfdf" class="workblocks section">
           <div class="row">
             <img class="left shiftupward" :src="webpic3">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-8 workblock">
-              <div class="col-lg-2"></div>
-              <div class="col-lg-10 textarea">
+            <div class="col-lg-4 col-sm-4"></div>
+            <div class="col-lg-8 col-sm-8 workblock">
+              <div class="col-lg-2 col-sm-2"></div>
+              <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
                   <h2>獨居老人</h2>
                   <h3><b>每年固定關懷長者<br>加起來超過160,000歲</b></h3>
@@ -144,8 +144,8 @@
         </ContentWrapper>
         <ContentWrapper background-color="#e0dfdf" class="workblocks section">
           <div class="row">
-            <div class="col-lg-8 workblock shiftupward">
-              <div class="col-lg-10 textarea">
+            <div class="col-lg-8 col-sm-8 workblock shiftupward">
+              <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
                   <h2>環境保育</h2>
                   <h3><b>從國中小教育埋下種子<br>電力健檢年省9100萬度電</b></h3>
@@ -182,10 +182,10 @@
         <ContentWrapper background-color="#e0dfdf" class="workblocks section">
           <div class="row">
             <img class="left shiftupward" :src="webpic9">
-            <div class="col-lg-4"></div>
-            <div class="col-lg-8 workblock">
-              <div class="col-lg-2"></div>
-              <div class="col-lg-10 textarea">
+            <div class="col-lg-4 col-sm-4"></div>
+            <div class="col-lg-8 col-sm-8 workblock">
+              <div class="col-lg-2 col-sm-2"></div>
+              <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
                   <h2>偏鄉教育</h2>
                   <h3><b>建學堂、修教室<br>台積電伴讀1000個偏鄉家庭的孩子</b></h3>
@@ -215,10 +215,10 @@
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
-          <div class="col-lg-6 tsmclogo">
+          <div class="col-lg-6 col-sm-6 tsmclogo">
             <img :src="tsmcLogo">
           </div>
-          <div class="col-lg-6 tsmcfoundation">
+          <div class="col-lg-6 col-sm-6 tsmcfoundation">
             <p>台積電慈善基金會</p>
             <p>電話 : 03-563-6688 ext. 712-5030</p>
             <p>地址 : 300 新竹科學園區力行六路8號</p>
@@ -370,7 +370,6 @@ export default {
 
 h1.bigtitle.bigtitle {
   font-family: 'GenJyuuGothic';
-  font-size: 49px;
   font-weight: bold;
   color: #1e8455;
 }
@@ -380,7 +379,6 @@ h1.bigtitle.bigtitle {
     position: absolute;
     left: 0;
     top: 20%;
-    font-size: 100px;
   }  
 }
 
@@ -413,7 +411,7 @@ h1.bigtitle.bigtitle {
   margin-top: 10px;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .tsmcfoundation {
     position: absolute;
     border-left: solid 1px;
@@ -430,7 +428,7 @@ h1.bigtitle.bigtitle {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 767px){
   img {
     width: 100%;
   }
@@ -446,7 +444,7 @@ h1.bigtitle.bigtitle {
   border-radius: 3px;  
 }
 
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 767px){
   .workblock{
     margin-top: 50px;
     margin-bottom: 50px; 
@@ -470,7 +468,7 @@ h1.bigtitle.bigtitle {
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .section {
     padding-top: 150px;
     padding-bottom: 150px;
@@ -483,12 +481,16 @@ h1.bigtitle.bigtitle {
   .workblock{
     position: relative;
     background: white;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 0 40px;
     z-index: 0;
   }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
+  .workblock{
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+
   .workblock.shiftupward{
     transform: translateY(-80px);
   }
@@ -598,4 +600,30 @@ h1.bigtitle.bigtitle {
 .fa.fa-plus{
   padding: 0 5px;
 }
+
+.link a{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.mobbodymov.bg{
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  z-index: 0; 
+  width: 100%;
+}
+.mobbodymov.fg{
+  width: 100%;
+  z-index: 2;
+  transform: translateY(20%);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .section.firstsection{
+    padding-top: 250px;
+  }
+}   
 </style>

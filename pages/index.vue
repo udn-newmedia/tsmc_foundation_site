@@ -17,7 +17,7 @@
       </div>
       <ContentWrapper class="section">
         <div class="row">
-          <div class="column col-lg-5 col-sm-12">
+          <div class="column col-lg-5 col-sm-5 col-xs-12">
             <h3>橫越445公里路</h3>
             <p>做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。</p>
             <p><br></p>
@@ -32,8 +32,8 @@
             <p><br></p>
             <p><br></p>
           </div>
-          <div class="col-lg-1 hidden-mobile"></div>
-          <div class="column col-lg-6 hidden-mobile">
+          <div class="col-lg-1 col-sm-1 hidden-mobile"></div>
+          <div class="column col-lg-6 col-sm-6 hidden-mobile">
             <img :src="indexWeb1">
           </div>
         </div>
@@ -53,11 +53,11 @@
       </ContentWrapper>
       <ContentWrapper class="section">
         <div class="row section">
-          <div class="col-lg-5 hidden-mobile">
+          <div class="col-lg-5 col-sm-5 col-xs-12 hidden-mobile">
             <img :src="indexWeb2">
           </div>
-          <div class="col-lg-1"></div>
-          <div class="col-lg-6">
+          <div class="col-lg-1 col-sm-1"></div>
+          <div class="col-lg-6 col-sm-6">
             <p>台積電重建團隊進駐災區，發揮蓋晶圓廠的聰明腦袋與最高執行力，與協力廠商挨家挨戶拜訪，「請問我們可以幫忙嗎？」，被石頭砸破的屋頂，被炸歪的紗窗，店家門前滿目瘡痍的道路，台積電員工在災區穿梭，一一幫災民排除了，這是智慧做慈善。</p>
             <p><br></p>
             <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
@@ -99,10 +99,10 @@
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
-          <div class="col-lg-6 tsmclogo">
+          <div class="col-lg-6 col-sm-6 tsmclogo">
             <img :src="tsmcLogo">
           </div>
-          <div class="col-lg-6 tsmcfoundation">
+          <div class="col-lg-6 col-sm-6 tsmcfoundation">
             <p>台積電慈善基金會</p>
             <p>電話 : 03-563-6688 ext. 712-5030</p>
             <p>地址 : 300 新竹科學園區力行六路8號</p>
@@ -214,13 +214,13 @@ export default {
   text-align: justify;
 }
 
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 767px){  
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 768px){  
   .hidden-pc{
     display: none!important;
   }
@@ -241,14 +241,14 @@ export default {
   text-align: right;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .iconWrapper {
     display: flex;
     justify-content: space-around;
   }  
 }
 
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 767px){
   .icon {
     padding: 25px;
   }
@@ -266,7 +266,7 @@ export default {
   margin-top: 10px;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .tsmcfoundation {
     position: absolute;
     border-left: solid 1px;
@@ -294,7 +294,7 @@ export default {
   margin-bottom: 50px;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .section {
     margin-top: 100px;
     margin-bottom: 100px;
@@ -370,5 +370,12 @@ export default {
 
 .fa.fa-arrow-right{
   padding: 0 5px;
+}
+
+.link a{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 10px;
 }
 </style>

@@ -48,6 +48,10 @@ p,a{
         padding: 0;
     }
     
+    h1{
+        font-size: 49px;
+    }
+
     h2{
         font-size: 26px;
     }
@@ -67,21 +71,28 @@ p,a{
         width: 100%;
     }
     .content{
-        /* padding: 64px 100px; */
-        padding: 0 100px;
+        padding: 0 80px;
     }
+
+    h1{
+        font-size: 90px;
+    }
+
     h2{
         font-size: 30px;
     }
     p,a{
-        font-size: 20px;
-        line-height: 32px;
+        font-size: 16px;
+        line-height: 1.8;
     }
 }
 @media screen and (min-width: 1024px){
     .container{
         width: 962px;
     }
+    h1{
+        font-size: 100px;
+    }    
     p>br{
         line-height: 50px;
     }

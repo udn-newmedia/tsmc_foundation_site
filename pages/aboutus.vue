@@ -87,10 +87,10 @@
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
-          <div class="col-lg-6 tsmclogo">
+          <div class="col-lg-6 col-sm-6 tsmclogo">
             <img :src="tsmcLogo">
           </div>
-          <div class="col-lg-6 tsmcfoundation">
+          <div class="col-lg-6 col-sm-6 tsmcfoundation">
             <p>台積電慈善基金會</p>
             <p>電話 : 03-563-6688 ext. 712-5030</p>
             <p>地址 : 300 新竹科學園區力行六路8號</p>
@@ -225,15 +225,8 @@ export default {
 
 h1.bigtitle.bigtitle {
   font-family: 'GenJyuuGothic';  
-  font-size: 49px;
   font-weight: bold;
   color: white;
-}
-
-@media screen and (min-width: 1024px){
-  h1.bigtitle.bigtitle {
-    font-size: 100px;
-  }  
 }
 
 .subpageLink {
@@ -265,7 +258,7 @@ h1.bigtitle.bigtitle {
   margin-top: 10px;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .tsmcfoundation {
     position: absolute;
     border-left: solid 1px;
@@ -314,6 +307,15 @@ h1.bigtitle.bigtitle {
     width: 100%;
     height: 100vh;
     background-image: url('~/assets/aboutus_bg_web.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
+}
+
+.link a{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 10px;
 }
 </style>

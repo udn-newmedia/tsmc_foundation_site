@@ -17,9 +17,9 @@
       <div class="covertransform">
         <ContentWrapper class="section firstsection">
           <div class="row">
-            <div class="col-lg-3 col-sm-12"></div>
-            <div class="col-lg-2 hidden-mobile"></div>
-            <div class="col-lg-7 hidden-mobile titleblock" style="z-index: 99; padding-bottom: 0">
+            <div class="col-lg-3 col-sm-3 col-xs-12"></div>
+            <div class="col-lg-2 col-sm-2 hidden-mobile"></div>
+            <div class="col-lg-7 col-sm-7 hidden-mobile titleblock" style="z-index: 99; padding-bottom: 0">
               <h2>{{covernewstitle}}</h2>
               <h2>{{covernewssubtitle}}</h2>
               <p>{{newslist[0].text}}</p>
@@ -94,10 +94,10 @@
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
-          <div class="col-lg-6 tsmclogo">
+          <div class="col-lg-6 col-sm-6 tsmclogo">
             <img :src="tsmcLogo">
           </div>
-          <div class="col-lg-6 tsmcfoundation">
+          <div class="col-lg-6 col-sm-6 tsmcfoundation">
             <p>台積電慈善基金會</p>
             <p>電話 : 03-563-6688 ext. 712-5030</p>
             <p>地址 : 300 新竹科學園區力行六路8號</p>
@@ -321,13 +321,13 @@ export default {
   background: #e4c8a9;
 }
 
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 767px){  
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 768px){  
   .hidden-pc{
     display: none!important;
   }
@@ -350,15 +350,8 @@ export default {
 
 h1.bigtitle.bigtitle {
   font-family: 'GenJyuuGothic';
-  font-size: 49px;
   font-weight: bold;
   color: white;
-}
-
-@media screen and (min-width: 1024px){
-  h1.bigtitle.bigtitle {
-    font-size: 100px;
-  }  
 }
 
 .titleblock {
@@ -367,6 +360,12 @@ h1.bigtitle.bigtitle {
   background: white;
   border-radius: 3px;
   padding: 80px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .titleblock {
+    padding: 40px;
+  }  
 }
 
 .titleblock p {
@@ -388,7 +387,7 @@ h1.bigtitle.bigtitle {
   margin-top: 10px;
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 768px){
   .tsmcfoundation {
     position: absolute;
     border-left: solid 1px;
@@ -405,7 +404,7 @@ h1.bigtitle.bigtitle {
   margin-bottom: 10px;
 }
 
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 768px){
   img {
     width: 100%;
   }
@@ -420,6 +419,18 @@ h1.bigtitle.bigtitle {
   padding-top: 80px;
   margin-bottom: 0;
   padding-top: 50px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .section {
+    margin-bottom: 50px;
+  }
+  .section.firstsection {
+    padding-top: 100px;
+  }
+  .newsvideo{
+    transform: translateY(-5%);    
+  }
 }
 
 @media screen and (min-width: 1024px){
@@ -458,6 +469,13 @@ h1.bigtitle.bigtitle {
   margin: 0 0 60px 0;
   border-radius: 3px;
   padding: 20px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px){
+  .newsblock{
+    width: 45%;
+    margin: 50px 5px;
+  }  
 }
 
 @media screen and (min-width: 1024px){
@@ -590,5 +608,12 @@ nav{
   .newsblock .subtitle{
     margin-bottom: 10px;
   }  
+}
+
+.link a{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0 10px;
 }
 </style>

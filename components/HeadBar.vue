@@ -151,7 +151,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #head-bar {
     position: fixed;
     background-color: #ffffff;
