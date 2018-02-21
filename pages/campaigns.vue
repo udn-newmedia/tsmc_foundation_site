@@ -68,7 +68,10 @@
             <div class="col-lg-8 col-sm-8 workblock shiftupward">
               <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
-                  <h2>孝道推廣</h2>
+                  <div class="labelwrapper">
+                    <img :src="bulb">
+                    <p class="label">孝道推廣</p>
+                  </div>
                   <h3><b>重回教育體制<br>埋下讓台灣暖起來的種子</b></h3>
                   <p><br></p>
                   <div v-if="isLess[0]">
@@ -109,7 +112,10 @@
               <div class="col-lg-2 col-sm-2"></div>
               <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
-                  <h2>獨居老人</h2>
+                  <div class="labelwrapper">
+                    <img :src="bulb">
+                    <p class="label">獨居老人</p>
+                  </div>
                   <h3><b>每年固定關懷長者<br>加起來超過160,000歲</b></h3>
                   <p><br></p>
                   <div v-if="isLess[1]">
@@ -147,7 +153,10 @@
             <div class="col-lg-8 col-sm-8 workblock shiftupward">
               <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
-                  <h2>環境保育</h2>
+                  <div class="labelwrapper">
+                    <img :src="bulb">
+                    <p class="label">環境保育</p>
+                  </div>
                   <h3><b>從國中小教育埋下種子<br>電力健檢年省9100萬度電</b></h3>
                   <p><br></p>
                   <div v-if="isLess[2]">
@@ -187,7 +196,10 @@
               <div class="col-lg-2 col-sm-2"></div>
               <div class="col-lg-10 col-sm-10 textarea">
                 <div class="paddingtopandbottom">
-                  <h2>偏鄉教育</h2>
+                  <div class="labelwrapper">
+                    <img :src="bulb">
+                    <p class="label">偏鄉教育</p>
+                  </div>                  
                   <h3><b>建學堂、修教室<br>台積電伴讀1000個偏鄉家庭的孩子</b></h3>
                   <p><br></p>
                   <div v-if="isLess[3]">
@@ -260,6 +272,7 @@ import pic8 from '~/assets/campaigns8.jpg'
 import mobpic9 from '~/assets/campaigns_mob9.jpg'
 import webpic9 from '~/assets/campaigns_web9.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
+import bulb from '~/assets/bulb.svg'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
@@ -293,6 +306,7 @@ export default {
       mobpic9: mobpic9,
       webpic9: webpic9,
       tsmcLogo: tsmcLogo,
+      bulb: bulb,
       isLess: [true, true, true, true],
       showMessageBoard: false,
       isFBReady: false
@@ -625,5 +639,21 @@ h1.bigtitle.bigtitle {
   .section.firstsection{
     padding-top: 250px;
   }
-}   
+}
+
+.label{
+  color: #00a8ff;
+}
+
+.labelwrapper{
+  display: flex; 
+  align-items: flex-end;
+}  
+
+.labelwrapper img{
+  position: relative; 
+  width: 34px; 
+  height: 54px;
+}
+
 </style>
