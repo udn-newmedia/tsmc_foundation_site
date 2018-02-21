@@ -9,7 +9,7 @@
         </div>
       </HeadBar>
       <div class="fullscreen centercenter" style="background: #e4c8a9;">
-        <ContentWrapper style="position: relative; height: 100%;">
+        <ContentWrapper style="position: relative; width: 100%; height: 100%;">
           <h1 class="bigtitle" style="position: absolute; top: 20%;">愛互聯</h1>
         </ContentWrapper>
       </div>
@@ -324,6 +324,12 @@ h1.bigtitle.bigtitle {
   background-color: #e0dfdf;  
 }
 
+@media screen and (max-width: 1023px){
+  .unit .partner{
+    margin: 5px 10px 20px 0;
+  }  
+}
+
 .unit .partner a{
   color: black;
   text-decoration: none;
@@ -393,4 +399,9 @@ h1.bigtitle.bigtitle {
  margin-top: 50px;
 }
 
+@media screen and (max-width: 1023px){
+  span{
+    font-size: 16px;
+  }
+}
 </style>

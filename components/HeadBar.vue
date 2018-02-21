@@ -180,7 +180,8 @@ export default {
 }
 
 #icon img {
-    width: 157px;
+    /* width: 157px; */
+    width: 180px;
 }
 
 .icons {
@@ -383,5 +384,11 @@ export default {
 
 .link a{
     text-decoration: none;
+}
+
+@media screen and (max-width: 1023px){
+  #head-bar #icon, #head-bar #hbutton{
+   transform: translateY(50%);
+  }
 }
 </style>

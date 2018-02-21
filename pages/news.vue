@@ -11,7 +11,7 @@
       <div class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; width: 100%;"></Bodymovin>        
       </div>
-      <ContentWrapper class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
+      <ContentWrapper class="fullscreen hidden-mobile" style="position: absolute; left: 0; top: 0; z-index: 0;">
         <h1 class="bigtitle" style="position: absolute; top: 20%;">最新<br>動態</h1>
       </ContentWrapper>
       <div class="covertransform">
@@ -34,13 +34,14 @@
           </div>
         </ContentWrapper>
         <ContentWrapper>
+          <h1 class="bigtitle hidden-pc" style="margin-top: 20%; margin-bottom: 20px;">最新<br>動態</h1>          
           <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="transparent"></EmbededVideo>
         </ContentWrapper>
       </div>
       <ContentWrapper>
         <div class="newsblock hidden-pc" style="z-index: 1;">
           <h2>{{covernewstitle}}</h2>
-          <h2>{{covernewssubtitle}}</h2>
+          <h2 class="subtitle">{{covernewssubtitle}}</h2>
           <p>{{newslist[0].text}}</p>
           <div class="subpageLink">
             <a class="btn">
@@ -57,7 +58,7 @@
             v-for="news in contentList"
             :key="news.title">
             <img :src="newsphoto">
-            <p class="title">{{news.title}}</p>
+            <p class="title"><b>{{news.title}}</b></p>
             <p>{{news.text}}</p>
             <p><br></p>
             <div class="subpageLink">
@@ -120,7 +121,7 @@ import Bodymovin from 'udn-newmedia-vue-components/components/Bodymovin.vue'
 import FBComment from 'udn-newmedia-vue-components/components/FBComment.vue'
 import FadeInDown from '~/components/FadeInDown.vue'
 import $eventBus from'~/plugins/eventBus.js'
-import newsvideo from '~/assets/indexvideo.mp4'
+import newsvideo from '~/assets/newsvideo.mp4'
 import indexMob1 from '~/assets/index_mob1.jpg'
 import indexWeb1 from '~/assets/index_web1.jpg'
 import indexMob2 from '~/assets/index_mob2.jpg'
@@ -433,9 +434,9 @@ h1.bigtitle.bigtitle {
   }
 }
 
-.covertransform{
+/* .covertransform{
   transform: translateY(80px);
-}
+} */
 
 @media screen and (min-width: 1024px){
   .covertransform{
@@ -454,7 +455,7 @@ h1.bigtitle.bigtitle {
   position: relative;
   background: white;
   width: 100%;
-  margin: 0 5px 60px 5px;
+  margin: 0 0 60px 0;
   border-radius: 3px;
   padding: 20px;
 }
@@ -583,5 +584,11 @@ nav{
 
 .fa.fa-external-link{
   padding: 0 5px;
+}
+
+@media screen and (max-width: 1023px){
+  .newsblock .subtitle{
+    margin-bottom: 10px;
+  }  
 }
 </style>

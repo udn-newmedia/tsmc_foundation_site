@@ -13,7 +13,6 @@
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%;"></Bodymovin>
         <ContentWrapper style="padding:0; z-index: 2;">
           <Bodymovin jsonfile="./index_cover/web/data.json" MOBjsonfile="./index_cover/mobile/data.json" PADjsonfile="./index_cover/pad/data.json" style="width: 100%;　z-index: 2;"></Bodymovin>
-          <!-- <Bodymovin jsonfile="./index_cover/web.json" MOBjsonfile="./index_cover/mob.json" PADjsonfile="./index_cover/pad.json" style="width: 100%;　z-index: 2;"></Bodymovin> -->
         </ContentWrapper>
       </div>
       <ContentWrapper class="section">
@@ -37,24 +36,26 @@
           <div class="column col-lg-6 hidden-mobile">
             <img :src="indexWeb1">
           </div>
-          <div class="hidden-pc">
-            <img :src="indexMob1">
-          </div>        
         </div>
       </ContentWrapper>
       <ContentWrapper>
+        <div class="hidden-pc" style="margin-bottom: 20px;">
+          <img :src="indexMob1">
+        </div>        
+      </ContentWrapper>
+      <ContentWrapper>
         <EmbededVideo :src="indexvideo" :srcWeb="indexvideo"></EmbededVideo>
+      </ContentWrapper>
+      <ContentWrapper>
+        <div class="hidden-pc" style="margin-top: 10px;">
+          <img :src="indexMob2">
+        </div>      
       </ContentWrapper>
       <ContentWrapper class="section">
         <div class="row section">
           <div class="col-lg-5 hidden-mobile">
             <img :src="indexWeb2">
           </div>
-          <div class="hidden-pc">
-            <img :src="indexMob2">
-          </div>
-          <p class="hidden-pc"><br></p>
-          <p class="hidden-pc"><br></p>        
           <div class="col-lg-1"></div>
           <div class="col-lg-6">
             <p>台積電重建團隊進駐災區，發揮蓋晶圓廠的聰明腦袋與最高執行力，與協力廠商挨家挨戶拜訪，「請問我們可以幫忙嗎？」，被石頭砸破的屋頂，被炸歪的紗窗，店家門前滿目瘡痍的道路，台積電員工在災區穿梭，一一幫災民排除了，這是智慧做慈善。</p>

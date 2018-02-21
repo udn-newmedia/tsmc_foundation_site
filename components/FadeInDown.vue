@@ -23,15 +23,31 @@ export default {
   animation-name: fadeInDown;
 }
 
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translate3d(0, -5%, 0);
-  }
+@media screen and (max-width: 1023px){
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -2.5%, 0);
+    }
 
-  100% {
-    opacity: 1;
-    transform: none;
+    100% {
+      opacity: 1;
+      transform: none;
+    }  
+  }  
+}
+
+@media screen and (min-width: 1024px){
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, -5%, 0);
+    }
+
+    100% {
+      opacity: 1;
+      transform: none;
+    }  
   }  
 }
 </style>

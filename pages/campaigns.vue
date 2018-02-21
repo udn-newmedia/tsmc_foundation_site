@@ -16,8 +16,11 @@
             <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
           </div>
         </ContentWrapper>
+        <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
+          <h1 class="bigtitle hidden-pc" style="position: absolute; top: 10%; z-index: 3;">我們<br>做的事</h1>
+        </ContentWrapper>
         <Bodymovin class="hidden-pc" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-        <Bodymovin class="hidden-pc" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);"></Bodymovin>
+        <Bodymovin class="hidden-pc" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(20%);"></Bodymovin>
       </div>
       <ContentWrapper class="section" background-color="#f2ede4">
         <div class="row">
@@ -445,8 +448,8 @@ h1.bigtitle.bigtitle {
 
 @media screen and (max-width: 1023px){
   .workblock{
-    margin-top: 25px;
-    margin-bottom: 25px; 
+    margin-top: 50px;
+    margin-bottom: 50px; 
   }  
   .workblock .textarea{
     position: relative;
@@ -469,8 +472,8 @@ h1.bigtitle.bigtitle {
 
 @media screen and (min-width: 1024px){
   .section {
-    padding-top: 200px;
-    padding-bottom: 200px;
+    padding-top: 150px;
+    padding-bottom: 150px;
   }
 
   .workblocks .row{
@@ -485,13 +488,15 @@ h1.bigtitle.bigtitle {
     z-index: 0;
   }
 
+@media screen and (min-width: 1024px){
   .workblock.shiftupward{
-    transform: translateY(-140px);
+    transform: translateY(-80px);
   }
 
   img.shiftupward{
-    transform: translateY(-30%);
-  }
+    transform: translateY(-80px);
+  }  
+}
 
   .workblocks img{
     position: absolute;
