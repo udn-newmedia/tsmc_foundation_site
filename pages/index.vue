@@ -1,12 +1,17 @@
 <template>
   <FadeInDown>
     <div id="index">
-      <HeadBar :bookmark-display="stickyAnchors">
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true'>
         <div slot="comment" class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
-        </div>                
+        </div>  
+        <div slot='comment-mob' class="links">
+          <div class="link">
+            <a @click.prevent="showComments">留言區</a>
+          </div>
+        </div>  
       </HeadBar>
       <div class="fullscreen centercenter" style="position: relative; overflow: hidden;">
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
@@ -18,10 +23,10 @@
       <ContentWrapper class="section">
         <div class="row">
           <div class="column col-lg-5 col-sm-5 col-xs-12">
-            <h3>橫越445公里路</h3>
+            <h3><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>橫越445公里路</h3>
             <p>做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。</p>
             <p><br></p>
-            <p>高雄氣爆滿月時，災民在街道掛起一幅幅紅布條感謝台積電。感謝什麼？災後第一時間，台積電慈善基金會董事長張淑芬，感性地看到災民有家歸不得的傷痛，台積電工程師們，則見災民在斷垣殘壁中，生計被迫中斷，一個景，兩個情，他們決定捐錢也做事。</p>
+            <p>「請問，我們可以為你做什麼？」今年二月，強震重創花蓮，台積電慈善基金會董事長張淑芬與志工團挺進第一線，以最直接有效的方式，向災民詢問可幫忙之處，再回頭盤點公司內部員工捐款、「台灣半導體設備暨材料協會」企業成員資源，一周內公布災區復原方案：先讓居民有安全的住所，再進一步重建花蓮觀光產業。</p>
             <div class="subpageLink">
               <nuxt-link class="btn" to="/news">
                 <span>最新動態
@@ -58,12 +63,14 @@
           </div>
           <div class="col-lg-1 col-sm-1"></div>
           <div class="col-lg-6 col-sm-6">
-            <p>台積電重建團隊進駐災區，發揮蓋晶圓廠的聰明腦袋與最高執行力，與協力廠商挨家挨戶拜訪，「請問我們可以幫忙嗎？」，被石頭砸破的屋頂，被炸歪的紗窗，店家門前滿目瘡痍的道路，台積電員工在災區穿梭，一一幫災民排除了，這是智慧做慈善。</p>
+            <p>但花蓮震災不是起始點，回顧高雄氣爆滿月時，高雄街道飄揚一幅幅紅布條，是災民對台積電的感謝。災後第一時間，張淑芬看見災民有家歸不得、生計被迫中斷的傷痛，帶領台積電志工捐錢也做事，指揮重建團隊直接進駐災區。</p>
             <p><br></p>
-            <p>紅布條的故事，至今仍在台灣人民心中飄揚，但2014年高雄氣爆不是起始點，更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
+            <p>台積電志工們發揮蓋晶圓廠的聰明腦袋與超高執行力，和協力廠商挨家挨戶協助修繕，被石頭砸破的屋頂，被炸歪的紗窗，店家門前滿目瘡痍的道路，台積電員工在災區來回穿梭、一一替災民排除，這是智慧做慈善。</p>
+            <p><br/></p>
+            <p>更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
             <div class="subpageLink">
               <nuxt-link class="btn" to="/aboutus">
-                <span>我們的故事
+                <span>關於我們
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </span>
               </nuxt-link>              
@@ -75,18 +82,18 @@
         <p><br></p>
         <p><br></p>
         <div class="row iconWrapper">
-          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
-            <img :src="indexicon1">
-            <p>愛互聯</p>
-          </nuxt-link>              
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus">
             <img :src="indexicon2">
-            <p>我們的故事</p>          
+            <p>關於我們</p>          
           </nuxt-link>              
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns">
             <img :src="indexicon3">
             <p>我們做的事</p>
           </nuxt-link>              
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
+            <img :src="indexicon1">
+            <p>愛互聯</p>
+          </nuxt-link>                        
           <div class="col-lg-2 col-xs-6 icon" @click="showComments">
             <img :src="indexicon4">
             <p>留言區</p>
@@ -187,6 +194,9 @@ export default {
     // 載入FBsdk
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+    setTimeout(function() {
+      Vue.FB.XFBML.parse();
+    }, 500)
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
@@ -225,7 +235,18 @@ export default {
     display: none!important;
   }
 }
-
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-bottom: solid 1px black;
+}
+@media screen and (min-width: 1024px){
+  .link{
+    border-bottom: none;
+  }
+}
 .fullscreen {
   width: 100%;
   height: 100vh;
@@ -270,7 +291,7 @@ export default {
   .tsmcfoundation {
     position: absolute;
     border-left: solid 1px;
-    padding-left: 10px;
+    padding-left: 10px !important;
     margin-top: 0;
   }
 }

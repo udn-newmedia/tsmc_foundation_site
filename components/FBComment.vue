@@ -6,10 +6,16 @@
 
 <script>
 export default {
-    props: ['href']
+    props: ['href'],
 }
 </script>
 
-<style scoped>
-    
+<style lang='scss' scoped>
+    .fb-comment-block{
+    	width: 100%;
+    	height: 100%;
+    	overflow-x: hidden;
+    	overflow-y: scroll;
+    	-webkit-overflow-scrolling: touch;
+    }
 </style>

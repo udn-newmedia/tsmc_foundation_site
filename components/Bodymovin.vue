@@ -18,7 +18,7 @@ if (process.browser) {
 }
 export default {
   name: 'Bodymovin',
-  props: ['jsonfile', 'MOBjsonfile', 'PADjsonfile', 'pcwidth', 'pcheight'],
+  props: ['jsonfile', 'MOBjsonfile', 'PADjsonfile', 'pcwidth', 'pcheight', 'isLoop', 'isAutoplay'],
   data: function () {
     return {
       device: null,
@@ -30,10 +30,25 @@ export default {
     },
     PADfile: function () {
       return this.PADjsonfile ? this.PADjsonfile : this.jsonfile
+    },
+    loop: function() {
+      if(this.isLoop === 'false'){
+        return false
+      } else {
+        return true
+      }
+    },
+    autoPlay: function() {
+      if(this.isAutoplay === 'false'){
+        return false
+      } else {
+        return true
+      }
     }
   },
   mounted: function () {
     let filepath, bodymovinobj
+    const self = this
     this.device = userdevice
     switch (this.device) {
       case 'pc':
@@ -49,8 +64,8 @@ export default {
     bodymovinobj = {
       container: this.$refs.bodymovin,
       renderer: 'svg',
-      loop: true,
-      autoplay: true,
+      loop: self.loop,
+      autoplay: self.autoPlay,
       path: filepath    
     }
     bodymovin.loadAnimation(bodymovinobj)

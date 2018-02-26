@@ -1,25 +1,29 @@
 <template>
   <FadeInDown>
     <div id="partners">
-      <HeadBar :bookmark-display="stickyAnchors">
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true'>
         <div slot="comment" class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
-        </div>
+        </div>  
+        <div slot='comment-mob' class="links">
+          <div class="link">
+            <a @click.prevent="showComments">留言區</a>
+          </div>
+        </div>  
       </HeadBar>
       <div class="fullscreen centercenter" style="background: #e4c8a9;">
         <ContentWrapper style="position: relative; width: 100%; height: 100%;">
           <h1 class="bigtitle" style="position: absolute; top: 20%;">愛互聯</h1>
         </ContentWrapper>
-      </div>
-      <div class="cover">
-        <img :src="member01" alt="愛互聯"
-          :style="{opacity: img1opacity}"
-          >
-        <img :src="member02" alt="愛互聯"
-          :style="{opacity: img2opacity}" 
-          style="position: absolute; left:50%; top:50%; transform: translateX(-50%) translateY(-50%);">
+        <div class="cover">
+          <img :src="member01" alt="愛互聯"
+            :style="{opacity: img1opacity}"
+            >
+          <img :src="member02" alt="愛互聯"
+            :style="{opacity: img2opacity}" >
+        </div>        
       </div>
       <ContentWrapper class="section">
         <div class="row">
@@ -174,6 +178,7 @@ export default {
     setTimeout(()=>{
       this.showfirstimg = !this.showfirstimg
       this.isFBReady = Vue.FB != undefined
+      Vue.FB.XFBML.parse();  
       window.addEventListener('fb-sdk-ready', this.onFBReady)      
     }, 500)
   },
@@ -208,7 +213,18 @@ export default {
   position: relative;
   overflow: hidden;
 }
-
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-bottom: solid 1px black;
+}
+@media screen and (min-width: 1024px){
+  .link{
+    border-bottom: none;
+  }
+}
 @media screen and (max-width: 1023px){  
   .hidden-mobile{
     display: none!important;
@@ -224,6 +240,7 @@ export default {
 .fullscreen {
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 .centercenter {
@@ -265,6 +282,7 @@ h1.bigtitle.bigtitle {
   right: 0;
   color:  #717376;
   margin-top: 10px;
+  padding-left: 10px !important;
 }
 
 @media screen and (min-width: 768px){
@@ -334,19 +352,48 @@ h1.bigtitle.bigtitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 100vh;
-  left: 50%;
-  transform: translateX(-40%) translateY(-75vh);
-  width: 120%;
+  top: 35%;
+  left: 0;
+  width: 100%;
+  /*margin-left: -10%;*/
 }
-
 .cover img{
+  position: absolute;
+  top: 0;
+  left: 0;
   will-change: 'opacity';
   will-change: opacity;
   transition: opacity 0.5s;
   transition-timing-function: ease-out;
+  width: 100%;
 }
+@media screen and (min-width: 799px) and (max-width: 1023px){
+  .cover{
+    width: 60%;
+    top: 40%;
+    left: 50%;
+    margin-left: -20%;
+  }
+  .cover img{
+    width: 80%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .cover{
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 25%;
+    left: 50%;
+    width: 80%;
+    margin-left: -20%;
 
+  } 
+  .cover img {
+    width: 60%;
+  }     
+}
 .btn span {
   color: #000;
   display: block;

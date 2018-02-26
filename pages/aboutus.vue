@@ -1,8 +1,13 @@
 <template>
   <FadeInDown>
     <div id="aboutus">
-      <HeadBar :bookmark-display="stickyAnchors">
+      <HeadBar :bookmark-display="stickyAnchors" isNews="true">
         <div slot="comment" class="links">
+          <div class="link">
+            <a @click.prevent="showComments">留言區</a>
+          </div>
+        </div>  
+        <div slot='comment-mob' class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
@@ -12,13 +17,14 @@
         <div class="bg-web hidden-mobile"></div>
         <div class="bg-mob hidden-pc"></div>
         <ContentWrapper class="absolutefullscreen centercenter">
-          <h1 class="bigtitle" style="position: absolute; top: 20%;">我們的<br>故事</h1>
+          <h1 class="bigtitle" style="position: absolute; top: 20%;">關於<br>我們</h1>
         </ContentWrapper>      
       </div>
       <ContentWrapper class="section">
         <Quote 
         text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」" 
-        refer="──張淑芬"
+        :img="quoteImg"
+        refer="－台積電慈善基金會董事長張淑芬"
         color="#000"
         borderColor="#f2ede4"></Quote>
         <p><br></p>
@@ -123,6 +129,7 @@ import pic3 from '~/assets/aboutus3.jpg'
 import pic4 from '~/assets/aboutus4.jpg'
 import pic5 from '~/assets/aboutus5.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
+import quoteImg from '../assets/quote.png'
 // import bgWeb from '~/assets/aboutus_bg_web.jpg'
 // import bgMob from '~/assets/aboutus_bg_mob.jpg'
 
@@ -146,6 +153,7 @@ export default {
       pic3: pic3,
       pic4: pic4,
       pic5: pic5,
+      quoteImg: quoteImg,
       // bgWeb: bgWeb,
       // bgMob: bgMob,
       showMessageBoard: false,
@@ -163,6 +171,9 @@ export default {
     // 載入 FB sdk
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+    setTimeout(function(){
+      Vue.FB.XFBML.parse();  
+    }, 500)    
   },    
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
@@ -194,7 +205,18 @@ export default {
   text-align: justify;
   background: #f2ede4;
 }
-
+.link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  border-bottom: solid 1px black;
+}
+@media screen and (min-width: 1024px){
+  .link{
+    border-bottom: none;
+  }
+}
 @media screen and (max-width: 1023px){  
   .hidden-mobile{
     display: none!important;

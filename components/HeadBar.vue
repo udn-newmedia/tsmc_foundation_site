@@ -3,15 +3,15 @@
         <ContentWrapper 
             background-color="#fff" style="position: relative;">
             <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc">
-                <slot></slot>
-                <div class="link"></div>
                 <div class="links"
                     v-for="link in titlelist"
                     :key="link.title">
                     <div class="link">
+                        <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -15px;right: 50%;margin-right: -52.5px">N</div>
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
                 </div>
+                <slot name='comment-mob'></slot>
             </div>
             <div id="icon">
                 <!-- <a href="."><img :src="logo"></a> -->
@@ -23,6 +23,7 @@
                     v-for="link in titlelist"
                     :key="link.title">
                     <div class="link">
+                        <div class="redNum" v-if="link.isNew">N</div>
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
                 </div>
@@ -33,7 +34,7 @@
                     </div>
                 </div>                 -->
             </div>
-            <div id="hbutton" class="hidden-lg">
+            <div id="hbutton" class="hidden-lg hidden-md">
                 <div id="nav-icon" :class="{open: isOpen}"
                     @click="handleClick()">
                     <span></span>
@@ -60,7 +61,7 @@ export default {
  *  -showlinks: 一開始連結們皆不顯示，待使用者scroll後才顯示
 */    
   name: 'Headbar',
-  props: ['color', 'buttonColor', 'bookmarkDisplay'],
+  props: ['color', 'buttonColor', 'bookmarkDisplay', 'isNews'],
   components: {ContentWrapper},
   data: function () {
     return {
@@ -73,19 +74,23 @@ export default {
       titlelist: [
         {
           link: '/news',
-          title: '最新動態'     
+          title: '最新動態',
+          isNew: this.isNews
         },
         {
           link: '/aboutus',
-          title: '我們的故事'
+          title: '關於我們',
+          isNew: false
         },
         {
           link: '/campaigns',
-          title: '我們做的事'          
+          title: '我們做的事',
+          isNew: false          
         },
         {
           link: '/partners',
-          title: '愛互聯'          
+          title: '愛互聯',
+          isNew: false          
         }
         // {
         //   link: '',
@@ -152,6 +157,21 @@ export default {
 </script>
 
 <style scoped>
+.redNum{
+  position: absolute;
+  top: 0;
+  right: -15px;
+  z-index: 80;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  color: #fff;
+  border-radius: 2px;
+  background-color: #e72319;
+}
 #head-bar {
     position: fixed;
     background-color: #ffffff;
@@ -183,7 +203,6 @@ export default {
     /* width: 157px; */
     width: 180px;
 }
-
 .icons {
     float: right;
     display: flex;
@@ -364,7 +383,8 @@ export default {
 }
 
 .icons .link{
-    margin: 0 10px;
+  position: relative;
+  margin: 0 20px;
 }
 
 .link a{
@@ -372,10 +392,11 @@ export default {
 }
 
 #hbutton-contain .link{
-    display: block;
-    border-bottom: solid 1px black;
-    height: 60px;
-    line-height: 60px;
+  position: relative;
+  display: block;
+  border-bottom: solid 1px black;
+  height: 60px;
+  line-height: 60px;
 }
 
 .links .link{

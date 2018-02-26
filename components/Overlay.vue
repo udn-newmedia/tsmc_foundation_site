@@ -1,5 +1,5 @@
 <template>
-  <div id="Overlay" v-show="show">
+  <div id="Overlay" v-show="show" @click='close'>
     <div id="popup">
       <div class="closebtn" @click="close">
         <span></span>
@@ -61,7 +61,8 @@ export default {
 }
 #popup {
   position: absolute;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   height: 500px;
   background: rgb(255,255,255);
   /* border: 5px solid rgb(90,90,90); */
@@ -80,6 +81,7 @@ export default {
 }
 .closebtn{
   position: absolute;
+  z-index: 10;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,5 +112,9 @@ export default {
 .closebtn span:nth-child(2){
   transform: rotate(-45deg);
 }
-
+@media screen and (max-width: 768px) {
+  .closebtn{
+    transform: translateX(-8px) translateY(-38px);
+  } 
+}
 </style>
