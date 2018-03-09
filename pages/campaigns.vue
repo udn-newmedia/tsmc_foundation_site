@@ -1,8 +1,8 @@
 <template>
   <FadeInDown>
     <div id="campaigns">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true'>
-        <div slot="comment" class="links">
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='campaigns'>
+<!--         <div slot="comment" class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
@@ -11,14 +11,14 @@
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
-        </div>                
+        </div>   -->              
       </HeadBar>
-      <div class="fullscreen centercenter">
+      <div class="fullscreen centercenter" style="background-color: #c0e6c1;"><!-- #84B785 -->
         <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;">
           <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們<br>做的事</h1>
           <div class="anim">
             <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2; transform: translateY(10%);" isLoop='false'></Bodymovin>
+            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2;" isLoop='false'></Bodymovin>
           </div>
         </ContentWrapper>
         <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
@@ -30,7 +30,7 @@
       <ContentWrapper class="section firstsection" background-color="#f2ede4">
         <div class="row">
           <div class="col-lg-7 col-sm-7 col-xs-12">
-            <h3><b>當八千顆聰明的腦遇上公益</b></h3>
+            <h2><b>當八千顆聰明的腦遇上公益</b></h2>
             <p><br></p>
             <p>談及丈夫張忠謀，如何看待台積電做公益，張淑芬笑著說，「首先就被交代了兩個『不准』」，第一不准強迫他的員工，第二不准碰錢，她爽朗回應，「那正好，我沒有數目觀念！」</p>
             <p><br></p>
@@ -49,7 +49,7 @@
             <h3><br></h3>
             <p><br></p>
             <img :src="webpic1" style="width: 100%;">
-            <h3 style="line-height: 1.8;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
+            <h3 style="line-height: 1.8;top: 5px;text-align: left;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
           </div>
           <div class="hidden-sm hidden-md hidden-lg">
             <h3><br></h3>
@@ -67,7 +67,7 @@
           </div>        
         </div>
       </ContentWrapper>
-      <div style="background: #e0dfdf">
+      <div style="background: #e0dfdf" ref='catchWork'>
         <ContentWrapper background-color="#e0dfdf" class="workblocks">
           <div class="row">
             <div class="col-lg-8 col-sm-8 workblock shiftupward">
@@ -99,9 +99,12 @@
                 </div>
                 <div class="subpageLink" @click="toggleLess(0)">
                   <a class="btn">
-                    <span>看更多
+                    <span v-if='isLess[0]'>看更多
                       <i class="fa fa-plus" aria-hidden="true"></i>                      
                     </span>
+                    <span v-else>收回
+                      <i class="fa fa-minus" aria-hidden="true"></i>                      
+                    </span>                    
                   </a>
                 </div>          
               </div>
@@ -119,7 +122,7 @@
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
-                    <p class="label">獨居老人</p>
+                    <p class="label">照顧獨老</p>
                   </div>
                   <h3><b>每年固定關懷長者<br>加起來超過160,000歲</b></h3>
                   <p><br></p>
@@ -136,9 +139,12 @@
                 </div>
                 <div class="subpageLink" @click="toggleLess(1)">
                   <a class="btn">
-                    <span>看更多
+                    <span v-if="isLess[1]">看更多
                       <i class="fa fa-plus" aria-hidden="true"></i>                      
                     </span>
+                    <span v-else>收回
+                      <i class="fa fa-minus" aria-hidden="true"></i>                      
+                    </span>                    
                   </a>
                 </div>          
               </div>
@@ -175,9 +181,12 @@
                 </div>
                 <div class="subpageLink" @click="toggleLess(2)">
                   <a class="btn">
-                    <span>看更多
+                    <span v-if='isLess[2]'>看更多
                       <i class="fa fa-plus" aria-hidden="true"></i>                                            
                     </span>
+                    <span v-else>收回
+                      <i class="fa fa-minus" aria-hidden="true"></i>                                            
+                    </span>                    
                   </a>
                 </div>          
               </div>
@@ -203,7 +212,7 @@
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
-                    <p class="label">偏鄉教育</p>
+                    <p class="label">關懷弱勢</p>
                   </div>                  
                   <h3><b>建學堂、修教室<br>台積電伴讀1000個偏鄉家庭的孩子</b></h3>
                   <p><br></p>
@@ -218,9 +227,12 @@
                 </div>
                 <div class="subpageLink" @click="toggleLess(3)">
                   <a class="btn">
-                    <span>看更多
+                    <span v-if="isLess[3]">看更多
                       <i class="fa fa-plus" aria-hidden="true"></i>                      
                     </span>
+                    <span v-else>收回
+                      <i class="fa fa-minus" aria-hidden="true"></i>                      
+                    </span>                    
                   </a>
                 </div>          
               </div>
@@ -228,7 +240,15 @@
           </div>
         </ContentWrapper>
       </div>    
-      <ContentWrapper backgroundColor='#292b2e' class="footer">
+      <ContentWrapper background-color="#fff">
+        <p><br></p>
+        <h2>留言給我們</h2>
+        <p><br></p>
+        <FBComment :href="location"></FBComment>
+        <p><br></p>        
+      </ContentWrapper>
+      <Foot></Foot>      
+<!--       <ContentWrapper backgroundColor='#292b2e' class="footer">
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
@@ -241,11 +261,11 @@
             <p>地址 : 300 新竹科學園區力行六路8號</p>
           </div>        
         </div>
-      </ContentWrapper>      
+      </ContentWrapper> -->      
     </div>
-    <Overlay mainContainer="campaigns" :show="showMessageBoard">
+<!--     <Overlay mainContainer="campaigns" :show="showMessageBoard">
       <FBComment :href="location"></FBComment>      
-    </Overlay>    
+    </Overlay>     -->
   </FadeInDown>
 </template>
 
@@ -253,6 +273,7 @@
 import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
+import Foot from '~/components/Foot.vue'
 import Overlay from '~/components/Overlay.vue'
 import Bodymovin from '~/components/Bodymovin.vue'
 import FBComment from '~/components/FBComment.vue'
@@ -318,7 +339,7 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay, FBComment, FadeInDown
+    HeadBar, ContentWrapper, ColumnTwo, Quote, Bodymovin, Overlay, FBComment, FadeInDown, Foot
   },
   created: function () {
     // 關閉留言區
@@ -331,6 +352,7 @@ export default {
       Vue.FB.XFBML.parse();  
     }, 500)
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+
   },    
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
@@ -338,7 +360,13 @@ export default {
   methods: {
     toggleLess: function (whichone) {
       let index = Number(whichone)
-      this.isLess[index] = !this.isLess[index]
+      const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop - window.innerHeight / 3
+      if (this.isLess[index]) {
+        this.isLess[index] = false
+      } else {
+        this.isLess[index] = true
+        window.scrollTo(0, thisOffset)
+      }
       this.$forceUpdate()
     },
     showComments: function () {
@@ -475,7 +503,8 @@ h1.bigtitle.bigtitle {
 
 .workblock{
   background: white;
-  border-radius: 3px;  
+  border-radius: 3px;
+  transition: height 1500ms ease;
 }
 
 @media screen and (max-width: 767px){
@@ -518,7 +547,6 @@ h1.bigtitle.bigtitle {
     padding: 0 40px;
     z-index: 0;
   }
-
 @media screen and (min-width: 768px){
   .workblock{
     padding-left: 80px;
@@ -569,26 +597,26 @@ h1.bigtitle.bigtitle {
 
 .btn {
   cursor: pointer;
-  background-color: #000;
+  background-color: #333;
   border: none;
-  line-height: 60px;
+  line-height: 40px;
   z-index: 0;
-  box-shadow: 0px 0px 17px 1px rgba(0, 0, 0, 0.34);
 }
-
 .textarea .btn{
   transform: translateY(50%);
 }
-
 .btn span {
   color: #fff;
   display: block;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 26px;
+  padding-right: 26px;
+  line-height: 40px;
+  border-radius: 0;
   transform-origin: center left;
   transition: color 0.3s ease;
   position: relative;
   z-index: 1;
+  font-size: 15px;
 }
 .btn:before,
 .btn:after {
@@ -598,6 +626,12 @@ h1.bigtitle.bigtitle {
   width: 0;
   position: absolute;
   transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+@media screen and (max-width: 769px) {
+  .btn:before,
+  .btn:after {
+    background: #333;
+  }  
 }
 .btn:before {
   top: 0;
@@ -627,8 +661,26 @@ h1.bigtitle.bigtitle {
 
 @media screen and (min-width: 1024px){
   .anim{
-    transform: translateX(20%);
+    transform: translate(30%, 20vh);
+    width: 80%;
   }
+  .links{
+    animation: fadeInDown 432ms ease-out;
+    animation-fill-mode: both;
+  }
+  .btn span{
+    font-size: 21px;
+  }
+  @keyframes fadeInDown {
+    from{
+      opacity: 0;
+      transform: translate(0, -30px);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }     
 }
 
 .fa.fa-plus{
@@ -652,7 +704,7 @@ h1.bigtitle.bigtitle {
 .mobbodymov.fg{
   width: 100%;
   z-index: 2;
-  transform: translateY(20%);
+  transform: translateY(16%);
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px){

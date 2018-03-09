@@ -5,7 +5,7 @@
               :src="source" :poster="videoPoster"
               @click='handle_clickVideo' ref='video'></video>
       <div class="video-control">
-        <div class="progress">
+        <div class="progress" :style="{backgroundColor: backgroundColor}">
           <div class="progress-bar progress-bar-striped"
                 :style="{width: progressWidth + '%', backgroundColor: controlColor}" ref="progressbar"></div>
         </div>

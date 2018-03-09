@@ -1,8 +1,8 @@
 <template>
   <FadeInDown>
     <div id="partners">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true'>
-        <div slot="comment" class="links">
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='partners'>
+<!--         <div slot="comment" class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
@@ -11,7 +11,7 @@
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
-        </div>  
+        </div>   -->
       </HeadBar>
       <div class="fullscreen centercenter" style="background: #e4c8a9;">
         <ContentWrapper style="position: relative; width: 100%; height: 100%;">
@@ -101,7 +101,15 @@
             </div>
         </div>
       </ContentWrapper>
-      <ContentWrapper backgroundColor='#292b2e' class="footer">
+      <ContentWrapper style="padding: 3% 0;">
+        <p><br></p>
+        <h2>留言給我們</h2>
+        <p><br></p>        
+        <FBComment :href="location"></FBComment>
+        <p><br></p>        
+      </ContentWrapper>       
+      <Foot></Foot> 
+<!--       <ContentWrapper backgroundColor='#292b2e' class="footer">
         <p><br></p>
         <p><br></p>
         <div class="row" style="position: relative;">
@@ -114,17 +122,18 @@
             <p>地址 : 300 新竹科學園區力行六路8號</p>
           </div>        
         </div>
-      </ContentWrapper>      
+      </ContentWrapper>     -->  
     </div>
-    <Overlay mainContainer="partners" :show="showMessageBoard">
+<!--     <Overlay mainContainer="partners" :show="showMessageBoard">
       <FBComment :href="location"></FBComment>
-    </Overlay>    
+    </Overlay>  -->   
   </FadeInDown>
 </template>
 
 <script>
 import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
+import Foot from '~/components/Foot.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Overlay from '~/components/Overlay.vue'
 import FBComment from '~/components/FBComment.vue'
@@ -141,7 +150,7 @@ if (process.browser) {
 
 export default {  
   components: {
-    HeadBar, ContentWrapper, Overlay, FBComment, FadeInDown
+    HeadBar, ContentWrapper, Overlay, FBComment, FadeInDown, Foot
   },
   /** 
    * 變數:
@@ -235,6 +244,20 @@ export default {
   .hidden-pc{
     display: none!important;
   }
+  .links{
+    animation: fadeInDown 432ms ease-out;
+    animation-fill-mode: both;
+  }
+  @keyframes fadeInDown {
+    from{
+      opacity: 0;
+      transform: translate(0, -30px);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }  
 }
 
 .fullscreen {
@@ -275,27 +298,6 @@ h1.bigtitle.bigtitle {
 .icon p {
   padding-top: 10px;
   text-align: center;
-}
-
-.tsmcfoundation {
-  bottom: 0;
-  right: 0;
-  color:  #717376;
-  margin-top: 10px;
-  padding-left: 10px !important;
-}
-
-@media screen and (min-width: 768px){
-  .tsmcfoundation {
-    position: absolute;
-    border-left: solid 1px;
-    padding-left: 10px;
-    margin-top: 0;
-  }
-}
-
-.tsmclogo img {
-  margin-right: 10px;
 }
 
 .footer .row {
@@ -352,9 +354,9 @@ h1.bigtitle.bigtitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 35%;
+  top: 30%;
   left: 0;
-  width: 100%;
+  width: 120%;
   /*margin-left: -10%;*/
 }
 .cover img{
@@ -369,8 +371,8 @@ h1.bigtitle.bigtitle {
 }
 @media screen and (min-width: 799px) and (max-width: 1023px){
   .cover{
-    width: 60%;
-    top: 40%;
+    width: 80%;
+    top: 35%;
     left: 50%;
     margin-left: -20%;
   }
@@ -378,17 +380,32 @@ h1.bigtitle.bigtitle {
     width: 80%;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .cover{
     position: absolute; 
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 25%;
+    top: 12.5%;
     left: 50%;
     width: 80%;
     margin-left: -20%;
 
+  } 
+  .cover img {
+    width: 60%;
+  }     
+}
+@media screen and (min-width: 1024px) and (max-width: 1279px){
+  .cover{
+    position: absolute; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 12.5%;
+    left: 50%;
+    width: 120%;
+    margin-left: -20%;
   } 
   .cover img {
     width: 60%;

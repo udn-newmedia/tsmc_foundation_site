@@ -28,7 +28,7 @@ h2{
     font-size: 28px;
 }
 p,a{
-    font-size: 21px;
+    font-size: 18px;
     margin: 0;
 }
 .img-say{

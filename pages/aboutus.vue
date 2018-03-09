@@ -1,8 +1,8 @@
 <template>
   <FadeInDown>
     <div id="aboutus">
-      <HeadBar :bookmark-display="stickyAnchors" isNews="true">
-        <div slot="comment" class="links">
+      <HeadBar :bookmark-display="stickyAnchors" isNews="true" isPage="aboutus">
+<!--         <div slot="comment" class="links">
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
@@ -11,7 +11,7 @@
           <div class="link">
             <a @click.prevent="showComments">留言區</a>
           </div>
-        </div>                        
+        </div>     -->                    
       </HeadBar>
       <div class="relative" style="position: relative;">
         <div class="bg-web hidden-mobile"></div>
@@ -24,7 +24,7 @@
         <Quote 
         text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」" 
         :img="quoteImg"
-        refer="－台積電慈善基金會董事長張淑芬"
+        refer="——台積電慈善基金會董事長張淑芬"
         color="#000"
         borderColor="#f2ede4"></Quote>
         <p><br></p>
@@ -80,7 +80,10 @@
       </ContentWrapper>
       <ContentWrapper class="section">
         <Quote 
+        imgPosition="right"
         text="她才發現，讓人堅持的力量，不是來自咬牙苦撐，而是感動與快樂。" 
+        refer="——台積電慈善基金會董事長張淑芬"
+        :img="quoteImg_2"
         color="#000"
         borderColor="#f2ede4"></Quote>
         <p>甚至是進一步分享，希望親友能一起感受，志工告訴她，「專業能在工作以外的地方被需要，是存在的價值被肯定」。</p>
@@ -89,24 +92,18 @@
         <p><br></p>
         <p><br></p>
       </ContentWrapper>
-      <ContentWrapper backgroundColor='#292b2e' class="footer">
+      <ContentWrapper background-color="#fff" style="padding: 3% 0;">
         <p><br></p>
-        <p><br></p>
-        <div class="row" style="position: relative;">
-          <div class="col-lg-6 col-sm-6 tsmclogo">
-            <img :src="tsmcLogo">
-          </div>
-          <div class="col-lg-6 col-sm-6 tsmcfoundation">
-            <p>台積電慈善基金會</p>
-            <p>電話 : 03-563-6688 ext. 712-5030</p>
-            <p>地址 : 300 新竹科學園區力行六路8號</p>
-          </div>        
-        </div>
-      </ContentWrapper>      
+        <h2>留言給我們</h2>
+        <p><br></p>        
+        <FBComment :href="location"></FBComment>
+        <p><br></p>        
+      </ContentWrapper>
+      <Foot></Foot>   
     </div>
-    <Overlay mainContainer="aboutus" :show="showMessageBoard">
-      <FBComment :href="location"></FBComment>      
-    </Overlay>
+<!--     <Overlay mainContainer="aboutus" :show="showMessageBoard">
+      
+    </Overlay> -->
   </FadeInDown>
 </template>
 
@@ -114,6 +111,7 @@
 import Vue from 'vue'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
+import Foot from '~/components/Foot.vue'
 import Overlay from '~/components/Overlay.vue'
 import EmbededVideo from '~/components/EmbededVideo.vue'
 import FBComment from '~/components/FBComment.vue'
@@ -130,6 +128,7 @@ import pic4 from '~/assets/aboutus4.jpg'
 import pic5 from '~/assets/aboutus5.jpg'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import quoteImg from '../assets/quote.png'
+import quoteImg_2 from '../assets/quote2.png'
 // import bgWeb from '~/assets/aboutus_bg_web.jpg'
 // import bgMob from '~/assets/aboutus_bg_mob.jpg'
 
@@ -154,6 +153,7 @@ export default {
       pic4: pic4,
       pic5: pic5,
       quoteImg: quoteImg,
+      quoteImg_2: quoteImg_2,
       // bgWeb: bgWeb,
       // bgMob: bgMob,
       showMessageBoard: false,
@@ -161,7 +161,7 @@ export default {
     }
   },
   components: {
-    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment, FadeInDown
+    HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment, FadeInDown, Foot
   },
   created: function () {
     // 關閉留言區
@@ -227,6 +227,20 @@ export default {
   .hidden-pc{
     display: none!important;
   }
+  .links{
+    animation: fadeInDown 432ms ease-out;
+    animation-fill-mode: both;
+  }
+  @keyframes fadeInDown {
+    from{
+      opacity: 0;
+      transform: translate(0, -30px);
+    }
+    to{
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }  
 }
 
 .fullscreen {
@@ -271,30 +285,6 @@ h1.bigtitle.bigtitle {
 .icon p {
   padding-top: 10px;
   text-align: center;
-}
-
-.tsmcfoundation {
-  bottom: 0;
-  right: 0;
-  color:  #717376;
-  margin-top: 10px;
-}
-
-@media screen and (min-width: 768px){
-  .tsmcfoundation {
-    position: absolute;
-    border-left: solid 1px;
-    padding-left: 10px;
-    margin-top: 0;
-  }
-}
-
-.tsmclogo img {
-  margin-right: 10px;
-}
-
-.footer .row {
-  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1023px){

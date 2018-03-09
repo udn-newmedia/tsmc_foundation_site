@@ -1,7 +1,7 @@
 module.exports = {
   router: {
-    // base: '/upf/newmedia/ubrandstudio/'
-    base: '/tsmc_foundation_test/'
+    // base: '/upf/newmedia/tsmc_foundation_test/'
+    base: '/tsmc_foundation_test/',
   },
 
   /*
@@ -24,7 +24,7 @@ module.exports = {
   /*
   ** Customize the progress bar color
   */
-  loading: { color: '#3B8070' },
+  loading: { color: '#70cbfa' },
   /*
   ** Build configuration
   */

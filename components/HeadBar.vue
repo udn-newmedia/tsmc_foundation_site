@@ -1,28 +1,30 @@
 <template>
     <div id="head-bar" :style="{top: top+'px'}">
-        <ContentWrapper 
+        <ContentWrapper>
+          <div id="icon">
+              <!-- <a href="."><img :src="logo"></a> -->
+              <nuxt-link to="/"><img :src="logo"></nuxt-link>
+          </div>          
+        </ContentWrapper>     
+        <ContentWrapper class="myWrapper" :style="{transform: 'translate(0, -'+ headSlideIn +'%)'}"
             background-color="#fff" style="position: relative;">
-            <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc">
+            <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc" style="padding-top: 25px;">
                 <div class="links"
                     v-for="link in titlelist"
                     :key="link.title">
-                    <div class="link">
-                        <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -15px;right: 50%;margin-right: -52.5px">N</div>
+                    <div class="link" :class="{isBold: link.isBold}">
+                        <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -17.5px;right: 50%;margin-right: -57.5px">N</div>
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
                 </div>
                 <slot name='comment-mob'></slot>
-            </div>
-            <div id="icon">
-                <!-- <a href="."><img :src="logo"></a> -->
-                <nuxt-link to="/"><img :src="logo"></nuxt-link>
             </div>
             <div class="icons hidden-mobile"
                     v-show="showlinks">
                 <div class="links" 
                     v-for="link in titlelist"
                     :key="link.title">
-                    <div class="link">
+                    <div class="link" :class="{isBold: link.isBold}">
                         <div class="redNum" v-if="link.isNew">N</div>
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
@@ -61,11 +63,12 @@ export default {
  *  -showlinks: 一開始連結們皆不顯示，待使用者scroll後才顯示
 */    
   name: 'Headbar',
-  props: ['color', 'buttonColor', 'bookmarkDisplay', 'isNews'],
+  props: ['color', 'buttonColor', 'bookmarkDisplay', 'isNews', 'isPage'],
   components: {ContentWrapper},
   data: function () {
     return {
       top: 0,
+      headSlideIn: 100,
       isOpen: false,
       inner: 'inner',
       outer: 'outer',
@@ -75,22 +78,26 @@ export default {
         {
           link: '/news',
           title: '最新動態',
-          isNew: this.isNews
+          isNew: this.isNews,
+          isBold: false
         },
         {
           link: '/aboutus',
           title: '關於我們',
-          isNew: false
+          isNew: false,
+          isBold: false
         },
         {
           link: '/campaigns',
           title: '我們做的事',
-          isNew: false          
+          isNew: false,
+          isBold: false         
         },
         {
           link: '/partners',
           title: '愛互聯',
-          isNew: false          
+          isNew: false,
+          isBold: false         
         }
         // {
         //   link: '',
@@ -116,15 +123,17 @@ export default {
   },
   beforeMount: function () {
     // 等待使用者scroll後，連結區才顯示  
-    window.addEventListener('scroll', this.handleScroll)
+    // window.addEventListener('scroll', this.handleScroll)
+
   },
   beforeDestroyed: function () {
-    window.removeEventListener('scroll', this.handleScroll)
+    // window.removeEventListener('scroll', this.handleScroll)
   },
   destroyed: function () {
-    window.removeEventListener('scroll', this.handleScroll)
+    // window.removeEventListener('scroll', this.handleScroll)
   },  
   mounted: function () {
+    this.handlePage()
     window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
@@ -140,48 +149,75 @@ export default {
     },
     handleScroll: function(event) {
       this.showlinks = true
-      window.removeEventListener('scroll', this.handleScroll) 
-      //   let currentH = window.pageYOffset
-      //   if (currentH < window.innerHeight / 2) {
-      //     this.top = 0
-      //   }else {
-      //     if (window.innerWidth <= 1024) {
-      //         this.top = 4
-      //     }else {
-      //         this.top = 6
-      //     }
-      //   }
+      if(window.pageYOffset > 10) {
+        this.headSlideIn = 0
+        window.removeEventListener('scroll', this.handleScroll) 
+      }
+    },
+    handlePage: function() {
+      switch(this.isPage) {
+        case 'news':
+          this.titlelist[0].isBold = true;
+        break;
+        case 'aboutus':
+          this.titlelist[1].isBold = true;
+        break;
+        case 'campaigns':
+          this.titlelist[2].isBold = true;
+        break;
+        case 'partners':
+          this.titlelist[3].isBold = true;
+        break;
+        default: 
+        break;
+      }
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .redNum{
   position: absolute;
   top: 0;
-  right: -15px;
+  right: -20px;
   z-index: 80;
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 11px;
   color: #fff;
-  border-radius: 2px;
-  background-color: #e72319;
+  border-radius: 50%;
+  background-color: #84d4ff;
+  animation: jumping 555ms ease-out infinite alternate-reverse;
 }
 #head-bar {
     position: fixed;
-    background-color: #ffffff;
+    background-color: transparent;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 99999;
-    transition: opacity 0.7s ease;
 }
-
+.myWrapper{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  // height: 100%;
+  height: 70px;
+  background-color: #fff;
+  transition: opacity 0.7s ease, transform 700ms ease;
+  .content{
+    display: flex;
+  }
+}
+.isBold{
+  font-weight: bold !important;
+}
 @media screen and (max-width: 1023px){  
   .hidden-mobile{
     display: none!important;
@@ -192,16 +228,24 @@ export default {
   .hidden-pc{
     display: none!important;
   }
+  .myWrapper{
+    height: 80px;
+  }
 }
 
 #icon {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    z-index: 99;
+    display: inline-flex;
+    align-items: center;
+    height: 80px;
+    a{
+      width: 235px;
+    }
 }
-
 #icon img {
     /* width: 157px; */
-    width: 180px;
+    width: 235px;
 }
 .icons {
     float: right;
@@ -331,12 +375,12 @@ export default {
         margin-left: 5px;
     }
     #hbutton-contain {
-        top: 79px;
+        top: 70px;
         background-color: #fff;
         height: 100vh;
         width: 100%;
         transition: transform 0.7s ease;
-        transform: translate(0, -110%);
+        transform: translate(110%, 0);
     }
     #hbutton-contain.open {
         transform: translate(0, 0);
@@ -367,8 +411,10 @@ export default {
         height: 80px;
     }
     #icon {
-        height: 50px;
-        line-height: 80px;
+        img{
+          height: 80%;
+          width: auto;
+        }
     }
     
     .icons {
@@ -379,7 +425,10 @@ export default {
         height: 24px;
         margin: 0 5px;
     }
-
+    // .links{
+    //   animation: fadeInDown 432ms ease-out;
+    //   animation-fill-mode: both;
+    // }
 }
 
 .icons .link{
@@ -394,9 +443,11 @@ export default {
 #hbutton-contain .link{
   position: relative;
   display: block;
-  border-bottom: solid 1px black;
-  height: 60px;
-  line-height: 60px;
+  border-bottom: solid 1px lightgray;
+  height: 70px;
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  line-height: 70px;
 }
 
 .links .link{
@@ -409,7 +460,25 @@ export default {
 
 @media screen and (max-width: 1023px){
   #head-bar #icon, #head-bar #hbutton{
-   transform: translateY(50%);
+   transform: translateY(25%);
+  }
+}
+// @keyframes fadeInDown {
+//   from{
+//     opacity: 0;
+//     transform: translate(0, -30px);
+//   }
+//   to{
+//     opacity: 1;
+//     transform: translate(0, 0);
+//   }
+// }
+@keyframes jumping{
+  from{
+    transform: translate(0, 0);
+  }
+  to{
+    transform: translate(0 , -5px)
   }
 }
 </style>

@@ -43,6 +43,7 @@ export default {
     font-size: 17px;
     color: gray;
     margin-top: 5px;
+    line-height: 1.5;
   }
   @media screen and (max-width: 767px){
     .col-md-6{
@@ -60,6 +61,9 @@ export default {
     }
   }
   @media screen and (min-width: 1025px){
+    .img-say{
+      line-height: 2;
+    }
     .left{
       padding-left: 0;
     }

@@ -12,7 +12,7 @@
           <img :src="imgweb2">
         </picture>
       </div>
-      <div class="col-md-12">
+      <div class="col-md-12" style="margin-bottom: 5px">
         <picture  class="bottom">
           <source :srcset="img3" media="(max-width: 1023px)">
           <img :src="imgweb3">
