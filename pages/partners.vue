@@ -1,18 +1,7 @@
 <template>
   <FadeInDown>
     <div id="partners">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='partners'>
-<!--         <div slot="comment" class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>  
-        <div slot='comment-mob' class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>   -->
-      </HeadBar>
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='partners'></HeadBar>
       <div class="fullscreen centercenter" style="background: #e4c8a9;">
         <ContentWrapper style="position: relative; width: 100%; height: 100%;">
           <h1 class="bigtitle" style="position: absolute; top: 20%;">愛互聯</h1>
@@ -159,7 +148,7 @@ export default {
   */ 
   data: function () {
     return {
-      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners',      
       stickyAnchors: true,
       tsmcLogo: tsmcLogo,
       member01: member01,
@@ -354,7 +343,7 @@ h1.bigtitle.bigtitle {
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 30%;
+  top: 20%;
   left: 0;
   width: 120%;
   /*margin-left: -10%;*/
@@ -367,12 +356,23 @@ h1.bigtitle.bigtitle {
   will-change: opacity;
   transition: opacity 0.5s;
   transition-timing-function: ease-out;
-  width: 100%;
+  width: 120%;
+}
+@media screen and (min-width: 768px) and (max-width: 799px) {
+  .cover{
+    width: 110%;
+    top: 25%;
+    left: 50%;
+    margin-left: -30%;
+  }
+  .cover img{
+    width: 100%;
+  }  
 }
 @media screen and (min-width: 799px) and (max-width: 1023px){
   .cover{
     width: 80%;
-    top: 35%;
+    top: 25%;
     left: 50%;
     margin-left: -20%;
   }
@@ -386,14 +386,15 @@ h1.bigtitle.bigtitle {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 12.5%;
+    top: 20%;
     left: 50%;
     width: 80%;
+    max-width: 1100px;
     margin-left: -20%;
 
   } 
   .cover img {
-    width: 60%;
+    width: 80%;
   }     
 }
 @media screen and (min-width: 1024px) and (max-width: 1279px){
@@ -429,6 +430,7 @@ h1.bigtitle.bigtitle {
   width: 0;
   position: absolute;
   transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 4px;
 }
 .btn:before {
   top: 0;
@@ -439,14 +441,18 @@ h1.bigtitle.bigtitle {
   bottom: 0;
   left: 0;
 }
-.btn:hover:before {
-  width: 0;
-  left: 0;
-}
-.btn:hover:after {
-  width: 100%;
-  left: 0;
-  right: auto;
+@media screen and (min-width: 1024px) {
+  .btn:hover:before {
+    width: 0;
+    left: 0;
+    border-radius: 4px;
+  }
+  .btn:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+    border-radius: 4px;
+  }  
 }
 
 .partner {

@@ -18,7 +18,7 @@ if (process.browser) {
 }
 export default {
   name: 'Bodymovin',
-  props: ['jsonfile', 'MOBjsonfile', 'PADjsonfile', 'pcwidth', 'pcheight', 'isLoop', 'isAutoplay'],
+  props: ['jsonfile', 'MOBjsonfile', 'PADjsonfile', 'pcwidth', 'pcheight', 'isLoop', 'isAutoplay', 'setClass'],
   data: function () {
     return {
       device: null,
@@ -66,7 +66,10 @@ export default {
       renderer: 'svg',
       loop: self.loop,
       autoplay: self.autoPlay,
-      path: filepath    
+      path: filepath,
+      rendererSettings: {
+        className: self.setClass
+      }
     }
     bodymovin.loadAnimation(bodymovinobj)
   }

@@ -6,7 +6,7 @@
                     <img :src="img">
                 </div>
             </div>
-            <div :class="dynamicClass" style="padding-top: 20px;">
+            <div :class="dynamicClass" class='pushpadtop'>
                 <div class="quote-text" v-html="text" v-bind:style="{color: color}"></div>
                 <div class="quote-ref">{{refer}}</div>
             </div>
@@ -78,7 +78,7 @@ export default {
         .quote-img{
             text-align: center;
             img{
-                width: 100%;
+                width: 60%;
             }
         }
         .quote-text{
@@ -98,6 +98,9 @@ export default {
         }
         .quote-ref{
             font-size: 17px;
+        }
+        .pushpadtop{
+            padding-top: 20px;
         }
     }
 </style>

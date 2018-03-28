@@ -24,7 +24,7 @@
                 <div class="links" 
                     v-for="link in titlelist"
                     :key="link.title">
-                    <div class="link" :class="{isBold: link.isBold}">
+                    <div class="link" ><!-- :class="{isBold: link.isBold}" -->
                         <div class="redNum" v-if="link.isNew">N</div>
                         <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
                     </div>                    
@@ -133,6 +133,7 @@ export default {
     // window.removeEventListener('scroll', this.handleScroll)
   },  
   mounted: function () {
+    console.log('head mout')
     this.handlePage()
     window.addEventListener('scroll', this.handleScroll);
   },
@@ -199,7 +200,11 @@ export default {
     width: 100%;
     top: 0;
     left: 0;
+    right: 0;
     z-index: 99999;
+}
+.nuxt-link-active{
+  font-weight: bold !important;
 }
 .myWrapper{
   position: absolute;
@@ -437,7 +442,7 @@ export default {
 }
 
 .link a{
-    color: black;    
+    color: black;
 }
 
 #hbutton-contain .link{

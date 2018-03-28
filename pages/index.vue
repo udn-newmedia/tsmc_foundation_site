@@ -1,20 +1,9 @@
 <template>
   <FadeInDown>
     <div id="index">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true' menuSlideFrom="right">
-<!--         <div slot="comment" class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>  
-        <div slot='comment-mob' class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>   -->
-      </HeadBar>
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' menuSlideFrom="right"></HeadBar>
       <div class="fullscreen centercenter" style="position: relative; overflow: hidden;">
-        <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
+<!--         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin> -->
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%;"></Bodymovin>
         <ContentWrapper style="padding:0; z-index: 2;">
           <Bodymovin jsonfile="./index_cover/web/data.json" MOBjsonfile="./index_cover/mobile/data.json" PADjsonfile="./index_cover/pad/data.json" style="width: 100%;　z-index: 2;"></Bodymovin>
@@ -50,7 +39,7 @@
         </div>        
       </ContentWrapper>
       <ContentWrapper>
-        <EmbededVideo :src="indexvideo_mob" :srcWeb="indexvideo"></EmbededVideo>
+        <EmbededVideo :src="indexvideo_mob" :srcWeb="indexvideo" :poster="indexposter_mob" :posterWeb="indexposter_web"></EmbededVideo>
       </ContentWrapper>
       <ContentWrapper>
         <div class="hidden-pc" style="margin-top: 10px;">
@@ -63,7 +52,7 @@
             <img :src="indexWeb2" style="width: 100%">
           </div>
           <div class="col-lg-1 col-sm-1"></div>
-          <div class="col-lg-4 col-sm-6">
+          <div class="col-lg-4 col-sm-5 col-sm-6">
             <h3>救人不只是捐款</h3>
             <p>花蓮震災不是起始點，回顧高雄氣爆滿月時，災區滿街飄揚一幅幅紅布條，是災民對台積電的感謝。災後第一時間，台積電得知災區缺工，決定捐錢也做事，重建團隊直接進駐災區。</p>
             <p><br></p>
@@ -85,19 +74,19 @@
         <p><br></p>
         <div class="row iconWrapper">
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/news">
-            <img :src="indexicon4">
-            <p>最新消息</p>
+            <img :src="indexicon4" style="display: block; margin: auto">
+            <p>最新動態</p>
           </nuxt-link>                          
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus">
-            <img :src="indexicon2">
+            <img :src="indexicon2" style="display: block; margin: auto">
             <p>關於我們</p>          
           </nuxt-link>              
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns">
-            <img :src="indexicon3">
+            <img :src="indexicon3" style="display: block; margin: auto">
             <p>我們做的事</p>
           </nuxt-link>
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
-            <img :src="indexicon1">
+            <img :src="indexicon1" style="display: block; margin: auto">
             <p>愛互聯</p>
           </nuxt-link>
         </div>
@@ -156,6 +145,8 @@ import indexicon4 from '~/assets/ICON-4.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import newest from '~/assets/newest.svg'
 import indexvideo_mob from '../assets/indexvideo_mob.mp4'
+import indexposter_mob from '../assets/mob_index_video_post.jpg'
+import indexposter_web from '../assets/web_index_video_post.jpg'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
@@ -178,10 +169,12 @@ export default {
   },  
   data: function () {
     return {
-      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/',
       stickyAnchors: true,
       indexvideo: indexvideo,
       indexvideo_mob: indexvideo_mob,
+      indexposter_mob: indexposter_mob,
+      indexposter_web: indexposter_web,
       indexMob1: indexMob1,
       indexWeb1: indexWeb1,
       indexMob2: indexMob2,
@@ -235,6 +228,7 @@ export default {
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
   word-wrap: break-word;
   text-align: justify;
+  position: relative;
 }
 
 @media screen and (max-width: 767px){  
@@ -277,8 +271,38 @@ export default {
 .fullscreen {
   width: 100%;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  animation: changeColor 7000ms infinite linear;
 }
-
+@keyframes changeColor {
+  0%{
+    background-color: #E5CAAB;
+  }
+  32.666%{
+   background-color: #E5CAAB; 
+  }
+  32.704%{
+    background-color: #FEFCF2;
+  }
+  63.734%{
+   background-color: #FEFCF2; 
+  }
+  63.852%{
+    background-color: #DFC5DE;
+  }
+  96.128%{
+   background-color: #DFC5DE; 
+  }
+  96.2406%{
+    background-color: #E5CAAB;
+  }
+  100%{
+    background-color: #E5CAAB;
+  }
+}
 .centercenter {
   display: flex;
   justify-content: center;
@@ -333,11 +357,8 @@ export default {
 .btn {
   cursor: pointer;
   background-color: #333;
-  /* width: 330px; */
-  /* height: 64px; */
   line-height: 40px;
   border: none;
-  /*border-radius: 0;*/
   z-index: 0;
 }
 .btn span {
@@ -346,7 +367,6 @@ export default {
   padding-left: 26px;
   padding-right: 26px;
   line-height: 40px;
-  border-radius: 0;
   transform-origin: center left;
   transition: color 0.3s ease;
   position: relative;
@@ -370,14 +390,19 @@ export default {
   bottom: 0;
   left: 0;
 }
-.btn:hover:before {
-  width: 0;
-  left: 0;
-}
-.btn:hover:after {
-  width: 100%;
-  left: 0;
-  right: auto;
+
+@media screen and (min-width: 1024px) {
+  .btn:hover:after {
+    width: 100%;
+    left: 0;
+    border-radius: 4px;
+    right: auto;
+  }
+  .btn:hover:before {
+    width: 0;
+    left: 0;
+    border-radius: 4px;
+  }  
 }
 
 .subpageLink {

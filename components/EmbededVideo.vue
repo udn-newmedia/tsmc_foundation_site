@@ -3,7 +3,7 @@
     <div class="video-contain" :style="{backgroundColor: backgroundColor}">
       <video preload="metadata" playsinline
               :src="source" :poster="videoPoster"
-              @click='handle_clickVideo' ref='video'></video>
+              @click='handle_clickVideo' ref='video' controls></video>
       <div class="video-control">
         <div class="progress" :style="{backgroundColor: backgroundColor}">
           <div class="progress-bar progress-bar-striped"
@@ -145,12 +145,12 @@ export default {
           // Send GA every 5 seconds
           if (Math.floor(curTime / 5) > self.progress) {
             self.progress = Math.floor(curTime / 5)
-            // ga("send", {
-            //     "hitType": "event",
-            //     "eventCategory": "video",
-            //     "eventAction": "play",
-            //     "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + thisvideo.currentSrc + "] [已觀看 " + Math.floor(curTime) + ' / ' + Math.floor(thisvideo.duration) + " 秒]"
-            // });          
+            ga("send", {
+                "hitType": "event",
+                "eventCategory": "video",
+                "eventAction": "play",
+                "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + thisvideo.currentSrc + "] [已觀看 " + Math.floor(curTime) + ' / ' + Math.floor(thisvideo.duration) + " 秒]"
+            });          
           }
         }, 600)
       }

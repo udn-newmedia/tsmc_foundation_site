@@ -25,7 +25,7 @@
         text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」" 
         :img="quoteImg"
         refer="——台積電慈善基金會董事長張淑芬"
-        color="#000"
+        color="#333"
         borderColor="#f2ede4"></Quote>
         <p><br></p>
         <h2>做到最實在 台積電與高雄氣爆</h2>
@@ -57,7 +57,7 @@
         <p>期間，台積電念及災區家長們，正經歷人生最艱困一刻，災區的孩子們，則是有家歸不得，因此志工們集思廣益，打造歡樂的夏令營活動，將孩子們暫時帶離重建中的破碎家園，療癒一個個幼小心靈中，因災害造成的創傷和恐懼。</p>
       </ContentWrapper>
       <ContentWrapper class="section">
-        <h2>做到最實在 台積電與高雄氣爆</h2>
+        <h2>被需要 台積電有溫度了</h2>
         <p><br></p>
         <p>台積電慈善基金會今年正式成立，延續以往做公益的智慧。志工們還是堅持要走到第一線，去感受問題，去碰觸受助者真正的需求。</p>
         <p><br></p>
@@ -84,8 +84,9 @@
         text="她才發現，讓人堅持的力量，不是來自咬牙苦撐，而是感動與快樂。" 
         refer="——台積電慈善基金會董事長張淑芬"
         :img="quoteImg_2"
-        color="#000"
+        color="#333"
         borderColor="#f2ede4"></Quote>
+        <p><br/></p>
         <p>甚至是進一步分享，希望親友能一起感受，志工告訴她，「專業能在工作以外的地方被需要，是存在的價值被肯定」。</p>
         <p><br></p>
         <p>「現在的台積電有溫度了，我感覺到他們活起來了」張淑芬說，以往員工都冷冷的，不問好、不笑，現在變得熱情，見到她會笑著大聲說早，連主管驚訝，沒見過同仁這麼熱情的模樣。</p>
@@ -143,7 +144,7 @@ export default {
   */
   data: function () {
     return {
-      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus',      
       stickyAnchors: true,
       indexvideo: indexvideo,
       tsmcLogo: tsmcLogo,

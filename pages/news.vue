@@ -1,5 +1,5 @@
 <template>
-  <FadeInDown>
+  <FadeInDown :class="{mustOverflow: useOverflow}">
     <div id="news">
       <HeadBar :bookmark-display="stickyAnchors" :isNews='false' isPage="news"></HeadBar>
       <div class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
@@ -29,7 +29,7 @@
         </ContentWrapper>
         <ContentWrapper>
           <h1 class="bigtitle hidden-pc" style="margin-top: 20%; margin-bottom: 20px;">最新<br>動態</h1>          
-          <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="#e4c8a9" control-color="#333"></EmbededVideo>
+          <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" :poster="news_video_poster" :posterWeb="news_video_poster" background-color="#e4c8a9" control-color="#333"></EmbededVideo>
         </ContentWrapper>
       </div>
       <ContentWrapper>
@@ -121,6 +121,8 @@ import titleimg from '~/assets/title_news.svg'
 import titleimgmob from '~/assets/title_news_mob.svg'
 import titlefont from '../static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf'
 
+import news_video_poster from '../assets/news_video_post.jpg'
+
 import img1 from '~/assets/1.jpg'
 import img2 from '~/assets/2.jpg'
 import img3 from '~/assets/3.jpg'
@@ -151,6 +153,7 @@ import ArticleMedia_6_5 from '../assets/news/6-5.jpg'
 import ArticleMedia_6_6 from '../assets/news/6-6.jpg'
 import ArticleMedia_6_7 from '../assets/news/6-7.jpg'
 import ArticleMedia_6_8 from '../assets/news/6-video.mp4'
+import ArticleMedia_6_9 from '../assets/news/6-poster.jpg'
 import ArticleMedia_7 from '../assets/news/7.jpg'
 import ArticleMedia_8 from '../assets/news/8.jpg'
 import ArticleMedia_8_2 from '../assets/news/8-2.jpg'
@@ -184,8 +187,9 @@ export default {
   */  
   data: function () {
     return {
-      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news',      
       stickyAnchors: true,
+      useOverflow: false,
       indexMob1: indexMob1,
       indexWeb1: indexWeb1,
       indexMob2: indexMob2,
@@ -195,6 +199,7 @@ export default {
       newsphoto: newsphoto,
       titleimg: titleimg,
       titleimgmob: titleimgmob,
+      news_video_poster: news_video_poster,
       showMessageBoard: false,
       sendData: null,
       page: 1,
@@ -336,7 +341,7 @@ export default {
             '台積電的員工在2015集資208萬元，捐贈門諾醫院2輛保溫送餐車，讓溫熱的餐點可以送抵最偏鄉的獨老家中，2年來，每輛送餐車跑了十幾萬公里，每個月送餐約4000份。台積產品發展副處長林志賢說，一直在思考除了捐車之外，還怎麼能做得更好更完善。',
             {
               'src': ArticleMedia_6_8,
-              'poster': null
+              'poster': ArticleMedia_6_9,
             },
             '而門諾基金會以藍大姊個案，向台積電提出「手心翻轉」計畫，鼓勵更多被幫助的人站出來幫助他人，而這計畫得到公司內很大的迴響，短短2個星期內，就有332名員工募集到100萬元，要贊助這個計畫，讓曾受過幫助的朋友，有機會、有能力來幫助更需要的朋友，讓愛繼續循環。',
             '57歲的藍大姊每天都騎著腳腳踏車，為附近的長輩送餐，還不忘親切地跟長輩們寒暄問暖，讓阿公阿嬤「揪感心」，每天殷切的盼她來到。送餐守護中心組長吳柏宏表示，藍大姊的丈夫早年離世，膝下無子女，本身罹癌、有三高又曾中風，在4年前由縣府轉介接受門諾基金會的送餐服務。藍大姊因找工作不易，思想十分負面，認為自己一輩子就是得要接受政府幫忙。',
@@ -581,14 +586,12 @@ export default {
   },
   mounted: function () {
     // 載入 FB sdk
+    console.log('mounted news')
     this.isFBReady = Vue.FB != undefined
     setTimeout(function(){
       Vue.FB.XFBML.parse();  
     }, 500)
     window.addEventListener('fb-sdk-ready', this.onFBReady)
-  },
-  updated: function() {
-    window.scrollTo(0, this.$refs.newsGroup.$el.offsetTop - 50);
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
@@ -596,10 +599,12 @@ export default {
   },
   methods: {
     changePage: function (msg) {
+      window.scrollTo(0, this.$refs.newsGroup.$el.offsetTop - 50);
       switch (msg) {
         case 'previous':
           if (this.page > 1) {
             this.page--
+            window.scrollTo(0, this.$refs.newsGroup.$el.offsetTop - 50);
           }
           break
         case 'next':
@@ -620,15 +625,17 @@ export default {
     },
     showComments: function (index) {
       this.showMessageBoard = true
-
+      this.useOverflow = true
       this.sendData = this.newslist[(this.page - 1) * 6 + index]
     },
     showCoverComment: function () {
       this.showMessageBoard = true
+      this.useOverflow = true
       this.sendData = this.coverNew
     },
     closeOverlay: function () {
-      this.showMessageBoard = false      
+      this.showMessageBoard = false   
+      this.useOverflow = false   
     },
     onFBReady: function () {
       this.isFBReady = true
@@ -882,10 +889,7 @@ nav{
 .btn {
   cursor: pointer;
   background-color: #333;
-  /* width: 330px; */
-  /* height: 64px; */
   line-height: 40px;
-  // border-radius: 0;
   z-index: 0;
 }
 .btn span {
@@ -894,7 +898,6 @@ nav{
   padding-left: 13px;
   padding-right: 13px;
   line-height: 40px;
-  border-radius: 0;
   transform-origin: center left;
   transition: color 0.3s ease;
   position: relative;
@@ -918,16 +921,20 @@ nav{
   bottom: 0;
   left: 0;
 }
-.btn:hover:before {
-  width: 0;
-  left: 0;
-}
-.btn:hover:after {
-  width: 100%;
-  left: 0;
-  right: auto;
-}
 
+@media screen and (min-width: 1024px) {
+  .btn:hover:before {
+    width: 0;
+    left: 0;
+    border-radius: 4px;
+  }
+  .btn:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+    border-radius: 4px;
+  }
+}
 .subpageLink {
  position: absolute;
  bottom: 0;
@@ -964,5 +971,11 @@ nav{
   text-decoration: none;
   cursor: pointer;
   margin: 0 10px;
+}
+.mustOverflow{
+  position: fixed;
+  width: 100% !important;
+  height: 100vh !important;
+  overflow: hidden;
 }
 </style>

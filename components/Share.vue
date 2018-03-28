@@ -18,6 +18,7 @@ export default {
     props: ['href'],
     methods: {
         lineShare: function() {
+            const self = this
             ga("send", {
                 "hitType": "event",
                 "eventCategory": "Line Share",
@@ -26,24 +27,26 @@ export default {
             });
             if(Utils.detectMob()){
                 //手機
-                window.location.href="//line.me/R/msg/text/?" + document.querySelector('title').innerHTML + "%0D%0A%0D%0A" + document.querySelector('meta[property="og:description"]').content + "%0D%0A%0D%0A" + window.location.href;
+                window.open("//line.me/R/msg/text/?" + document.querySelector('title').innerHTML + "%0D%0A%0D%0A" + document.querySelector('meta[property="og:description"]').content + "%0D%0A%0D%0A" + this.href)
             }else{
-                window.open("https://lineit.line.me/share/ui?url="+window.location.href);
+                window.open("https://lineit.line.me/share/ui?url="+ this.href);
             }
         }
     }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .share-block{
         height: 28px;
+        display: flex;
+        align-items: flex-end;
     }
     .fb-send-block{
         float: left;
         cursor: pointer;
-        margin-left: 5px;
-        margin-top: 2px;
+/*        margin-left: 5px;
+        margin-top: 2px;*/
     }
     .fb-like-block{
         float: left;

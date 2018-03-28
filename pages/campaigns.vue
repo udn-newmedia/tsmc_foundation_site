@@ -1,31 +1,20 @@
 <template>
   <FadeInDown>
     <div id="campaigns">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='campaigns'>
-<!--         <div slot="comment" class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>  
-        <div slot='comment-mob' class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>   -->              
-      </HeadBar>
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='campaigns'></HeadBar>
       <div class="fullscreen centercenter" style="background-color: #c0e6c1;"><!-- #84B785 -->
-        <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;">
+        <ContentWrapper class="hidden-mobile" style="position: relative; height: 100%;z-index: 999;">
           <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們<br>做的事</h1>
           <div class="anim">
             <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="width: 100%;　z-index: 2;" isLoop='false'></Bodymovin>
-          </div>
+            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 2; width: 100%;" isLoop='false' setClass="pcBrain"></Bodymovin>          
+          </div>          
         </ContentWrapper>
-        <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;">
+        <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;z-index: 0;">
           <h1 class="bigtitle hidden-pc" style="position: absolute; top: 10%; z-index: 3;">我們<br>做的事</h1>
         </ContentWrapper>
         <Bodymovin class="hidden-pc mobbodymov bg" jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json"></Bodymovin>
-        <Bodymovin class="hidden-pc mobbodymov fg" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" isLoop="false"></Bodymovin>
+        <Bodymovin class="hidden-pc mobbodymov fg" jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" isLoop="false" setClass="mobBrain"></Bodymovin>
       </div>
       <ContentWrapper class="section firstsection" background-color="#f2ede4">
         <div class="row">
@@ -34,7 +23,7 @@
             <p><br></p>
             <p>談及丈夫張忠謀，如何看待台積電做公益，張淑芬笑著說，「首先就被交代了兩個『不准』」，第一不准強迫他的員工，第二不准碰錢，她爽朗回應，「那正好，我沒有數目觀念！」</p>
             <p><br></p>
-            <p>「我們沒有向台積電拿很多錢，反而讓台積電的公益之路走得更廣」，張淑芬說，台積電的善款不假外求，全是來自公司內部的「台積i公益」捐款平台，只限員工捐款，也公告各地志工人力缺口，鼓勵員工每年花個幾天、甚至幾小時也好，身體力行地參與公益。</p>
+            <p>張淑芬身體力行，帶頭投入服務，台積電從2009年1500名志工，至今已達8000人，她形容自己像老母雞，把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</p>
             <p><br></p>
             <p>她更順水推舟，立下做公益的原則：不亂捐錢、不對外募款。任何的救災必先確實估價，一塊錢一定當兩塊錢用，善款一定從公司會計，直接轉進救災帳戶，「直接、不浪費，這是我們對股東，應該負的責任」。</p>
             <p><br></p>
@@ -55,7 +44,7 @@
             <h3><br></h3>
             <p><br></p>
             <img :src="mobpic1">
-            <h3 style="line-height: 1.8;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
+            <h3 style="line-height: 1.8;text-align: left;"><b>把人「想助人的本性」抓出來，小雞就這樣一隻隻跟上。</b></h3>
           </div>
           <div class="hidden-sm hidden-md hidden-lg">
             <p><br></p>
@@ -71,7 +60,7 @@
         <ContentWrapper background-color="#e0dfdf" class="workblocks">
           <div class="row">
             <div class="col-lg-8 col-sm-8 workblock shiftupward">
-              <div class="col-lg-10 col-sm-10 textarea">
+              <div class="col-lg-11 col-sm-11 textarea QQpadding">
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
@@ -94,7 +83,7 @@
                       text="「只有家裡熱了，才有能力去愛別人。」" 
                       color="#000"
                       borderColor="#fff"></Quote>
-                    <p>她相信「孝道」是改變社會的起點，基金會今年起，積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，讓台南市成為示範區。中央與地方將攜手整合教材與資源，首批由8所國中小種子學校，結合正式課程及非正式活動，啟動孝道教育。</p>                                                
+                    <p>她相信「孝道」是改變社會的起點，2017年初，基金會開始積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，台南市成為示範區，中央與地方攜手整合教材與資源。2017年底，首版孝道教材已送抵全台小學，結合正式課程及非正式活動，啟動孝道教育。</p>                                                
                   </div>
                 </div>
                 <div class="subpageLink" @click="toggleLess(0)">
@@ -117,8 +106,8 @@
             <img class="left shiftupward" :src="webpic3">
             <div class="col-lg-4 col-sm-4"></div>
             <div class="col-lg-8 col-sm-8 workblock">
-              <div class="col-lg-2 col-sm-2"></div>
-              <div class="col-lg-10 col-sm-10 textarea">
+              <div class="col-lg-1 col-sm-1"></div>
+              <div class="col-lg-11 col-sm-11 textarea QQpadding">
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
@@ -162,7 +151,7 @@
         <ContentWrapper background-color="#e0dfdf" class="workblocks section">
           <div class="row">
             <div class="col-lg-8 col-sm-8 workblock shiftupward">
-              <div class="col-lg-10 col-sm-10 textarea">
+              <div class="col-lg-11 col-sm-11 textarea QQpadding">
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
@@ -176,7 +165,7 @@
                   <div v-else>
                     <p>台積電建設新廠前，堅持保留大面積用地，進行生態綠化工程，栽植多種原生樹種及誘鳥、誘蝶植物，作為動物棲息及覓食的場所。2012年成立台積生態志工，至今已接待34所偏鄉學校、千名孩童參訪。</p>
                     <p><br></p>
-                    <p>愛地球，台積電年省9100萬度電，更為樂得為其他企業、學校、醫院與社福機構「電路健檢」，抓出漏電、改善危險老舊線路，將專業與環保理念無償向外分享。「學校跟我們說謝謝，我都說不用！」，董事長張淑芬說，志工只請校方幫忙宣傳到家長會、其他學校，還有哪裡想省電，台積電都願意幫忙。</p>
+                    <p>愛地球，台積電年省9100萬度電，更樂得為其他企業、學校、醫院與社福機構「電路健檢」，抓出漏電、改善危險老舊線路，將專業與環保理念無償向外分享。「學校跟我們說謝謝，我都說不用！」，基金會董事長張淑芬說，志工只請校方幫忙宣傳到家長會、其他學校，還有哪裡想省電，台積電都願意幫忙。</p>
                   </div>
                 </div>
                 <div class="subpageLink" @click="toggleLess(2)">
@@ -207,8 +196,8 @@
             <img class="left shiftupward" :src="webpic9">
             <div class="col-lg-4 col-sm-4"></div>
             <div class="col-lg-8 col-sm-8 workblock">
-              <div class="col-lg-2 col-sm-2"></div>
-              <div class="col-lg-10 col-sm-10 textarea">
+              <div class="col-lg-1 col-sm-1"></div>
+              <div class="col-lg-11 col-sm-11 textarea QQpadding">
                 <div class="paddingtopandbottom">
                   <div class="labelwrapper">
                     <img :src="bulb">
@@ -313,7 +302,7 @@ export default {
   */    
   data: function () {
     return {
-      location: 'http://nmdap.udn.com.tw/tsmc_foundation_site/',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/campaigns',
       stickyAnchors: true,
       mobpic1: mobpic1,
       webpic1: webpic1,
@@ -335,7 +324,7 @@ export default {
       bulb: bulb,
       isLess: [true, true, true, true],
       showMessageBoard: false,
-      isFBReady: false
+      isFBReady: false,
     }
   },
   components: {
@@ -346,12 +335,47 @@ export default {
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
+    const vm = this
     // 載入 FB sdk
     this.isFBReady = Vue.FB != undefined
     setTimeout(function(){
       Vue.FB.XFBML.parse();  
     }, 500)
     window.addEventListener('fb-sdk-ready', this.onFBReady)
+    
+    setTimeout(function() {
+      if(window.innerWidth >= 1024) {
+        $('.pcBrain').children('g').children('g').children('image').eq(7).css('cursor', 'pointer')
+        $('.pcBrain').children('g').children('g').children('image').eq(6).css('cursor', 'pointer')     
+        $('.pcBrain').children('g').children('g').children('image').eq(5).css('cursor', 'pointer')
+        $('.pcBrain').children('g').children('g').children('image').eq(4).css('cursor', 'pointer')
+        $('.pcBrain').children('g').children('g').children('image').eq(7).on('click', function() {
+          vm.handle_scrollTo(2)
+        })
+        $('.pcBrain').children('g').children('g').children('image').eq(6).on('click', function() {
+          vm.handle_scrollTo(3) 
+        })
+        $('.pcBrain').children('g').children('g').children('image').eq(5).on('click', function() {
+          vm.handle_scrollTo(0)
+        })
+        $('.pcBrain').children('g').children('g').children('image').eq(4).on('click', function() {
+          vm.handle_scrollTo(1)
+        })
+      } else {
+        $('.mobBrain').children('g').children('g').children('image').eq(7).on('click', function() {
+          vm.handle_scrollTo(2)
+        })
+        $('.mobBrain').children('g').children('g').children('image').eq(6).on('click', function() {
+          vm.handle_scrollTo(3) 
+        })
+        $('.mobBrain').children('g').children('g').children('image').eq(5).on('click', function() {
+          vm.handle_scrollTo(0)
+        })
+        $('.mobBrain').children('g').children('g').children('image').eq(4).on('click', function() {
+          vm.handle_scrollTo(1)
+        })        
+      }
+    }, 666)
 
   },    
   beforeDestroy: function () {
@@ -360,14 +384,23 @@ export default {
   methods: {
     toggleLess: function (whichone) {
       let index = Number(whichone)
-      const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop - window.innerHeight / 3
+      const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop
       if (this.isLess[index]) {
         this.isLess[index] = false
       } else {
         this.isLess[index] = true
-        window.scrollTo(0, thisOffset)
+        $('html').animate({
+          scrollTop: thisOffset
+        }, 555)
       }
       this.$forceUpdate()
+    },
+    handle_scrollTo: function(index) {
+      console.log('click env')
+      const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop
+      $('html').animate({
+        scrollTop: thisOffset,
+      }, 555)
     },
     showComments: function () {
       this.showMessageBoard = true
@@ -378,12 +411,12 @@ export default {
     },
     onFBReady: function () {
       this.isFBReady = true
-    }
+    },
   }
 }
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 @font-face {
   font-family: 'GenJyuuGothic';
   src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
@@ -505,6 +538,9 @@ h1.bigtitle.bigtitle {
   background: white;
   border-radius: 3px;
   transition: height 1500ms ease;
+  h3{
+    line-height: 1.5;
+  }
 }
 
 @media screen and (max-width: 767px){
@@ -549,8 +585,8 @@ h1.bigtitle.bigtitle {
   }
 @media screen and (min-width: 768px){
   .workblock{
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .workblock.shiftupward{
@@ -578,9 +614,9 @@ h1.bigtitle.bigtitle {
     left: 0;
   }
 
-  .textarea{
-    padding-right: 0;
-  }
+  // .textarea{
+  //   padding-right: 0;
+  // }
 
   .textarea button{
     position: absolute;
@@ -591,7 +627,6 @@ h1.bigtitle.bigtitle {
 
   .workblock .paddingtopandbottom{
     padding-top: 80px;
-    padding-bottom: 80px;
   }
 }
 
@@ -642,16 +677,6 @@ h1.bigtitle.bigtitle {
   bottom: 0;
   left: 0;
 }
-.btn:hover:before {
-  width: 0;
-  left: 0;
-}
-.btn:hover:after {
-  width: 100%;
-  left: 0;
-  right: auto;
-}
-
 .subpageLink {
  position: relative; 
  display: block;
@@ -661,8 +686,8 @@ h1.bigtitle.bigtitle {
 
 @media screen and (min-width: 1024px){
   .anim{
-    transform: translate(30%, 20vh);
-    width: 80%;
+    transform: translate(40%, 15vh);
+    width: 70%;
   }
   .links{
     animation: fadeInDown 432ms ease-out;
@@ -671,6 +696,17 @@ h1.bigtitle.bigtitle {
   .btn span{
     font-size: 21px;
   }
+  .btn:hover:before {
+    width: 0;
+    left: 0;
+    border-radius: 4px;
+  }
+  .btn:hover:after {
+    width: 100%;
+    left: 0;
+    right: auto;
+    border-radius: 4px;
+  }  
   @keyframes fadeInDown {
     from{
       opacity: 0;
@@ -700,6 +736,7 @@ h1.bigtitle.bigtitle {
   left: 0; 
   z-index: 0; 
   width: 100%;
+  height: 100vh;
 }
 .mobbodymov.fg{
   width: 100%;
@@ -709,8 +746,15 @@ h1.bigtitle.bigtitle {
 
 @media screen and (min-width: 768px) and (max-width: 1023px){
   .section.firstsection{
-    padding-top: 250px;
+    padding-top: 50px;
   }
+  .mobbodymov.fg{
+    position: absolute;
+    top: 0;
+    left: 15%;
+    width: 70%;
+    z-index: 2;
+  }  
 }
 
 .label{
@@ -727,5 +771,98 @@ h1.bigtitle.bigtitle {
   width: 34px; 
   height: 54px;
 }
-
+.noHead{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  z-index: 999;
+}
+@media screen and (min-width: 1024px) {
+  .noHead{
+    height: 60vh;
+    width: auto;
+  }
+}
+.brain{
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.clickEnv{
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  margin-top: -38%;
+  margin-left: 18%;
+  animation: fadeIn 666ms ease-out;
+  animation-fill-mode: both;  
+  animation-delay: 1888ms;
+}
+.clickTeach{
+  position: absolute;
+  z-index: 10;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  margin-top: -10%;
+  animation: fadeIn 666ms ease-out;
+  animation-fill-mode: both;  
+  animation-delay: 2444ms;
+}
+.clickChild{
+  position: absolute;
+  z-index: 10;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  margin-top: -42%;
+  margin-left: -41%;  
+  animation: fadeIn 666ms ease-out;
+  animation-fill-mode: both;  
+  animation-delay: 1222ms;
+}
+.clickOld{
+  position: absolute;
+  z-index: 10;
+  width: 25%;
+  top: 50%;
+  left: 50%;
+  margin-top: -60%;
+  margin-left: -5%;
+  animation: fadeIn 666ms ease-out;
+  animation-fill-mode: both;
+  animation-delay: 888ms;
+}
+.QQpadding{
+  padding: 0 25px;
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .QQpadding{
+    padding: 0 50px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .QQpadding{
+    padding: 0 50px;
+  }
+}
+@keyframes fadeIn {
+  from{
+    opacity: 0;
+    transform: translate(0, 10px);
+  }
+  to{
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
 </style>

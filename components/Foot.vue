@@ -32,17 +32,19 @@ export default {
     }
   },
   methods: {
-    handle_resize: function() {
-      this.$forceUpdate()
+    showRWD: function () {
+      if(window.innerWidth <= 768) {
+        this.theMob = false
+      } else {
+        this.theMob = true
+      }      
     }
   },
   mounted: function() {
-  	if(window.innerWidth < 768) {
-  		this.theMob = false
-  	} else {
-  		this.theMob = true
-  	}
-    window.addEventListener('resize', this.handle_resize)
+    this.showRWD()
+    window.addEventListener('resize', () => {
+      this.showRWD()
+    })    
   }
 }
 </script>
@@ -62,6 +64,13 @@ export default {
   color:  #717376;
   p{
   	padding-left: 15px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 @media screen and (min-width: 1024px) {

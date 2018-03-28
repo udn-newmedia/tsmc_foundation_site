@@ -11,7 +11,7 @@
         </div>
         <div class="articleContent" v-for="(para, index) in flowData.Article" :key="'para_' + index">
           <ColumnOne v-if="isMedia(para.src) === true" :img1="para.src" :imgweb1="para.src" :imgsay="para.imgsay"></ColumnOne> 
-          <EmbededVideo v-else-if="isMedia(para.src) === 'isVideo'" :src="para.src" :srcWeb="para.src" customControl="true" controlColor="#000"></EmbededVideo>
+          <EmbededVideo v-else-if="isMedia(para.src) === 'isVideo'" :src="para.src" :srcWeb="para.src" :poster="para.poster" :posterWeb="para.poster" customControl="true" controlColor="#000"></EmbededVideo>
           <p v-else>{{para}}</p>
         </div>        
         <div class="reference">
@@ -71,13 +71,11 @@ export default {
     if (this.show) {
       document.getElementById(this.mainContainer).setAttribute('class', 'blur');
     }
-    console.log(typeof this.isMedia(this.testVideo))
   },
   updated: function() {
-    console.log(this.flowData)
+    console.log('updated overlay')
     setTimeout(function(){
       window.FB.XFBML.parse();  
-      console.log(window)
     }, 500)      
   },
   methods: {
@@ -85,7 +83,6 @@ export default {
       const isImg = /\.(png|jpe?g|gif|svg)(\?.*)?$/g
       const isVideo = /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/g
       if(isImg.test(src)){
-        console.log('isImg')
         return true
       } else if (isVideo.test(src)) {
         // console.log('isVideo')
@@ -93,7 +90,6 @@ export default {
         return 'isVideo'
       }
       else {
-        console.log('false')
         return false
       }
     },    
@@ -165,6 +161,7 @@ p{
 #Overlay {
   position: fixed;
   display: block;
+  width: 100%;
   left: 0px;
   top: 0px;
   right: 0px;
