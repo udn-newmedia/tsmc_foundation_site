@@ -28,4 +28,5 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
     不能使用Math.random()
     目前已知有 bodymovin 和 generate後的vendor檔會有
     bodymovin: npm install後，進入node_modules > lottie-web > build > player > lottie.js
-    vendor: 收尋 ` Math.random() `，將` Math.random()`改為數字( 可在瀏覽器dev-tool 中的console.直直接輸入` Math.random() `拿console出來的直來取代 )
+    vendor: Search ```js Math.random() ```，將```js Math.random()```改為數字
+    Tip: ( 可在瀏覽器dev-tool 中的console直接執行```js Math.random() ````拿console出來的直來取代 )

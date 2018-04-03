@@ -3,7 +3,7 @@
     <div id="news">
       <HeadBar :bookmark-display="stickyAnchors" :isNews='false' isPage="news"></HeadBar>
       <div class="fullscreen" style="position: absolute; left: 0; top: 0; z-index: 0;">
-        <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; width: 100%;"></Bodymovin>        
+        <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; width: 100%;"></Bodymovin>
       </div>
       <ContentWrapper class="fullscreen hidden-mobile" style="position: absolute; left: 0; top: 0; z-index: 0;">
         <h1 class="bigtitle" style="position: absolute; top: 20%;">最新<br>動態</h1>
@@ -20,16 +20,16 @@
               <div class="subpageLink">
                 <a class="btn" :href="coverNew.link" target="_blank" @click.prevent="showCoverComment()">
                   <span>完整內文
-                    <i class="fa fa-external-link" aria-hidden="true"></i>                  
+                    <i class="fa fa-external-link" aria-hidden="true"></i>
                   </span>
                 </a>
-              </div>          
+              </div>
             </div>
           </div>
         </ContentWrapper>
         <ContentWrapper>
-          <h1 class="bigtitle hidden-pc" style="margin-top: 20%; margin-bottom: 20px;">最新<br>動態</h1>          
-          <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" :poster="news_video_poster" :posterWeb="news_video_poster" background-color="#e4c8a9" control-color="#333"></EmbededVideo>
+          <h1 class="bigtitle hidden-pc" style="margin-top: 20%; margin-bottom: 20px;">最新<br>動態</h1>
+          <EmbededVideo class="newsvideo" :src="newsvideo" :srcWeb="newsvideo" background-color="#e4c8a9" control-color="#333"></EmbededVideo>
         </ContentWrapper>
       </div>
       <ContentWrapper>
@@ -43,7 +43,7 @@
                 <i class="fa fa-external-link" aria-hidden="true"></i>
               </span>
             </a>
-          </div>          
+          </div>
         </div>
       </ContentWrapper>
       <ContentWrapper class="section" ref='newsGroup'>
@@ -60,7 +60,7 @@
             <div class="subpageLink">
               <a class="btn" :href="news.link" target="_blank"  @click.prevent="showComments(index)">
                 <span>完整內文
-                  <i class="fa fa-external-link" aria-hidden="true"></i>                                                    
+                  <i class="fa fa-external-link" aria-hidden="true"></i>
                 </span>
               </a>
             </div>
@@ -85,17 +85,17 @@
             </a>
           </li>
         </ul>
-      </nav>    
+      </nav>
       <ContentWrapper background-color="#fff" style="padding: 3% 0;">
         <p><br></p>
         <h2>留言給我們</h2>
         <p><br></p>
         <FBComment :href="location"></FBComment>
-        <p><br></p>        
-      </ContentWrapper>         
-      <Foot></Foot>  
+        <p><br></p>
+      </ContentWrapper>
+      <Foot></Foot>
     </div>
-    <Overlay mainContainer="news" :show="showMessageBoard" :flowData="sendData"></Overlay>    
+    <Overlay mainContainer="news" :show="showMessageBoard" :flowData="sendData"></Overlay>
   </FadeInDown>
 </template>
 
@@ -177,17 +177,17 @@ import ArticleMedia_14_4 from '../assets/news/14-4.jpg'
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
   require('~/components/Overlay.vue')
-  // require('~/plugins/pageLoadAnim.js')  
+  // require('~/plugins/pageLoadAnim.js')
 }
 
 export default {
-  /** 
+  /**
    * 變數:
-   *  - showMessageBoard: (true or false) 是否顯示留言區 
-  */  
+   *  - showMessageBoard: (true or false) 是否顯示留言區
+  */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news',
       stickyAnchors: true,
       useOverflow: false,
       indexMob1: indexMob1,
@@ -205,22 +205,24 @@ export default {
       page: 1,
       isFBReady: false,
       coverNew:{
-        title: '重回教育體制',
-        subTitle: '埋下讓台灣暖起來的種子',
-        text: '奠基於董事長張淑芬每一次握緊獨居老人的手，心頭湧起的期盼：假如每個家都重視孝道，台灣的獨居老人、偏鄉教養問題，就能從根本獲得改善。「獨居老人看著你的眼神，那種寂寞」...',
-        link: 'https://udn.com/news/story/6885/2605338',
+        title: '除了捐款',
+        subTitle: '台積電還做了哪些事？',
+        text: '上月6日花蓮發生強震，台積電慈善基金會董事長張淑芬於災害發生後第一時間親臨現場訪視災民，並研擬出台積電對於此次災後復原協助方向...',
+        link: 'https://udn.com/news/story/11809/3040848',
         img: img5,
-        ArticleTitle: "重回教育體制 埋下讓台灣暖起來的種子",
-        ArticleTime: '2017-07-26',
+        ArticleTitle: "除了捐款 台積電還做了哪些事？",
+        ArticleTime: '2018-03-20',
         Article: [
           {
             'src': CoverNewsMedia,
-            'imgsay': null
+            'imgsay': '圖為花蓮強震過後，台積電志工團隊進駐，為花蓮市弱勢家戶修繕受創的家園。報系資料照'
           },
-          '全國教育局處長會議今天在新竹縣登場，台積電慈善基金會董事長張淑芬受邀演講，呼籲復興孝道精神。教育部承諾發展教材，並在全國選出8所中小學擔任種子學校。',
-          '張淑芬今天受邀演講「復興孝道的起心動念」，她提到社會中有許多獨居老人，缺乏親人照顧，因此希望各界一同重視「孝道」的精神，並從體制內做起，從學校就要加強教育。',
-          '張淑芬提到，最近看到一份教育部的公文，擬把孝道放入「教綱」內，讓她感動到想哭。教育部國教署長邱乾國會後受訪表示，並非要納入十二年國教課綱，而是發展與孝道有關的教案、教材和教學資源。',
-          '邱乾國說，首批會在全國選出8所國中小，漸次推動孝道教材，可結合正式課程，也可透過活動方式推廣。'
+          '上月6日花蓮發生強震，台積電慈善基金會董事長張淑芬於災害發生後第一時間親臨現場訪視災民，並研擬出台積電對於此次災後復原協助方向。對比花蓮縣政府善款使用方式遭受批評，受災戶大讚「好險有台積電」，指出台機電對受災戶的協助最直接快速。館長陳之漢收回捐給花蓮縣政府的捐款後，發文表示自己將把100萬善款改捐給台積電。',
+          '台積電對於災民協助親力親為，讓館長陳之漢決定將收回的款項改捐台積電。網友贊同回應「台積電真的很甘心，高雄氣爆他們也幫很多忙」，紛紛留言稱讚台積電，表示當初高雄氣爆發生時，張淑芬甚至親自做義工，台積電也協助疏通便道、修繕屋宅、清理積水等，「台機電是台灣最後的良心」。',
+          '花蓮縣政府將約20億善款中的8億用於紓困石材、觀光業之舉惹議，館長陳之漢要求退款後決定將善款捐給台積電協助災民。過去莫拉克風災、高雄氣爆與八仙塵暴等災害發生時，台積電皆以最有效率的方式協助救災，讓民眾大讚「謝謝台積電」。',
+          '花蓮地震發生當時張淑芬恰好人在花蓮，因此在事發後她親自到現場，強調台積電會以不同方式救災，包括發起募款、提供人力協助、協助災後復原等。台積電表示不與其他企業比較捐錢數目，而是以最實際的行動幫助災民。',
+          '2014年高雄氣爆救災當時，張忠謀曾說「台積電在921地震、88風災時捐了很多錢，但1年後發現捐款還沒用完，受捐單位也不知道如何用錢」，「捐錢的企業捐完之後就覺得盡完責任，但能夠出點力加上錢花在刀口上，這樣最好」。因此張忠謀與張淑芬兩人親臨災區，了解災民需求，再評估如何將錢花在刀口上。',
+          '花蓮地震災後許多地方傳出缺水問題，台積電立即調派10部水車協助，並派遣搬運工幫助災民清理家園。根據台積電擬定的救災三階段方案，農曆年前台積電支援修補水庫，並建立與啟動募款及人力志工招募平台；農曆年後，台積電仿效高雄氣爆的心靈輔導營，帶領災區兒童離開災區；並對政府專業判定的非結構受損住宅，協助修補受損的房舍。有網友在網上發文分享台積電在最短的時間內進場施工、整理災區，協助了200多戶的社區居民，讓他們有家住，不會流落街頭，大讚台積電的高效率。'
         ]
       },
       newslist: [
@@ -234,7 +236,7 @@ export default {
           Article: [
             {
               'src': ArticleMedia_1,
-              'imgsay': '台積電表示，台積公司慈善基金會董事長張淑芬於事發後第一時間親臨受創地區，感同身受當地區民面對天災無情的驚懼擔憂。圖／本報資料照片' 
+              'imgsay': '台積電表示，台積公司慈善基金會董事長張淑芬於事發後第一時間親臨受創地區，感同身受當地區民面對天災無情的驚懼擔憂。圖／本報資料照片'
             },
             '台積電12日宣布，針對本月6日深夜花蓮地區發生規模6.0地震所造成的傷害，台積慈善基金會董事長張淑芬於事發後第一時間前往花蓮受創地區，感同身受當地區民面對天災無情的驚懼擔憂。',
             '張淑芬在勘察花蓮災區後有感而發地表示：「雖然家倒了，只要人安在，未來仍有無限希望。如同在襁褓中熟睡的小嬰兒，雖然歷經了這可怕的一刻，然而，若我們給予足夠的關懷與愛，相信必能堅強平安長大，未來仍有無限的可能，花蓮，加油！」',
@@ -244,7 +246,7 @@ export default {
             '2.邀請台灣半導體設備暨材料協會（SEMI Taiwan）的會員企業，以及台積公司產業鏈的企業一同參與災後復原。上述資源將由台積電慈善基金會統籌規劃，針對各個階段不同的需求，給予受創地區居民必要的協助。',
             '台積電表示，將本著善盡企業社會責任的初衷，在瞭解政府整個救災、重建的規劃藍圖後，挺身而出，做為政府的救災的夥伴，共同與民眾重建家園、協助他們回歸正常生活。'
           ]
-        },      
+        },
         {
           title: '台積電發起募款 幫助花蓮災民、觀光重建',
           text: '台積電今天宣布，針對花蓮大地震所造成的傷害，以過去協助莫拉克風災、高雄氣爆與八仙塵爆的第一線經驗...',
@@ -456,7 +458,7 @@ export default {
             },
             {
               'src': ArticleMedia_10,
-              'imgsay': '雙龍日托中心是全台海拔最高的老人日照據點。' 
+              'imgsay': '雙龍日托中心是全台海拔最高的老人日照據點。'
             },
             '南投縣信義鄉「中部愛互聯雙龍日托中心」是全台最高海拔的老人日托中心，上午在衛福部長陳時中見證下，結合中國醫藥大學附設醫院、台積電慈善基金會董事長張淑芬、林增連慈善基金會及老五老基金會，共同在信義鄉雙龍村正式揭牌成立，讓長輩白天不致獨守家中，家屬得以安心工作。',
             '衛福部長陳時中說，自己換乘坐了兩小時車才抵達雙龍部落，才發現這裡真是「好山、好水、好遠、好辛苦」的偏鄉，感謝大家因為愛，將彼此連結起來，南投縣副縣長陳正昇指出，信義鄉為台灣醫療資源最缺乏也最弱勢的地區之一，青壯年外流嚴重，高齡人口所占比例持續上升，受到生活及飲食習慣影響，居民的慢性病罹患率遠高於平地居民。',
@@ -498,7 +500,7 @@ export default {
           ArticleTitle: '台積電農村營　學童：以後飯要吃光光',
           ArticleTime: '2018-01-14',
           Article: [
-          { 
+          {
             'src': ArticleMedia_12,
             'imgsay': null
           },
@@ -556,7 +558,7 @@ export default {
             '今天特別邀請員工的家庭近50人參訪，現場有小朋友把植栽獻給父母，還有孩童奉茶時，輕聲告訴爸媽「謝謝您愛我」，一席話讓在座的家長紅了眼眶，感動不已。張宗生表示，今天的活動試辦很成功，未來會在廠區繼續推廣孝道。',
             '「收到孩子的卡片很感動！」王姓工程師的妻兒參與活動，席間孩子認真做卡片、全家人一起手做胎苗，成為全家人美好的回憶。'
           ]
-        },                                                 
+        },
       ],
     }
   },
@@ -569,13 +571,13 @@ export default {
           return 5
         } else {
           return 1
-        } 
+        }
       }
       for (let i = 0; i <= maxLength(); i++) {
         currentList.push(this.newslist[(this.page - 1) * 6 + i])
       }
       return currentList
-    }    
+    }
   },
   components: {
     HeadBar, ContentWrapper, EmbededVideo, Overlay, FBComment, Bodymovin, FadeInDown, Foot
@@ -589,7 +591,7 @@ export default {
     console.log('mounted news')
     this.isFBReady = Vue.FB != undefined
     setTimeout(function(){
-      Vue.FB.XFBML.parse();  
+      Vue.FB.XFBML.parse();
     }, 500)
     window.addEventListener('fb-sdk-ready', this.onFBReady)
   },
@@ -634,8 +636,8 @@ export default {
       this.sendData = this.coverNew
     },
     closeOverlay: function () {
-      this.showMessageBoard = false   
-      this.useOverflow = false   
+      this.showMessageBoard = false
+      this.useOverflow = false
     },
     onFBReady: function () {
       this.isFBReady = true
@@ -673,7 +675,7 @@ export default {
       opacity: 1;
       transform: translate(0, 0);
     }
-  }  
+  }
 }
 #news {
   line-height: 1.5;
@@ -683,13 +685,13 @@ export default {
   background: #e4c8a9;
 }
 
-@media screen and (max-width: 767px){  
+@media screen and (max-width: 767px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 768px){  
+@media screen and (min-width: 768px){
   .hidden-pc{
     display: none!important;
   }
@@ -731,7 +733,7 @@ h1.bigtitle.bigtitle {
 @media screen and (min-width: 768px) and (max-width: 1023px){
   .titleblock {
     padding: 40px;
-  }  
+  }
 }
 
 .titleblock p {
@@ -771,7 +773,7 @@ h1.bigtitle.bigtitle {
     padding-top: 100px;
   }
   .newsvideo{
-    transform: translateY(-5%);    
+    transform: translateY(-5%);
   }
 }
 
@@ -783,7 +785,7 @@ h1.bigtitle.bigtitle {
     padding-top: 100px;
   }
   .newsvideo{
-    transform: translateY(-5%);    
+    transform: translateY(-5%);
   }
 }
 
@@ -817,14 +819,14 @@ h1.bigtitle.bigtitle {
   .newsblock{
     width: 45%;
     margin: 50px 1.5%;
-  }  
+  }
 }
 
 @media screen and (min-width: 1024px){
   .newsblock{
     width: 32%;
     margin: 50px 0.6%;
-  }  
+  }
   .newsblock{
     p{
       line-height: 1.7;
@@ -856,7 +858,7 @@ nav{
 
 .pagination>li>a.page-link{
   background-color: transparent;
-  border: 1px solid black;  
+  border: 1px solid black;
   color: black;
   padding: 6px 12px;
   font-size: 16px;
@@ -876,8 +878,8 @@ nav{
 
 @media screen and (min-width: 1024px){
   .covertitle{
-    width: 200px; 
-    height: 400px; 
+    width: 200px;
+    height: 400px;
     margin: 20px 0;
   }
   .newsblock .title{
@@ -943,7 +945,7 @@ nav{
 }
 
 .titleblock .subpageLink {
- position: relative; 
+ position: relative;
  display: block;
  float: right;
 }
@@ -963,7 +965,7 @@ nav{
 @media screen and (max-width: 1023px){
   .newsblock .subtitle{
     margin-bottom: 10px;
-  }  
+  }
 }
 
 .link a{

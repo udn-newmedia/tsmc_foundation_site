@@ -2,39 +2,39 @@
   <div id="Overlay" v-if="show" @click.stop='close'>
     <div class="closebtn" @click="close">
       <span></span>
-      <span></span>        
-    </div>    
+      <span></span>
+    </div>
     <div id="popup" @click.stop>
       <div class="newsArticle">
         <div class="titleBox">
           <h2>{{flowData.ArticleTitle}}<span>{{flowData.ArticleTime}}</span></h2>
         </div>
         <div class="articleContent" v-for="(para, index) in flowData.Article" :key="'para_' + index">
-          <ColumnOne v-if="isMedia(para.src) === true" :img1="para.src" :imgweb1="para.src" :imgsay="para.imgsay"></ColumnOne> 
+          <ColumnOne v-if="isMedia(para.src) === true" :img1="para.src" :imgweb1="para.src" :imgsay="para.imgsay"></ColumnOne>
           <EmbededVideo v-else-if="isMedia(para.src) === 'isVideo'" :src="para.src" :srcWeb="para.src" :poster="para.poster" :posterWeb="para.poster" customControl="true" controlColor="#000"></EmbededVideo>
           <p v-else>{{para}}</p>
-        </div>        
+        </div>
         <div class="reference">
           <Share :href="flowData.link"></Share>
           <div class="checkOriginal">
             <img :src="udnLogo"><a :href="flowData.link" target="_blank"><p>查看原始新聞</p></a>
-          </div>          
-        </div>                
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-/** 
+/**
  * 本元件之功能：
  *  留言區，周圍都蓋黑幕，顯示FB留言板
  * 參數:
  *  -mainContainer: 要模糊和蓋黑幕的Element
  *  -show: 是否顯示留言區
-*/    
+*/
 if (process.browser) {
-  require('~/plugins/fb-sdk.js')  
+  require('~/plugins/fb-sdk.js')
 }
 import ColumnOne from '~/components/ColumnOne.vue'
 import Share from '~/components/Share.vue'
@@ -75,8 +75,8 @@ export default {
   updated: function() {
     console.log('updated overlay')
     setTimeout(function(){
-      window.FB.XFBML.parse();  
-    }, 500)      
+      window.FB.XFBML.parse();
+    }, 500)
   },
   methods: {
     isMedia: function(src) {
@@ -92,7 +92,7 @@ export default {
       else {
         return false
       }
-    },    
+    },
     close: function () {
       // this.showornot = false
       this.$eventBus.$emit('closeOverlay')
@@ -102,7 +102,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scope> 
+<style lang="scss" scope>
 .newsArticle{
   padding: 15px;
   margin: 0 auto;
@@ -170,7 +170,7 @@ p{
   z-index: 99999;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
   word-wrap: break-word;
-  text-align: justify; 
+  text-align: justify;
 }
 #popup {
   position: absolute;
@@ -188,13 +188,13 @@ p{
   margin: auto;
   padding: 0 15px;
   background-clip: content-box;
-  animation: FadeIn 434ms ease-out; 
-  animation-fill-mode: both; 
+  animation: FadeIn 434ms ease-out;
+  animation-fill-mode: both;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-#popup::-webkit-scrollbar { 
-    display: none; 
+#popup::-webkit-scrollbar {
+    display: none;
 }
 .blur {
   filter: blur(5px);
@@ -255,7 +255,7 @@ p{
   p{
       font-size: 21px;
       line-height: 2;
-  }  
+  }
   .titleBox{
     justify-content: space-between;
     h2{
@@ -268,7 +268,7 @@ p{
   }
   p>br{
       line-height: 50px;
-  }  
+  }
   .checkOriginal{
     margin-top: 0;
   }
