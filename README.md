@@ -24,11 +24,8 @@ $ npm run generate
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
 ### Before Deploy Check Out
->因為需配合資安，需做以下確認。 
-
-#### issue
->不能使用` Math.random() `
----
+>因為需配合資安，需做以下確認。 <br>
+>問題:不能使用` Math.random() `<br>
 >解法：將所有的 ` Math.random() ` 改用用 0 ~ 1 的Number取代(Dev-tool > console > Math.random() 複製其值取代)<br/>
 >目前已知有 bodymovin 和 generate後的vendor.js 會有
 
@@ -44,8 +41,7 @@ $ cd node_modules/lottie-web/build/player/
 $ sublime lottie.js || code lottie.js
 
 ```
-開始清理修改` Math.random() `
-#
+開始清理修改` Math.random() `<br/>
 修改完後 ` npm run generate ` 出來就不會有` Math.random() `了
 ##### vendor
 >npm run generate 產出來的vendor會有三處有 ` Math.random() `
