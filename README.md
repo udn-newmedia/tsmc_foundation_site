@@ -3,6 +3,7 @@
 > 台積電官方網站Source Code
 > url: https://udn.com/upf/newmedia/2018_data/tsmccharity/
 > dev: localhost:3000/upf/newmedia/2018_data/tsmccharity/
+
 ## Build Setup
 
 ``` bash
@@ -46,5 +47,6 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
   修改完後 ``` bash npm run generate ``` 出來就不會有 ```javascript Math.random() ```了
   #####vendor
   >npm run generate 產出來的vendor會有三處有 ```javascript Math.random() ```
-  
+
+
 
