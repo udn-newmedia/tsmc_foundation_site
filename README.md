@@ -1,8 +1,7 @@
 # tsmc_foundation_site
 
 > 台積電官方網站Source Code
-> url: https://udn.com/upf/newmedia/2018_data/tsmccharity/
-#
+> url: https://udn.com/upf/newmedia/2018_data/tsmccharity/ <br/>
 > dev: <localhost:3000/upf/newmedia/2018_data/tsmccharity/>
 
 ## Build Setup
@@ -30,8 +29,7 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 #### issue
 >不能使用` Math.random() `
 ---
->解法：將所有的 ` Math.random() ` 改用用 0 ~ 1 的Number取代(Dev-tool > console > Math.random() 複製其值取代)
-
+>解法：將所有的 ` Math.random() ` 改用用 0 ~ 1 的Number取代(Dev-tool > console > Math.random() 複製其值取代)<br/>
 >目前已知有 bodymovin 和 generate後的vendor.js 會有
 
 ##### bodymovin:
