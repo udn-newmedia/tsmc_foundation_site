@@ -26,9 +26,8 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 >因為需配合資安，需做以下確認。 <br>
 #
 ```
-**問題**：不能使用` Math.random() `
-
-**解法**：將所有的 ` Math.random() ` 改用用 0 ~ 1 的Number取代 (Dev-tool > console > Math.random() 複製其值取代)
+問題：不能使用` Math.random() `
+解法：將所有的 ` Math.random() ` 改用用 0 ~ 1 的Number取代 (Dev-tool > console > Math.random() 複製其值取代)
 目前已知有 bodymovin 和 generate後的vendor.js 會有
 ```
 
