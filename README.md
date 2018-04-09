@@ -24,8 +24,8 @@ $ npm run generate
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
 ### Before Deploy Check Out
->因為需配合資安，需做以下確認。
-#
+>因為需配合資安，需做以下確認。 
+
 #### issue
 >不能使用` Math.random() `
 ---
