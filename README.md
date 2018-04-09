@@ -48,5 +48,5 @@ $ sublime lottie.js || code lottie.js
 ### vendor
 >`npm run generate` 產出來的vendor會有三處有 ` Math.random() `
 
-####### 善用Ctrl+F
+###### 善用Ctrl+F
 
