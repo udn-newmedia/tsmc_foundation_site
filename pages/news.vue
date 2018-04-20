@@ -47,9 +47,9 @@
         </div>
       </ContentWrapper>
       <ContentWrapper class="section" ref='newsGroup'>
-        <div class="news">
+        <div class="news" ref='test'>
           <div class="newsblock"
-            v-for="(news, index) in contentList"
+            v-for="(news, index) in contentList(page)"
             :key="news.title">
             <div class='imgContain'>
               <img :src="news.img">
@@ -75,9 +75,8 @@
               <span class="sr-only">Previous</span>
             </a>
           </li>
-          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 1}" @click.prevent="changePage('1')">1</a></li>
-          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 2}" @click.prevent="changePage('2')">2</a></li>
-          <li class="page-item"><a class="page-link" :class="{'activePage': this.page === 3}" @click.prevent="changePage('3')">3</a></li>
+          <li v-for="(index, item) in pageList" :key="'page_is_' + item"
+              class="page-item"><a class="page-link" :class="{'activePage': checkPage(index)}" @click.prevent="changePage(index)">{{index}}</a></li>
           <li class="page-item">
             <a class="page-link" @click.prevent="changePage('next')" aria-label="Next">
               <span aria-hidden="true" class="arrow">&raquo;</span>
@@ -204,6 +203,7 @@ export default {
       sendData: null,
       page: 1,
       isFBReady: false,
+      pageList: [],
       coverNew:{
         title: '除了捐款',
         subTitle: '台積電還做了哪些事？',
@@ -324,7 +324,6 @@ export default {
             '張淑芬今天受邀演講「復興孝道的起心動念」，她提到社會中有許多獨居老人，缺乏親人照顧，因此希望各界一同重視「孝道」的精神，並從體制內做起，從學校就要加強教育。',
             '張淑芬提到，最近看到一份教育部的公文，擬把孝道放入「教綱」內，讓她感動到想哭。教育部國教署長邱乾國會後受訪表示，並非要納入十二年國教課綱，而是發展與孝道有關的教案、教材和教學資源。',
             '邱乾國說，首批會在全國選出8所國中小，漸次推動孝道教材，可結合正式課程，也可透過活動方式推廣。'
-
           ]
         },
         {
@@ -562,33 +561,18 @@ export default {
       ],
     }
   },
-  computed: {
-    contentList: function () {
-      let currentList = []
-      const self = this
-      function maxLength () {
-        if(self.page < 3) {
-          return 5
-        } else {
-          return 1
-        }
-      }
-      for (let i = 0; i <= maxLength(); i++) {
-        currentList.push(this.newslist[(this.page - 1) * 6 + i])
-      }
-      return currentList
-    }
-  },
   components: {
     HeadBar, ContentWrapper, EmbededVideo, Overlay, FBComment, Bodymovin, FadeInDown, Foot
   },
   created: function () {
+    for (let i = 0; i < Math.ceil(this.newslist.length / 6); i++) {
+      this.pageList.push(i + 1)
+    }
     // 關閉留言區
     this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
     // 載入 FB sdk
-    console.log('mounted news')
     this.isFBReady = Vue.FB != undefined
     setTimeout(function(){
       Vue.FB.XFBML.parse();
@@ -600,29 +584,33 @@ export default {
     window.removeEventListener('fb-sdk-ready', this.onFBReady)
   },
   methods: {
+    checkPage: function (p) {
+      if(this.page === p) {
+        return true
+      } else {
+        return false
+      }
+    },
     changePage: function (msg) {
       window.scrollTo(0, this.$refs.newsGroup.$el.offsetTop - 50);
       switch (msg) {
         case 'previous':
           if (this.page > 1) {
-            this.page--
-            window.scrollTo(0, this.$refs.newsGroup.$el.offsetTop - 50);
+            this.page --
+          } else {
+            window.alert('no more')
           }
           break
         case 'next':
-          if (this.page < (this.newslist.length - 1) / 6) {
-            this.page++
+          if (this.page < Math.ceil(this.newslist.length / 6)) {
+            this.page ++
+          } else {
+            window.alert('no more')
           }
           break
-        case '1':
-          this.page = 1
-          break
-        case '2':
-          this.page = 2
-          break
-        case '3':
-          this.page = 3
-          break
+        default:
+          this.page = msg
+        break;
       }
     },
     showComments: function (index) {
@@ -641,6 +629,17 @@ export default {
     },
     onFBReady: function () {
       this.isFBReady = true
+    },
+    contentList: function (page) {
+      let currentList = []
+      const self = this
+      const page_fixed = page - 1
+      for(let i = page_fixed*6; i < page_fixed*6+6; i++){
+        if(self.newslist[i] !== undefined){
+          currentList.push(self.newslist[i])
+        }
+      }
+      return currentList
     }
   }
 }
