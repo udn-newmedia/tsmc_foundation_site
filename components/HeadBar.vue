@@ -105,7 +105,7 @@ export default {
   },
   mounted: function () {
     console.log('head mout')
-    this.handlePage()
+    // this.handlePage()
     window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
