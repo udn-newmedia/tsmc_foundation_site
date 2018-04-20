@@ -1,53 +1,44 @@
 <template>
-    <div id="head-bar" :style="{top: top+'px'}">
-        <ContentWrapper>
-          <div id="icon">
-              <!-- <a href="."><img :src="logo"></a> -->
-              <nuxt-link to="/"><img :src="logo"></nuxt-link>
-          </div>          
-        </ContentWrapper>     
-        <ContentWrapper class="myWrapper" :style="{transform: 'translate(0, -'+ headSlideIn +'%)'}"
-            background-color="#fff" style="position: relative;">
-            <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc" style="padding-top: 25px;">
-                <div class="links"
-                    v-for="link in titlelist"
-                    :key="link.title">
-                    <div class="link" :class="{isBold: link.isBold}">
-                        <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -17.5px;right: 50%;margin-right: -57.5px">N</div>
-                        <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
-                    </div>                    
-                </div>
-                <slot name='comment-mob'></slot>
-            </div>
-            <div class="icons hidden-mobile"
-                    v-show="showlinks">
-                <div class="links" 
-                    v-for="link in titlelist"
-                    :key="link.title">
-                    <div class="link" ><!-- :class="{isBold: link.isBold}" -->
-                        <div class="redNum" v-if="link.isNew">N</div>
-                        <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
-                    </div>                    
-                </div>
-                <slot name="comment"></slot>
-                <!-- <div class="links">
-                    <div class="link">
-                        <a @click.prevent="show">留言區</a>
-                    </div>
-                </div>                 -->
-            </div>
-            <div id="hbutton" class="hidden-lg hidden-md">
-                <div id="nav-icon" :class="{open: isOpen}"
-                    @click="handleClick()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </ContentWrapper>
-        <!-- <slot v-if="bookmarkDisplay"></slot> -->
-    </div>
+  <div id="head-bar" :style="{top: top+'px'}">
+    <ContentWrapper>
+      <div id="icon">
+        <nuxt-link to="/"><img :src="logo"></nuxt-link>
+      </div>
+    </ContentWrapper>
+    <ContentWrapper class="myWrapper" :style="{transform: 'translate(0, -'+ headSlideIn +'%)'}"
+      background-color="#fff" style="position: relative;">
+      <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc" style="padding-top: 25px;">
+        <div class="links"
+          v-for="link in titlelist"
+          :key="link.title">
+          <div class="link" :class="{isBold: link.isBold}">
+            <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -17.5px;right: 50%;margin-right: -57.5px">N</div>
+            <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+          </div>
+        </div>
+      </div>
+      <div class="icons hidden-mobile"
+           v-show="showlinks">
+        <div class="links"
+          v-for="link in titlelist"
+          :key="link.title">
+          <div class="link">
+            <div class="redNum" v-if="link.isNew">N</div>
+            <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+          </div>
+        </div>
+      </div>
+      <div id="hbutton" class="hidden-lg hidden-md">
+        <div id="nav-icon" :class="{open: isOpen}"
+             @click="handleClick()">
+             <span></span>
+             <span></span>
+             <span></span>
+             <span></span>
+        </div>
+      </div>
+    </ContentWrapper>
+  </div>
 </template>
 
 <script>
@@ -55,13 +46,13 @@ import tsmcLogo from '~/assets/logo_tsmc.svg'
 import ContentWrapper from './Content'
 
 export default {
-/** 
+/**
  * 本元件之功能：
  *  head bar，釘在網頁最上緣，內含其他子頁連結
  * 變數:
  *  -titlelist: 子頁連結和留言區
  *  -showlinks: 一開始連結們皆不顯示，待使用者scroll後才顯示
-*/    
+*/
   name: 'Headbar',
   props: ['color', 'buttonColor', 'bookmarkDisplay', 'isNews', 'isPage'],
   components: {ContentWrapper},
@@ -91,14 +82,20 @@ export default {
           link: '/campaigns',
           title: '我們做的事',
           isNew: false,
-          isBold: false         
+          isBold: false
         },
         {
           link: '/partners',
           title: '愛互聯',
           isNew: false,
-          isBold: false         
-        }
+          isBold: false
+        },
+        // {
+        //   link: '/teach',
+        //   title: '文基會',
+        //   isNew: false,
+        //   isBlod: false
+        // }
         // {
         //   link: '',
         //   title: '留言區'
@@ -106,32 +103,6 @@ export default {
       ]
     }
   },
-  created: function() {
-    // var self = this
-    // this.$eventHub.$on('emitHeadbarTitle', function(msg) {
-    //     self.getTitle.push(msg)
-    //     setTimeout(function(){
-    //         $('.scrollTo-Btn').hover(function(){
-    //             $(this).css('color', self.backgroundColor)
-    //             $(this).css('background-color', self.color)
-    //         }, function(){
-    //             $(this).css('color', self.color)
-    //             $(this).css('background-color', self.backgroundColor)
-    //         })
-    //     }, 500)
-    // })        
-  },
-  beforeMount: function () {
-    // 等待使用者scroll後，連結區才顯示  
-    // window.addEventListener('scroll', this.handleScroll)
-
-  },
-  beforeDestroyed: function () {
-    // window.removeEventListener('scroll', this.handleScroll)
-  },
-  destroyed: function () {
-    // window.removeEventListener('scroll', this.handleScroll)
-  },  
   mounted: function () {
     console.log('head mout')
     this.handlePage()
@@ -140,39 +111,14 @@ export default {
   methods: {
     handleClick: function () {
       this.isOpen = !this.isOpen
-      // console.log('hamburger click')
-      // ga("send", {
-      //     "hitType": "event",
-      //     "eventCategory": "Ham Click",
-      //     "eventAction": "click",
-      //     "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [Ham Click]"
-      // });
     },
     handleScroll: function(event) {
       this.showlinks = true
       if(window.pageYOffset > 10) {
         this.headSlideIn = 0
-        window.removeEventListener('scroll', this.handleScroll) 
+        window.removeEventListener('scroll', this.handleScroll)
       }
     },
-    handlePage: function() {
-      switch(this.isPage) {
-        case 'news':
-          this.titlelist[0].isBold = true;
-        break;
-        case 'aboutus':
-          this.titlelist[1].isBold = true;
-        break;
-        case 'campaigns':
-          this.titlelist[2].isBold = true;
-        break;
-        case 'partners':
-          this.titlelist[3].isBold = true;
-        break;
-        default: 
-        break;
-      }
-    }
   }
 }
 </script>
@@ -212,7 +158,6 @@ export default {
   top: 0;
   left: 0;
   width: 100%;
-  // height: 100%;
   height: 70px;
   background-color: #fff;
   transition: opacity 0.7s ease, transform 700ms ease;
@@ -223,13 +168,13 @@ export default {
 .isBold{
   font-weight: bold !important;
 }
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 1023px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 1024px){
   .hidden-pc{
     display: none!important;
   }
@@ -364,7 +309,7 @@ export default {
     }
     .icons {
         width: 22.5%;
-    }    
+    }
 }
 
 @media screen and (max-width: 1023px) {
@@ -421,7 +366,7 @@ export default {
           width: auto;
         }
     }
-    
+
     .icons {
         height: 80px;
     }

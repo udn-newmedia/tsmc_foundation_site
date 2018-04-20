@@ -1,28 +1,17 @@
 <template>
   <FadeInDown>
     <div id="aboutus">
-      <HeadBar :bookmark-display="stickyAnchors" isNews="true" isPage="aboutus">
-<!--         <div slot="comment" class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>  
-        <div slot='comment-mob' class="links">
-          <div class="link">
-            <a @click.prevent="showComments">留言區</a>
-          </div>
-        </div>     -->                    
-      </HeadBar>
+      <HeadBar :bookmark-display="stickyAnchors" isNews="true" isPage="aboutus"></HeadBar>
       <div class="relative" style="position: relative;">
         <div class="bg-web hidden-mobile"></div>
         <div class="bg-mob hidden-pc"></div>
         <ContentWrapper class="absolutefullscreen centercenter">
           <h1 class="bigtitle" style="position: absolute; top: 20%;">關於<br>我們</h1>
-        </ContentWrapper>      
+        </ContentWrapper>
       </div>
       <ContentWrapper class="section">
-        <Quote 
-        text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」" 
+        <Quote
+        text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」"
         :img="quoteImg"
         refer="——台積電慈善基金會董事長張淑芬"
         color="#333"
@@ -49,7 +38,7 @@
         <p><br></p>
         <p><br></p>
         <p>感性的張淑芬，看見災民家中燒的漆黑，有家歸不得；莊子壽建設台積電全球30座晶圓廠，行事「很工程師」、很理性，看見被炸成深淵的馬路，災民生計停擺，但兩人碰面都清楚，「災民不要錢，要路、要家」。</p>
-        <p><br></p>      
+        <p><br></p>
         <p>回頭獲張忠謀授權「救災金額無上限」，台積電重建團隊隔日就進駐災區。「但人家哪知道台積電要做甚麼、可以相信嗎？」莊子壽笑說，他於是領著團隊，挨家挨戶敲門，也請里長幫忙，詢問有沒有需要協助的地方。</p>
         <p><br></p>
         <p>重建團隊一下子就修出「口碑」，從歪掉的紗窗、斑駁漏水的屋頂，到獨居老人壞掉的冷氣與電視機，該修的、不該修的，全都修好了：一共365戶、造了5座橋、鋪了4.3公里路。</p>
@@ -79,9 +68,9 @@
         <p><br></p> -->
       </ContentWrapper>
       <ContentWrapper class="section">
-        <Quote 
+        <Quote
         imgPosition="right"
-        text="她才發現，讓人堅持的力量，不是來自咬牙苦撐，而是感動與快樂。" 
+        text="她才發現，讓人堅持的力量，不是來自咬牙苦撐，而是感動與快樂。"
         refer="——台積電慈善基金會董事長張淑芬"
         :img="quoteImg_2"
         color="#333"
@@ -96,14 +85,14 @@
       <ContentWrapper background-color="#fff" style="padding: 3% 0;">
         <p><br></p>
         <h2>留言給我們</h2>
-        <p><br></p>        
+        <p><br></p>
         <FBComment :href="location"></FBComment>
-        <p><br></p>        
+        <p><br></p>
       </ContentWrapper>
-      <Foot></Foot>   
+      <Foot></Foot>
     </div>
 <!--     <Overlay mainContainer="aboutus" :show="showMessageBoard">
-      
+
     </Overlay> -->
   </FadeInDown>
 </template>
@@ -138,13 +127,13 @@ if (process.browser) {
 }
 
 export default {
-  /** 
+  /**
    * 變數:
-   *  - showMessageBoard: (true or false) 是否顯示留言區 
+   *  - showMessageBoard: (true or false) 是否顯示留言區
   */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus',
       stickyAnchors: true,
       indexvideo: indexvideo,
       tsmcLogo: tsmcLogo,
@@ -173,22 +162,22 @@ export default {
     this.isFBReady = Vue.FB != undefined
     window.addEventListener('fb-sdk-ready', this.onFBReady)
     setTimeout(function(){
-      Vue.FB.XFBML.parse();  
-    }, 500)    
-  },    
+      Vue.FB.XFBML.parse();
+    }, 500)
+  },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
-  }, 
+  },
   methods: {
     showComments: function () {
       this.showMessageBoard = true
     },
     closeOverlay: function () {
-      this.showMessageBoard = false      
+      this.showMessageBoard = false
     },
     onFBReady: function () {
       this.isFBReady = true
-    }    
+    }
   }
 }
 </script>
@@ -218,13 +207,13 @@ export default {
     border-bottom: none;
   }
 }
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 1023px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 1024px){
   .hidden-pc{
     display: none!important;
   }
@@ -241,7 +230,7 @@ export default {
       opacity: 1;
       transform: translate(0, 0);
     }
-  }  
+  }
 }
 
 .fullscreen {
@@ -261,7 +250,7 @@ export default {
 }
 
 h1.bigtitle.bigtitle {
-  font-family: 'GenJyuuGothic';  
+  font-family: 'GenJyuuGothic';
   font-weight: bold;
   color: white;
 }
@@ -274,7 +263,7 @@ h1.bigtitle.bigtitle {
   .iconWrapper {
     display: flex;
     justify-content: space-around;
-  }  
+  }
 }
 
 @media screen and (max-width: 1023px){
@@ -312,7 +301,7 @@ h1.bigtitle.bigtitle {
   background-image: url('~/assets/aboutus_bg_mob.jpg');
   background-repeat: no-repeat;
   background-position: left center;
-  background-size: cover;   
+  background-size: cover;
 }
 
 @media screen and (min-width: 1024px){
