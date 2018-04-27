@@ -12,19 +12,30 @@
           v-for="link in titlelist"
           :key="link.title">
           <div class="link" :class="{isBold: link.isBold}">
-            <div class="redNum" v-if="link.isNew" style="top: 50%;margin-top: -17.5px;right: 50%;margin-right: -57.5px">N</div>
-            <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+            <div class="redNum" v-if="link.isNew">N</div>
+            <div class="slideMenu">
+              <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+              <div class="child_item" @click="handleClick">
+                <a v-for="item in link.slideMenu" :key="item.title" :href="item.link">{{item.title}}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="icons hidden-mobile"
            v-show="showlinks">
         <div class="links"
-          v-for="link in titlelist"
+          v-for="(link, index) in titlelist"
           :key="link.title">
-          <div class="link">
+          <div class="link" @mouseenter="handle_mouseIn(index)" @mouseout="handle_mouseOut(index)">
             <div class="redNum" v-if="link.isNew">N</div>
-            <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+            <div class="slideMenu">
+              <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+              <div class="child_item" :class="{menuSlide_open: link.isOpen}">
+                <a v-for="item in link.slideMenu" :key="item.title" :href="item.link"
+                @mouseenter="handle_mouseIn(index)" @mouseout="handle_mouseOut(index)">{{item.title}}</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -67,39 +78,62 @@ export default {
       showlinks: false,
       titlelist: [
         {
-          link: '/news',
+          link: '/news/',
           title: '最新動態',
           isNew: this.isNews,
-          isBold: false
+          isBold: false,
+          isOpen: false,
+          slideMenu: []
         },
         {
-          link: '/aboutus',
-          title: '關於我們',
+          link: '/aboutus/',
+          title: '公益使命',
           isNew: false,
-          isBold: false
+          isBold: false,
+          isOpen: false,
+          slideMenu: [
+            {
+              title: '智慧做公益',
+              link: './aboutus#part_1'
+            },
+            {
+              title: '台積電的溫度',
+              link: './aboutus#part_2'
+            }
+          ]
         },
         {
-          link: '/campaigns',
+          link: '/campaigns/',
           title: '我們做的事',
           isNew: false,
-          isBold: false
+          isBold: false,
+          isOpen: false,
+          slideMenu: []
         },
         {
-          link: '/partners',
-          title: '愛互聯',
+          link: '/partners/',
+          title: '把愛傳出去',
           isNew: false,
-          isBold: false
+          isBold: false,
+          isOpen: false,
+          slideMenu: [
+            {
+              title: '我想幫忙',
+              link: './partners#part_1'
+            },
+            {
+              title: '愛互聯夥伴',
+              link: './partners#part_2'
+            }]
         },
-        // {
-        //   link: '/teach',
-        //   title: '文基會',
-        //   isNew: false,
-        //   isBlod: false
-        // }
-        // {
-        //   link: '',
-        //   title: '留言區'
-        // }
+        {
+          link: '/volunteer/',
+          title: '志工社',
+          isNew: false,
+          isBlod: false,
+          isOpen: false,
+          slideMenu: []
+        }
       ]
     }
   },
@@ -119,15 +153,75 @@ export default {
         window.removeEventListener('scroll', this.handleScroll)
       }
     },
+    handle_mouseIn (index) {
+      this.titlelist[index].isOpen = true
+    },
+    handle_mouseOut (index) {
+      this.titlelist[index].isOpen = false
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+*{
+  font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
+}
+.slideMenu{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-left: 40px;
+  @media screen  and (min-width: 1024px){
+    padding-left: 0;
+  }
+  a{
+    text-align: left;
+  }
+  .nuxt-link-active{
+    // text-decoration: underline !important;
+    border-bottom: 2px solid #000;
+    font-weight: bold !important;
+  }
+}
+.child_item{
+  padding-left: 20px;
+  display: inline-flex;
+  flex-direction: column;
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    z-index: 100;
+    width: 9em;
+    top: 105%;
+    left: 0;
+    margin-left: -10px;
+    background-color: #fff;
+    box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.14);
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+    transition: max-height 444ms ease-out;
+  }
+  a{
+    margin-right: 20px;
+    color: #adaaaa !important;
+    @media screen and (min-width: 1024px) {
+      margin: 0;
+      padding: 0.5em;
+      color: #585858 !important;
+      &:hover{
+        background-color: #f2ede4;
+      }
+    }
+  }
+}
+.menuSlide_open{
+  max-height: 300px !important;
+}
 .redNum{
   position: absolute;
-  top: 0;
-  right: -20px;
+  top: 50%;
+  left: 35%;
   z-index: 80;
   width: 20px;
   height: 20px;
@@ -136,9 +230,16 @@ export default {
   align-items: center;
   font-size: 11px;
   color: #fff;
+  margin-top: -17.5px;
   border-radius: 50%;
   background-color: #84d4ff;
   animation: jumping 555ms ease-out infinite alternate-reverse;
+  @media screen and (min-width: 768px) and (max-width: 1023px){
+    left: 15%;
+  }
+  @media screen and (min-width: 1024px){
+    left: 100%;
+  }
 }
 #head-bar {
     position: fixed;
@@ -149,7 +250,9 @@ export default {
     right: 0;
     z-index: 99999;
 }
-.nuxt-link-active{
+.nuxt-link-exact-active{
+  // text-decoration: underline !important;
+  border-bottom: 2px solid #000;
   font-weight: bold !important;
 }
 .myWrapper{
@@ -191,6 +294,7 @@ export default {
     height: 80px;
     a{
       width: 235px;
+      border: none !important;
     }
 }
 #icon img {
@@ -392,9 +496,9 @@ export default {
 
 #hbutton-contain .link{
   position: relative;
-  display: block;
-  border-bottom: solid 1px lightgray;
-  height: 70px;
+  display: flex;
+  align-items: center;
+  // height: 70px;
   width: calc(100% - 30px);
   margin: 0 auto;
   line-height: 70px;

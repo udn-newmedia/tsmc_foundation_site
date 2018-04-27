@@ -100,7 +100,7 @@ export default {
     .col-md-12{
       padding: 0;
       margin-top: 30px;
-    }  
+    }
   }
-  
+
 </style>

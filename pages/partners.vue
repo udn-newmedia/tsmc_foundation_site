@@ -1,18 +1,13 @@
 <template>
   <FadeInDown>
     <div id="partners">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true' isPage='partners'></HeadBar>
-      <div class="fullscreen centercenter" style="background: #e4c8a9;">
-        <ContentWrapper style="position: relative; width: 100%; height: 100%;">
-          <h1 class="bigtitle" style="position: absolute; top: 20%;">愛互聯</h1>
+      <HeadBar isNews='true' isPage='partners'></HeadBar>
+      <div class="cover">
+        <ContentWrapper class="titleSite">
+          <h1 class="bigtitle">把愛<br/>傳出去</h1>
         </ContentWrapper>
-        <div class="cover">
-          <img :src="member01" alt="愛互聯"
-            :style="{opacity: img1opacity}"
-            >
-          <img :src="member02" alt="愛互聯"
-            :style="{opacity: img2opacity}" >
-        </div>        
+        <img class="fixedBg" :src="member01">
+        <img class="fixedBg" :src="member02" :style="{opacity: img2opacity}">
       </div>
       <ContentWrapper class="section">
         <div class="row">
@@ -25,7 +20,36 @@
           <p>愛互聯目前在全台，「兵分六區」投入服務行動（北部、竹苗、台中、台南、高雄、花東），今年還有14家偏遠地區醫院，和更多的社福單位，表示有意願加入串連。</p>
         </div>
       </ContentWrapper>
-      <ContentWrapper class="section">
+      <ContentWrapper class="handSection" id="part_1">
+        <div class="innerHand">
+          <h2>我想幫忙</h2>
+          <p><br></p>
+          <div class="hand">
+            <h2>【恆春旅遊醫院】需要您的幫忙！</h2>
+            <p><br></p>
+            <p>恆春醫院醫療資源嚴重匱乏，台積電慈善基金會，改善偏鄉部落長照及復健等問題，已捐贈恆春牡丹鄉：</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>各類復健硬體設備</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>設立電動樓梯升降椅，方便行動不便長者上下樓</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>在樓頂架設太陽能發電系統</p>
+            <p><br></p>
+            <p><b>待認領愛心缺口</b></p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>濟助政府未補助之邊緣弱勢住戶，約91萬戶（包含醫療、救護車及住院看護費）</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>牡丹鄉交通接駁車一台</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>恆春四偏鄉肝癌篩檢，提供約30人，ㄧ年四場次的篩檢費用，約19萬元</p>
+            <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>牡丹鄉部落中央廚房，提供40多戶弱勢長輩供餐</p>
+            <p><br></p>
+            <p><b>立即伸出援手</b></p>
+            <p>恆春旅遊醫院<a href="tel: 088892704">(08) 889-2704</a></p>
+            <p>恆春旅遊醫院 高專員<a href="tel: 0933775822">0933-775-822</a></p>
+            <p><br></p>
+            <div class="handlink-btn">
+              <a href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank">官網連結<span class="glyphicon glyphicon-new-window" style="margin-left: 5px;"></span></a>
+            </div>
+          </div>
+        </div>
+      </ContentWrapper>
+      <ContentWrapper class="section" id="part_2">
+        <h2>愛互聯夥伴</h2>
         <div class="row">
           <div class="zone">
               <h3>北部</h3>
@@ -39,7 +63,7 @@
         <div class="row">
             <div class="zone">
                 <h3>竹苗</h3>
-            </div>                
+            </div>
             <div class="unit">
                 <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank"><span>老五老基金會</span></a></div>
                 <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank"><span>部立苗栗醫院</span></a></div>
@@ -71,7 +95,7 @@
         </div>
         <br/> <br/>
         <div class="row">
-            <div class="zone">                
+            <div class="zone">
                 <h3>高屏</h3>
             </div>
             <div class="unit">
@@ -79,43 +103,27 @@
                 <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank"><span>恆春旅遊醫院</span></a></div>
             </div>
         </div>
-        <br/> <br/>
-        <div class="row">                
+        <br/>
+        <br/>
+        <div class="row">
             <div class="zone">
                 <h3>花東</h3>
             </div>
-            <div class="unit">                    
+            <div class="unit">
                 <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank"><span>基督教門諾會醫院</span></a></div>
                 <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank"><span>門諾基金會</span></a></div>
             </div>
         </div>
       </ContentWrapper>
-      <ContentWrapper style="padding: 3% 0;">
+      <ContentWrapper style="padding: 3% 0;position: relative;z-index: 2;background-color: #fff;">
         <p><br></p>
         <h2>留言給我們</h2>
-        <p><br></p>        
+        <p><br></p>
         <FBComment :href="location"></FBComment>
-        <p><br></p>        
-      </ContentWrapper>       
-      <Foot></Foot> 
-<!--       <ContentWrapper backgroundColor='#292b2e' class="footer">
         <p><br></p>
-        <p><br></p>
-        <div class="row" style="position: relative;">
-          <div class="col-lg-6 col-sm-6 tsmclogo">
-            <img :src="tsmcLogo">
-          </div>
-          <div class="col-lg-6 col-sm-6 tsmcfoundation">
-            <p>台積電慈善基金會</p>
-            <p>電話 : 03-563-6688 ext. 712-5030</p>
-            <p>地址 : 300 新竹科學園區力行六路8號</p>
-          </div>        
-        </div>
-      </ContentWrapper>     -->  
+      </ContentWrapper>
+      <Foot style="position: relative;z-index: 3;"></Foot>
     </div>
-<!--     <Overlay mainContainer="partners" :show="showMessageBoard">
-      <FBComment :href="location"></FBComment>
-    </Overlay>  -->   
   </FadeInDown>
 </template>
 
@@ -137,18 +145,18 @@ if (process.browser) {
   require('~/plugins/fb-sdk.js')
 }
 
-export default {  
+export default {
   components: {
     HeadBar, ContentWrapper, Overlay, FBComment, FadeInDown, Foot
   },
-  /** 
+  /**
    * 變數:
-   *  - showMessageBoard: (true or false) 是否顯示留言區 
+   *  - showMessageBoard: (true or false) 是否顯示留言區
    *  - showfirstimg: 首頁滿版圖為兩張圖組成，以showfirstimg作為參數來替換，當showfirstimg為false時則顯示第二張圖
-  */ 
+  */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners',      
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners',
       stickyAnchors: true,
       tsmcLogo: tsmcLogo,
       member01: member01,
@@ -161,35 +169,25 @@ export default {
   },
   computed: {
     img1opacity: function () {
-      return this.showfirstimg?'1':'0' 
+      return this.showfirstimg?'1':'0'
     },
     img2opacity: function () {
-      return this.showfirstimg?'0':'1' 
+      return this.showfirstimg?'0':'1'
     }
-  },
-  created: function () {
-    // 關閉留言區
-    this.$eventBus.$on('closeOverlay', this.closeOverlay)
   },
   mounted: function () {
     // 載入 fb sdk
     setTimeout(()=>{
       this.showfirstimg = !this.showfirstimg
       this.isFBReady = Vue.FB != undefined
-      Vue.FB.XFBML.parse();  
-      window.addEventListener('fb-sdk-ready', this.onFBReady)      
+      Vue.FB.XFBML.parse();
+      window.addEventListener('fb-sdk-ready', this.onFBReady)
     }, 500)
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
-  },  
+  },
   methods: {
-    showComments: function () {
-      this.showMessageBoard = true
-    },
-    closeOverlay: function () {
-      this.showMessageBoard = false      
-    },
     onFBReady: function () {
       this.isFBReady = true
     }
@@ -197,12 +195,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 @font-face {
   font-family: 'GenJyuuGothic';
   src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
 }
-
 #partners {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
@@ -210,6 +207,69 @@ export default {
   text-align: justify;
   position: relative;
   overflow: hidden;
+  background-color: #e4c8a9;
+}
+.handlink-btn{
+  box-sizing: content-box;
+  padding: 9px;
+  width: 95px;
+  height: 27px;
+  mix-blend-mode: undefined;
+  border-radius: 1.5px;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  @media screen and (min-width: 1024px) {
+    padding: 13px;
+  }
+}
+.handSection{
+  position: relative;
+  z-index: 1;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: transparent;
+}
+.innerHand{
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 25px;
+  @media screen and (min-width: 1024px) {
+    width: 70%;
+  }
+}
+.cover{
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #e4c8a9;
+}
+.titleSite{
+  position: relative;
+  top: 15%;
+  z-index: 5;
+}
+.fixedBg{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: auto;
+  transition: opacity 777ms linear;
+  transform: translate(-25%, 30%);
+  @media screen and (min-width: 1024px) {
+    width: 80%;
+    transform: translate(10%, 0);
+  }
 }
 .link{
   display: flex;
@@ -223,13 +283,13 @@ export default {
     border-bottom: none;
   }
 }
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 1023px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 1024px){
   .hidden-pc{
     display: none!important;
   }
@@ -246,7 +306,7 @@ export default {
       opacity: 1;
       transform: translate(0, 0);
     }
-  }  
+  }
 }
 
 .fullscreen {
@@ -275,7 +335,7 @@ h1.bigtitle.bigtitle {
   .iconWrapper {
     display: flex;
     justify-content: space-around;
-  }  
+  }
 }
 
 @media screen and (max-width: 1023px){
@@ -300,14 +360,20 @@ h1.bigtitle.bigtitle {
 }
 
 .section {
+  position: relative;
   padding-top: 50px;
   padding-bottom: 50px;
+  z-index: 1;
+  background-color: #fff;
 }
 
 @media screen and (min-width: 1024px){
   .section {
+    position: relative;
+    z-index: 1;
     padding-top: 100px;
     padding-bottom: 100px;
+    background-color: #fff;
   }
 }
 
@@ -323,94 +389,19 @@ h1.bigtitle.bigtitle {
 .unit .partner{
   margin: 5px 20px 20px 0;
   border-radius: 3px;
-  background-color: #e0dfdf;  
+  background-color: #e0dfdf;
 }
 
 @media screen and (max-width: 1023px){
   .unit .partner{
     margin: 5px 10px 20px 0;
-  }  
+  }
 }
 
 .unit .partner a{
   color: black;
   text-decoration: none;
   font-weight: bold;
-}
-
-.cover{
-  position: absolute; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 20%;
-  left: 0;
-  width: 120%;
-  /*margin-left: -10%;*/
-}
-.cover img{
-  position: absolute;
-  top: 0;
-  left: 0;
-  will-change: 'opacity';
-  will-change: opacity;
-  transition: opacity 0.5s;
-  transition-timing-function: ease-out;
-  width: 120%;
-}
-@media screen and (min-width: 768px) and (max-width: 799px) {
-  .cover{
-    width: 110%;
-    top: 25%;
-    left: 50%;
-    margin-left: -30%;
-  }
-  .cover img{
-    width: 100%;
-  }  
-}
-@media screen and (min-width: 799px) and (max-width: 1023px){
-  .cover{
-    width: 80%;
-    top: 25%;
-    left: 50%;
-    margin-left: -20%;
-  }
-  .cover img{
-    width: 80%;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .cover{
-    position: absolute; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 20%;
-    left: 50%;
-    width: 80%;
-    max-width: 1100px;
-    margin-left: -20%;
-
-  } 
-  .cover img {
-    width: 80%;
-  }     
-}
-@media screen and (min-width: 1024px) and (max-width: 1279px){
-  .cover{
-    position: absolute; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 12.5%;
-    left: 50%;
-    width: 120%;
-    margin-left: -20%;
-  } 
-  .cover img {
-    width: 60%;
-  }     
 }
 .btn span {
   color: #000;
@@ -452,11 +443,11 @@ h1.bigtitle.bigtitle {
     left: 0;
     right: auto;
     border-radius: 4px;
-  }  
+  }
 }
 
 .partner {
- position: relative; 
+ position: relative;
  display: block;
  float: right;
  margin-top: 50px;

@@ -47,7 +47,7 @@ p,a{
         width: 334px;
         padding: 0;
     }
-    
+
     h1{
         font-size: 49px;
     }
@@ -92,7 +92,7 @@ p,a{
     }
     h1{
         font-size: 100px;
-    }    
+    }
     p>br{
         line-height: 50px;
     }

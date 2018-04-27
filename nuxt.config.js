@@ -1,7 +1,19 @@
 module.exports = {
   router: {
-    base: '/upf/newmedia/2018_data/tsmccharity/'
-    // base: './'
+    base: '/tsmc_foundation_site/',
+    // base: '/upf/newmedia/2018_data/tsmccharity/',
+    scrollBehavior (to, from, savedPosition) {
+      if (to.hash) {
+        return {
+          selector: to.hash
+        }
+      } else {
+        return {
+          x: 0,
+          y: 0
+        }
+      }
+    },
   },
 
   /*
@@ -22,7 +34,7 @@ module.exports = {
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/'},
       { property: 'og:image', content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/FB.jpg' },
-      { property: 'og:description', content: '做公益對台積電而言，不只是捐款。我們選擇步出晶圓廠，走入重災區、再挺進偏鄉，用工程專業造橋鋪路、關懷老人也...'}   
+      { property: 'og:description', content: '做公益對台積電而言，不只是捐款。我們選擇步出晶圓廠，走入重災區、再挺進偏鄉，用工程專業造橋鋪路、關懷老人也...'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/upf/newmedia/2018_data/tsmccharity/logo.ico' },
@@ -51,5 +63,5 @@ module.exports = {
         })
       }
     }
-  }
+  },
 }

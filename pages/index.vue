@@ -23,7 +23,7 @@
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </span>
               </nuxt-link>
-            </div>          
+            </div>
             <p><br></p>
             <p><br></p>
           </div>
@@ -36,7 +36,7 @@
       <ContentWrapper>
         <div class="hidden-pc" style="margin-bottom: 20px;">
           <img :src="indexMob1">
-        </div>        
+        </div>
       </ContentWrapper>
       <ContentWrapper>
         <EmbededVideo :src="indexvideo_mob" :srcWeb="indexvideo" :poster="indexposter_mob" :posterWeb="indexposter_web"></EmbededVideo>
@@ -44,7 +44,7 @@
       <ContentWrapper>
         <div class="hidden-pc" style="margin-top: 10px;">
           <img :src="indexMob2">
-        </div>      
+        </div>
       </ContentWrapper>
       <ContentWrapper class="section">
         <div class="row section" style="margin-top: 0 ;">
@@ -64,7 +64,7 @@
                 <span>關於我們
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </span>
-              </nuxt-link>              
+              </nuxt-link>
             </div>
           </div>
         </div>
@@ -76,18 +76,18 @@
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/news">
             <img :src="indexicon4" style="display: block; margin: auto">
             <p>最新動態</p>
-          </nuxt-link>                          
+          </nuxt-link>
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus">
             <img :src="indexicon2" style="display: block; margin: auto">
-            <p>關於我們</p>          
-          </nuxt-link>              
+            <p>公益使命</p>
+          </nuxt-link>
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns">
             <img :src="indexicon3" style="display: block; margin: auto">
             <p>我們做的事</p>
           </nuxt-link>
           <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
             <img :src="indexicon1" style="display: block; margin: auto">
-            <p>愛互聯</p>
+            <p>把愛傳出去</p>
           </nuxt-link>
         </div>
         <p><br></p>
@@ -96,30 +96,13 @@
       <ContentWrapper style="padding: 3% 0;">
         <p><br></p>
         <h2>留言給我們</h2>
-        <p><br></p>  
+        <p><br></p>
         <FBComment :href="location"></FBComment>
-        <p><br></p>        
+        <p><br></p>
       </ContentWrapper>
       <Foot></Foot>
-<!--       <ContentWrapper backgroundColor='#292b2e' class="footer">
-        <p><br></p>
-        <p><br></p>
-        <div class="row" style="position: relative;">
-          <div class="col-lg-6 col-sm-6 tsmclogo">
-            <img :src="tsmcLogo">
-          </div>
-          <div class="col-lg-6 col-sm-6 tsmcfoundation">
-            <p>台積電慈善基金會</p>
-            <p>電話 : 03-563-6688 ext. 712-5030</p>
-            <p>地址 : 300 新竹科學園區力行六路8號</p>
-          </div>        
-        </div>
-      </ContentWrapper>      -->
     </div>
-<!--     <Overlay mainContainer="index" :show="showMessageBoard">
-      <FBComment :href="location"></FBComment>
-    </Overlay>
- -->  </FadeInDown>
+  </FadeInDown>
 </template>
 
 <script>
@@ -166,7 +149,7 @@ export default {
         { name: 'keywords', content: '' }
       ]
     }
-  },  
+  },
   data: function () {
     return {
       location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/',
@@ -206,14 +189,14 @@ export default {
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
-    window.removeEventListener('fb-sdk-ready', this.onFBReady)    
+    window.removeEventListener('fb-sdk-ready', this.onFBReady)
   },
   methods: {
     showComments: function () {
       this.showMessageBoard = true
     },
     closeOverlay: function () {
-      this.showMessageBoard = false      
+      this.showMessageBoard = false
     },
     onFBReady: function () {
       this.isFBReady = true
@@ -231,13 +214,13 @@ export default {
   position: relative;
 }
 
-@media screen and (max-width: 767px){  
+@media screen and (max-width: 767px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 768px){  
+@media screen and (min-width: 768px){
   .hidden-pc{
     display: none!important;
   }
@@ -266,7 +249,7 @@ export default {
       opacity: 1;
       transform: translate(0, 0);
     }
-  }  
+  }
 }
 .fullscreen {
   width: 100%;
@@ -282,19 +265,19 @@ export default {
     background-color: #E5CAAB;
   }
   32.666%{
-   background-color: #E5CAAB; 
+   background-color: #E5CAAB;
   }
   32.704%{
     background-color: #FEFCF2;
   }
   63.734%{
-   background-color: #FEFCF2; 
+   background-color: #FEFCF2;
   }
   63.852%{
     background-color: #DFC5DE;
   }
   96.128%{
-   background-color: #DFC5DE; 
+   background-color: #DFC5DE;
   }
   96.2406%{
     background-color: #E5CAAB;
@@ -317,7 +300,7 @@ export default {
   .iconWrapper {
     display: flex;
     justify-content: space-around;
-  }  
+  }
 }
 
 @media screen and (max-width: 767px){
@@ -402,11 +385,11 @@ export default {
     width: 0;
     left: 0;
     border-radius: 4px;
-  }  
+  }
 }
 
 .subpageLink {
- position: relative; 
+ position: relative;
  display: block;
  float: right;
  margin-top: 20px;

@@ -6,10 +6,10 @@
         <div class="bg-web hidden-mobile"></div>
         <div class="bg-mob hidden-pc"></div>
         <ContentWrapper class="absolutefullscreen centercenter">
-          <h1 class="bigtitle" style="position: absolute; top: 20%;">關於<br>我們</h1>
+          <h1 class="bigtitle" style="position: absolute; top: 20%;">公益<br>使命</h1>
         </ContentWrapper>
       </div>
-      <ContentWrapper class="section">
+      <ContentWrapper class="section" id="part_1" :style="{paddingTop: scrollPadding + 'px'}">
         <Quote
         text="「台積電做能做的，但我們不回頭去看，就是一直往前，想著怎麼樣能做得更實在、更徹底，怎樣才能真正幫助到人。」"
         :img="quoteImg"
@@ -45,7 +45,7 @@
         <p><br></p>
         <p>期間，台積電念及災區家長們，正經歷人生最艱困一刻，災區的孩子們，則是有家歸不得，因此志工們集思廣益，打造歡樂的夏令營活動，將孩子們暫時帶離重建中的破碎家園，療癒一個個幼小心靈中，因災害造成的創傷和恐懼。</p>
       </ContentWrapper>
-      <ContentWrapper class="section">
+      <ContentWrapper class="section" id="part_2" :style="{paddingTop: scrollPadding + 'px'}">
         <h2>被需要 台積電有溫度了</h2>
         <p><br></p>
         <p>台積電慈善基金會今年正式成立，延續以往做公益的智慧。志工們還是堅持要走到第一線，去感受問題，去碰觸受助者真正的需求。</p>
@@ -152,6 +152,17 @@ export default {
   },
   components: {
     HeadBar, ContentWrapper, EmbededVideo, Quote, ColumnThree, ColumnTwo, Overlay, FBComment, FadeInDown, Foot
+  },
+  computed: {
+    scrollPadding: function() {
+      if (process.browser) {
+        if(window.innerWidth < 1024) {
+          return 80
+        } else {
+          return 90
+        }
+      }
+    }
   },
   created: function () {
     // 關閉留言區
