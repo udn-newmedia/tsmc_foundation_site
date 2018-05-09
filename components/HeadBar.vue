@@ -2,21 +2,21 @@
   <div id="head-bar" :style="{top: top+'px'}">
     <ContentWrapper>
       <div id="icon">
-        <nuxt-link to="/"><img :src="logo"></nuxt-link>
+        <nuxt-link to="/" @click.native="handle_clickLogo()"><img :src="logo"></nuxt-link>
       </div>
     </ContentWrapper>
     <ContentWrapper class="myWrapper" :style="{transform: 'translate(0, -'+ headSlideIn +'%)'}"
       background-color="#fff" style="position: relative;">
       <div id="hbutton-contain" :class="{open: isOpen}" class="hidden-pc" style="padding-top: 25px;">
         <div class="links"
-          v-for="link in titlelist"
+          v-for="(link, index) in titlelist"
           :key="link.title">
           <div class="link" :class="{isBold: link.isBold}">
             <div class="redNum" v-if="link.isNew">N</div>
             <div class="slideMenu">
-              <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+              <nuxt-link :to="link.link" @click.native="handle_sentGA(index)">{{link.title}}</nuxt-link>
               <div class="child_item" @click="handleClick">
-                <a v-for="item in link.slideMenu" :key="item.title" :href="item.link">{{item.title}}</a>
+                <a v-for="(item, key) in link.slideMenu" :key="item.title" :href="item.link" @click="handle_sentGA_slide(index, key)">{{item.title}}</a>
               </div>
             </div>
           </div>
@@ -30,9 +30,9 @@
           <div class="link" @mouseenter="handle_mouseIn(index)" @mouseout="handle_mouseOut(index)">
             <div class="redNum" v-if="link.isNew">N</div>
             <div class="slideMenu">
-              <nuxt-link :to="link.link">{{link.title}}</nuxt-link>
+              <nuxt-link :to="link.link" @click.native="handle_sentGA(index)">{{link.title}}</nuxt-link>
               <div class="child_item" :class="{menuSlide_open: link.isOpen}">
-                <a v-for="item in link.slideMenu" :key="item.title" :href="item.link"
+                <a v-for="(item, key) in link.slideMenu" :key="item.title" :href="item.link" @click="handle_sentGA_slide(index, key)"
                 @mouseenter="handle_mouseIn(index)" @mouseout="handle_mouseOut(index)">{{item.title}}</a>
               </div>
             </div>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+import Utils from 'udn-newmedia-utils'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import ContentWrapper from './Content'
 
@@ -138,8 +139,6 @@ export default {
     }
   },
   mounted: function () {
-    console.log('head mout')
-    // this.handlePage()
     window.addEventListener('scroll', this.handleScroll);
   },
   methods: {
@@ -152,6 +151,30 @@ export default {
         this.headSlideIn = 0
         window.removeEventListener('scroll', this.handleScroll)
       }
+    },
+    handle_clickLogo () {
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "HeadBar",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ this.isPage +"] > [ index ] [HeadBar]"
+      });
+    },
+    handle_sentGA (index) {
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "HeadBar",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ this.isPage +"] > [" + this.titlelist[index].link + "] [HeadBar]"
+      });
+    },
+    handle_sentGA_slide (index, key) {
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "HeadBar",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ this.isPage +"] > [" + this.titlelist[index].slideMenu[key].link + "] [HeadBar SlideMenu]"
+      });
     },
     handle_mouseIn (index) {
       this.titlelist[index].isOpen = true
@@ -179,8 +202,8 @@ export default {
     text-align: left;
   }
   .nuxt-link-active{
-    // text-decoration: underline !important;
-    border-bottom: 2px solid #000;
+    text-decoration: underline !important;
+    // border-bottom: 2px solid #000;
     font-weight: bold !important;
   }
 }
@@ -191,12 +214,11 @@ export default {
   @media screen and (min-width: 1024px) {
     position: absolute;
     z-index: 100;
-    width: 9em;
-    top: 105%;
+    width: 160px;
+    top: 180%;
     left: 0;
-    margin-left: -10px;
+    margin-left: -30px;
     background-color: #fff;
-    box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.14);
     max-height: 0;
     overflow: hidden;
     padding: 0;
@@ -207,12 +229,18 @@ export default {
     color: #adaaaa !important;
     @media screen and (min-width: 1024px) {
       margin: 0;
-      padding: 0.5em;
+      padding-left: 30px;
+      padding-bottom: .6em;
       color: #585858 !important;
       &:hover{
-        background-color: #f2ede4;
+        text-decoration: underline;
       }
     }
+  }
+  .nuxt-link-active{
+    // text-decoration: underline !important;
+    border: none;
+    font-weight: bold !important;
   }
 }
 .menuSlide_open{
@@ -252,7 +280,7 @@ export default {
 }
 .nuxt-link-exact-active{
   // text-decoration: underline !important;
-  border-bottom: 2px solid #000;
+  // border-bottom: 2px solid #000;
   font-weight: bold !important;
 }
 .myWrapper{

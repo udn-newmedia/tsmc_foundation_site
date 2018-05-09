@@ -7,8 +7,8 @@
           <h1 class="bigtitle" style="position: absolute; top: 20%; z-index: 3;">我們<br>做的事</h1>
           <div class="anim">
             <Bodymovin jsonfile="./smartBrain1/data.json" MOBjsonfile="./smartBrain1_mobile/data.json" PADjsonfile="./smartBrain1_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin>
-            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 2; width: 100%;" isLoop='false' setClass="pcBrain"></Bodymovin>          
-          </div>          
+            <Bodymovin jsonfile="./smartBrain2/data.json" MOBjsonfile="./smartBrain2_mobile/data.json" PADjsonfile="./smartBrain2_mobile/data.json" style="position: absolute; top: 0; left: 0; z-index: 2; width: 100%;" isLoop='false' setClass="pcBrain"></Bodymovin>
+          </div>
         </ContentWrapper>
         <ContentWrapper style="position: absolute; left: 0; top: 0; width: 100%; height: 100%;z-index: 0;">
           <h1 class="bigtitle hidden-pc" style="position: absolute; top: 10%; z-index: 3;">我們<br>做的事</h1>
@@ -53,7 +53,7 @@
             <p>當8000顆台積電的聰明腦，一起投向公益，張淑芬說，原本只有一個小小的善念萌芽，會有好多點子進來加分，聚沙成塔的力量，最後讓事情變成十分，「我說，這就是智慧的慈悲」。</p>
             <p><br></p>
             <p><br></p>
-          </div>        
+          </div>
         </div>
       </ContentWrapper>
       <div style="background: #e0dfdf" ref='catchWork'>
@@ -79,23 +79,23 @@
                     <p>「生前孤零零，一過世卻誰都來了」，看著如此不堪的場景，張淑芬在心裡一次次的問著，這些孩子們，在自己的父母、爺爺奶奶最孤單的時候，都到哪裡去了？</p>
                     <p><br></p>
                     <p>張淑芬認為，每個獨居老人渴望的不是物質補助，而是陪伴，這些老人過得好，社會就會更好。但也發現家庭倫理、道德課程，早在16年前就從教科書裡廢除，張淑芬決心讓這些書本裡學不到的事，重返校園，根治現今麻木冷漠的社會。</p>
-                    <Quote 
-                      text="「只有家裡熱了，才有能力去愛別人。」" 
+                    <Quote
+                      text="「只有家裡熱了，才有能力去愛別人。」"
                       color="#000"
                       borderColor="#fff"></Quote>
-                    <p>她相信「孝道」是改變社會的起點，2017年初，基金會開始積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，台南市成為示範區，中央與地方攜手整合教材與資源。2017年底，首版孝道教材已送抵全台小學，結合正式課程及非正式活動，啟動孝道教育。</p>                                                
+                    <p>她相信「孝道」是改變社會的起點，2017年初，基金會開始積極尋訪各縣市首長，盼能一起推廣。其中前台南市長、現任行政院長賴清德率先一口答應，推廣半年後，教育部再加入，台南市成為示範區，中央與地方攜手整合教材與資源。2017年底，首版孝道教材已送抵全台小學，結合正式課程及非正式活動，啟動孝道教育。</p>
                   </div>
                 </div>
                 <div class="subpageLink" @click="toggleLess(0)">
                   <a class="btn">
                     <span v-if='isLess[0]'>看更多
-                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                     </span>
                     <span v-else>收回
-                      <i class="fa fa-minus" aria-hidden="true"></i>                      
-                    </span>                    
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </span>
                   </a>
-                </div>          
+                </div>
               </div>
             </div>
             <img class="right" :src="webpic2">
@@ -129,13 +129,13 @@
                 <div class="subpageLink" @click="toggleLess(1)">
                   <a class="btn">
                     <span v-if="isLess[1]">看更多
-                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                     </span>
                     <span v-else>收回
-                      <i class="fa fa-minus" aria-hidden="true"></i>                      
-                    </span>                    
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </span>
                   </a>
-                </div>          
+                </div>
               </div>
             </div>
           </div>
@@ -171,13 +171,13 @@
                 <div class="subpageLink" @click="toggleLess(2)">
                   <a class="btn">
                     <span v-if='isLess[2]'>看更多
-                      <i class="fa fa-plus" aria-hidden="true"></i>                                            
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                     </span>
                     <span v-else>收回
-                      <i class="fa fa-minus" aria-hidden="true"></i>                                            
-                    </span>                    
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </span>
                   </a>
-                </div>          
+                </div>
               </div>
             </div>
             <img class="right" :src="webpic6">
@@ -202,11 +202,11 @@
                   <div class="labelwrapper">
                     <img :src="bulb">
                     <p class="label">關懷弱勢</p>
-                  </div>                  
+                  </div>
                   <h3><b>建學堂、修教室<br>台積電伴讀1000個偏鄉家庭的孩子</b></h3>
                   <p><br></p>
                   <div v-if="isLess[3]">
-                    <p>從新竹坐高鐵到台北，換火車到花蓮，再租車去深山，還經常買不到回程的火車票，但台積電志工為偏鄉學童的教育，不曾停下腳步。2004年成軍的台積電偏鄉學童導讀志工，除了課後伴讀，我們更出錢出力，2004年至今，已投入逾億元改善偏鄉教育。...</p>                
+                    <p>從新竹坐高鐵到台北，換火車到花蓮，再租車去深山，還經常買不到回程的火車票，但台積電志工為偏鄉學童的教育，不曾停下腳步。2004年成軍的台積電偏鄉學童導讀志工，除了課後伴讀，我們更出錢出力，2004年至今，已投入逾億元改善偏鄉教育。...</p>
                   </div>
                   <div v-else>
                     <p>從新竹坐高鐵到台北，換火車到花蓮，再租車去深山，還經常買不到回程的火車票，但台積電志工為偏鄉學童的教育，不曾停下腳步。2004年成軍的台積電偏鄉學童導讀志工，除了課後伴讀，我們更出錢出力，2004年至今，已投入逾億元改善偏鄉教育。</p>
@@ -217,49 +217,33 @@
                 <div class="subpageLink" @click="toggleLess(3)">
                   <a class="btn">
                     <span v-if="isLess[3]">看更多
-                      <i class="fa fa-plus" aria-hidden="true"></i>                      
+                      <i class="fa fa-plus" aria-hidden="true"></i>
                     </span>
                     <span v-else>收回
-                      <i class="fa fa-minus" aria-hidden="true"></i>                      
-                    </span>                    
+                      <i class="fa fa-minus" aria-hidden="true"></i>
+                    </span>
                   </a>
-                </div>          
+                </div>
               </div>
             </div>
           </div>
         </ContentWrapper>
-      </div>    
+      </div>
       <ContentWrapper background-color="#fff">
         <p><br></p>
         <h2>留言給我們</h2>
         <p><br></p>
         <FBComment :href="location"></FBComment>
-        <p><br></p>        
+        <p><br></p>
       </ContentWrapper>
-      <Foot></Foot>      
-<!--       <ContentWrapper backgroundColor='#292b2e' class="footer">
-        <p><br></p>
-        <p><br></p>
-        <div class="row" style="position: relative;">
-          <div class="col-lg-6 col-sm-6 tsmclogo">
-            <img :src="tsmcLogo">
-          </div>
-          <div class="col-lg-6 col-sm-6 tsmcfoundation">
-            <p>台積電慈善基金會</p>
-            <p>電話 : 03-563-6688 ext. 712-5030</p>
-            <p>地址 : 300 新竹科學園區力行六路8號</p>
-          </div>        
-        </div>
-      </ContentWrapper> -->      
+      <Foot></Foot>
     </div>
-<!--     <Overlay mainContainer="campaigns" :show="showMessageBoard">
-      <FBComment :href="location"></FBComment>      
-    </Overlay>     -->
   </FadeInDown>
 </template>
 
 <script>
 import Vue from 'vue'
+import Utils from 'udn-newmedia-utils'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Foot from '~/components/Foot.vue'
@@ -295,11 +279,11 @@ if (process.browser) {
 }
 
 export default {
-  /** 
+  /**
    * 變數:
-   *  - showMessageBoard: (true or false) 是否顯示留言區 
+   *  - showMessageBoard: (true or false) 是否顯示留言區
    *  - isLess: (true or false) 每個區塊訊息展開與否，展開則為 false
-  */    
+  */
   data: function () {
     return {
       location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/campaigns',
@@ -339,54 +323,85 @@ export default {
     // 載入 FB sdk
     this.isFBReady = Vue.FB != undefined
     setTimeout(function(){
-      Vue.FB.XFBML.parse();  
+      Vue.FB.XFBML.parse();
     }, 500)
     window.addEventListener('fb-sdk-ready', this.onFBReady)
-    
+
     setTimeout(function() {
       if(window.innerWidth >= 1024) {
         $('.pcBrain').children('g').children('g').children('image').eq(7).css('cursor', 'pointer')
-        $('.pcBrain').children('g').children('g').children('image').eq(6).css('cursor', 'pointer')     
+        $('.pcBrain').children('g').children('g').children('image').eq(6).css('cursor', 'pointer')
         $('.pcBrain').children('g').children('g').children('image').eq(5).css('cursor', 'pointer')
         $('.pcBrain').children('g').children('g').children('image').eq(4).css('cursor', 'pointer')
         $('.pcBrain').children('g').children('g').children('image').eq(7).on('click', function() {
           vm.handle_scrollTo(2)
+          vm.sentGA('點擊頭腦', '環保教育', '頁面: 我們做的事')
         })
         $('.pcBrain').children('g').children('g').children('image').eq(6).on('click', function() {
-          vm.handle_scrollTo(3) 
+          vm.handle_scrollTo(3)
+          vm.sentGA('點擊頭腦', '關懷弱勢', '頁面: 我們做的事')
         })
         $('.pcBrain').children('g').children('g').children('image').eq(5).on('click', function() {
           vm.handle_scrollTo(0)
+          vm.sentGA('點擊頭腦', '孝道推廣', '頁面: 我們做的事')
         })
         $('.pcBrain').children('g').children('g').children('image').eq(4).on('click', function() {
           vm.handle_scrollTo(1)
+          vm.sentGA('點擊頭腦', '照顧獨老', '頁面: 我們做的事')
         })
       } else {
         $('.mobBrain').children('g').children('g').children('image').eq(7).on('click', function() {
           vm.handle_scrollTo(2)
+          vm.sentGA('點擊頭腦', '環保教育', '頁面: 我們做的事')
         })
         $('.mobBrain').children('g').children('g').children('image').eq(6).on('click', function() {
-          vm.handle_scrollTo(3) 
+          vm.handle_scrollTo(3)
+          vm.sentGA('點擊頭腦', '關懷弱勢', '頁面: 我們做的事')
         })
         $('.mobBrain').children('g').children('g').children('image').eq(5).on('click', function() {
           vm.handle_scrollTo(0)
+          vm.sentGA('點擊頭腦', '孝道推廣', '頁面: 我們做的事')
         })
         $('.mobBrain').children('g').children('g').children('image').eq(4).on('click', function() {
           vm.handle_scrollTo(1)
-        })        
+          vm.sentGA('點擊頭腦', '照顧獨老', '頁面: 我們做的事')
+        })
       }
     }, 666)
 
-  },    
+  },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
-  },  
+  },
   methods: {
+    sentGA (from, to, by) {
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "HeadBar",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]"
+      });
+      console.log("[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]")
+    },
     toggleLess: function (whichone) {
       let index = Number(whichone)
       const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop
       if (this.isLess[index]) {
         this.isLess[index] = false
+        switch(index){
+          case 0:
+            this.sentGA('點擊展開', '孝道推廣', '頁面: 我們做的事')
+          break;
+          case 1:
+            this.sentGA('點擊展開', '照顧獨老', '頁面: 我們做的事')
+          break;
+          case 2:
+            this.sentGA('點擊展開', '環境保育', '頁面: 我們做的事')
+          break;
+          case 3:
+            this.sentGA('點擊展開', '關懷弱勢', '頁面: 我們做的事')
+          break;
+        }
       } else {
         this.isLess[index] = true
         $('html').animate({
@@ -396,7 +411,6 @@ export default {
       this.$forceUpdate()
     },
     handle_scrollTo: function(index) {
-      console.log('click env')
       const thisOffset = document.querySelectorAll('.workblocks')[index].offsetTop
       $('html').animate({
         scrollTop: thisOffset,
@@ -407,7 +421,7 @@ export default {
       // window.FB.XFBML.parse();
     },
     closeOverlay: function () {
-      this.showMessageBoard = false      
+      this.showMessageBoard = false
     },
     onFBReady: function () {
       this.isFBReady = true
@@ -440,13 +454,13 @@ export default {
   text-align: justify;
 }
 
-@media screen and (max-width: 1023px){  
+@media screen and (max-width: 1023px){
   .hidden-mobile{
     display: none!important;
   }
 }
 
-@media screen and (min-width: 1024px){  
+@media screen and (min-width: 1024px){
   .hidden-pc{
     display: none!important;
   }
@@ -474,7 +488,7 @@ h1.bigtitle.bigtitle {
     position: absolute;
     left: 0;
     top: 20%;
-  }  
+  }
 }
 
 .subpageLink {
@@ -485,7 +499,7 @@ h1.bigtitle.bigtitle {
   .iconWrapper {
     display: flex;
     justify-content: space-around;
-  }  
+  }
 }
 
 @media screen and (max-width: 1023px){
@@ -546,8 +560,8 @@ h1.bigtitle.bigtitle {
 @media screen and (max-width: 767px){
   .workblock{
     margin-top: 50px;
-    margin-bottom: 50px; 
-  }  
+    margin-bottom: 50px;
+  }
   .workblock .textarea{
     position: relative;
     display: flex;
@@ -595,7 +609,7 @@ h1.bigtitle.bigtitle {
 
   img.shiftupward{
     transform: translateY(-80px);
-  }  
+  }
 }
 
   .workblocks img{
@@ -606,7 +620,7 @@ h1.bigtitle.bigtitle {
 
   .workblocks img.right{
     top: 0;
-    right: 0;  
+    right: 0;
   }
 
   .workblocks img.left{
@@ -666,7 +680,7 @@ h1.bigtitle.bigtitle {
   .btn:before,
   .btn:after {
     background: #333;
-  }  
+  }
 }
 .btn:before {
   top: 0;
@@ -678,7 +692,7 @@ h1.bigtitle.bigtitle {
   left: 0;
 }
 .subpageLink {
- position: relative; 
+ position: relative;
  display: block;
  float: right;
  margin-top: 50px;
@@ -706,7 +720,7 @@ h1.bigtitle.bigtitle {
     left: 0;
     right: auto;
     border-radius: 4px;
-  }  
+  }
   @keyframes fadeInDown {
     from{
       opacity: 0;
@@ -716,7 +730,7 @@ h1.bigtitle.bigtitle {
       opacity: 1;
       transform: translate(0, 0);
     }
-  }     
+  }
 }
 
 .fa.fa-plus{
@@ -731,10 +745,10 @@ h1.bigtitle.bigtitle {
 }
 
 .mobbodymov.bg{
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  z-index: 0; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
   width: 100%;
   height: 100vh;
 }
@@ -754,7 +768,7 @@ h1.bigtitle.bigtitle {
     left: 15%;
     width: 70%;
     z-index: 2;
-  }  
+  }
 }
 
 .label{
@@ -762,13 +776,13 @@ h1.bigtitle.bigtitle {
 }
 
 .labelwrapper{
-  display: flex; 
+  display: flex;
   align-items: flex-end;
-}  
+}
 
 .labelwrapper img{
-  position: relative; 
-  width: 34px; 
+  position: relative;
+  width: 34px;
   height: 54px;
 }
 .noHead{
@@ -804,7 +818,7 @@ h1.bigtitle.bigtitle {
   margin-top: -38%;
   margin-left: 18%;
   animation: fadeIn 666ms ease-out;
-  animation-fill-mode: both;  
+  animation-fill-mode: both;
   animation-delay: 1888ms;
 }
 .clickTeach{
@@ -815,7 +829,7 @@ h1.bigtitle.bigtitle {
   left: 50%;
   margin-top: -10%;
   animation: fadeIn 666ms ease-out;
-  animation-fill-mode: both;  
+  animation-fill-mode: both;
   animation-delay: 2444ms;
 }
 .clickChild{
@@ -825,9 +839,9 @@ h1.bigtitle.bigtitle {
   top: 50%;
   left: 50%;
   margin-top: -42%;
-  margin-left: -41%;  
+  margin-left: -41%;
   animation: fadeIn 666ms ease-out;
-  animation-fill-mode: both;  
+  animation-fill-mode: both;
   animation-delay: 1222ms;
 }
 .clickOld{

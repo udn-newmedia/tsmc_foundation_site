@@ -33,7 +33,7 @@
       <h2>近期活動</h2>
       <div class="oursEvent">
         <div class="eventItem" v-for="event in events" :key="'event_' + event.id">
-          <a :href="event.pdf" target="_blank">
+          <a :href="event.pdf" target="_blank" @click="sentGA('近期活動PDF', event.title, '頁面:志工社')">
             <img :src="event.src" alt="">
             <h3>{{event.title}}</h3>
           </a>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+  import Utils from 'udn-newmedia-utils'
   import Cover from '~/components/Cover.vue'
   import ContentWrapper from '~/components/Content.vue'
   import FadeInDown from '~/components/FadeInDown.vue'
@@ -209,7 +210,16 @@
         else {
           this.carousel_current_index = 0
         }
-      }
+      },
+      sentGA (from, to, by) {
+        ga("send", {
+            "hitType": "event",
+            "eventCategory": "HeadBar",
+            "eventAction": "click",
+            "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]"
+        });
+        console.log("[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]")
+      },
     },
     mounted () {
       this.carousel_interval = setInterval(this.forInterVal, 3333)

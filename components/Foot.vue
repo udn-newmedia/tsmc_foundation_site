@@ -7,8 +7,10 @@
       </div>
       <div class="col-lg-8 col-sm-6 tsmcfoundation">
         <p v-if="theMob">台積電慈善基金會</p>
-        <p>電話 : 03-563-6688</p>
+        <p>聯絡人：楊小姐</p>
         <p>地址 : 300 新竹科學園區力行六路8號</p>
+        <p>電  話：03-563-6688 #712-6357</p>
+        <p>電子信箱：mcyangn@tsmc.com</p>
       </div>
     </div>
   </ContentWrapper>

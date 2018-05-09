@@ -73,7 +73,6 @@ export default {
     }
   },
   updated: function() {
-    console.log('updated overlay')
     setTimeout(function(){
       window.FB.XFBML.parse();
     }, 500)

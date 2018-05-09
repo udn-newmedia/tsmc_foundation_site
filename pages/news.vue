@@ -100,6 +100,7 @@
 
 <script>
 import Vue from 'vue'
+import Utils from 'udn-newmedia-utils'
 import HeadBar from '~/components/HeadBar.vue'
 import ContentWrapper from '~/components/Content.vue'
 import Foot from '~/components/Foot.vue'
@@ -136,6 +137,8 @@ import img11 from '~/assets/11.jpg'
 import img12 from '~/assets/12.jpg'
 import img13 from '~/assets/13.jpg'
 import img14 from '~/assets/14.jpg'
+import img15 from '~/assets/15.jpg'
+import img16 from '~/assets/16.jpg'
 
 import CoverNewsMedia from '../assets/news/coverNews.jpg'
 import ArticleMedia_1 from '../assets/news/1.jpg'
@@ -226,6 +229,47 @@ export default {
         ]
       },
       newslist: [
+        {
+          title: '張淑芬分享微孝與愛 籲企業助花蓮震災戶',
+          text: '張淑芬帶著台積電員工「把愛送出去」，也盼企業界一起參與，她把這個想法與業界分享，籲1個月1萬元認養1戶...',
+          link: 'https://udn.com/news/story/7327/3122071',
+          img: img15,
+          ArticleTitle: '張淑芬分享微孝與愛 籲企業助花蓮震災戶',
+          ArticleTime: '2018-05-03',
+          Article: [
+            {
+              'src': img15,
+              'imgsay': '內政部、財團法人台積電慈善基金會和高雄市政府共同主辦「微孝無所不在．企業推動孝行推廣分享會」高雄場，充滿感人氣氛。'
+            },
+            '內政部、財團法人台積電慈善基金會和高雄市政府共同主辦「微孝無所不在．企業推動孝行推廣分享會」高雄場，台積電慈善基金會董事長張淑芬分享把孝道融入教科書內，讓「孝」成為理所當然，並把對長輩的愛進一步送出去關懷社會弱勢，她並呼籲企業界共同關心花蓮震災中需要幫助的低收弱勢，以每個月1萬元共同「認養」這些弱勢者一年，幫助他們度過艱難。',
+            '「微孝無所不在．企業推動孝行推廣分享會」今天下午在高雄市政府鳳山行政中心1樓多媒體視聽會議室進行，張淑芬和內政部長葉俊榮、國家發展委員會主委陳美伶、高雄市代理市長許立明、日月光營運長吳田玉、台積電慈善基金會副執行長彭冠宇等與會，現場也坐滿前往聆聽的民眾。',
+            '高雄石化氣爆之後，台積電慈善基會號召許多企業共同為災戶修繕房屋、關懷弱勢，重建工作告一個段落後，張淑芬看到許多社會弱勢需要關懷，許多社會倫理問題令人憂心，於是決定做孝道，從台南到全國，讓內政部與教育部合作，把孝道放進教科書裡，讓「孝」是理所當然的倫理成為社會氛圍，然後往前跨一步，推動「把愛送出去」。',
+            '「弱勢和獨居老人需要的不見得是錢，他們需要的是愛。」張淑芬說，關懷獨居老人的經驗裡，看到老人家平時無家人關懷，往生之後親戚才出現，這讓她決心推孝道、要把「愛」送出去。',
+            '這次花蓮震災，張淑芬和台積電員工到花蓮幫助受災戶，她說助人要先把自己的看法拉高上來，看自己的能力能做些什麼，她拉高來看，知道能做的是低收入戶，因此重點放在此，另透過團購、鼓勵台積電員工到花蓮旅遊等方式幫助當地民眾。',
+            '張淑芬不只帶著基金會、台積電員工「把愛送出去」，也期盼企業界一起參與，她前天把這個想法與企業界的朋友分享，就以1個月1萬元「認養」1戶，可以是幾個人一起認養，一起送愛給需要幫助的人。',
+            '許立明認同張淑芬的想法，認為高雄的企業人士一定願意投入，高市府也會盡力協助。',
+            '內政部長葉俊榮談到「孝」時，分享一些生活上的小故事，他認為孝不一定要犧牲很多，大家要快樂行孝，行孝也要生活化，母親的活動不是孝的聚焦，生活中隨時行孝、了解父母長輩真正的需求更重要。'
+          ]
+        },
+        {
+          title: '產官攜手微孝傳愛 台積電籲認養弱勢者',
+          text: '內政部長葉俊榮說，從小學就教唱媽媽的歌，但感受「媽媽的味道」大家都該及時行孝，讓孝順生活化成為一種社會價值...',
+          link: 'https://udn.com/news/story/7240/3122030',
+          img: img16,
+          ArticleTitle: '產官攜手微孝傳愛 台積電籲認養弱勢者',
+          ArticleTime: '2018-05-03',
+          Article: [
+            '無孝就無德、百善孝為先是亙古不變的孝行觀念，但是隨著時代演變，很多人忙得無暇陪同父母、和爺爺奶奶也變得疏離，內政部長葉俊榮分享他用哼唱媽媽的歌感受媽媽的味道。',
+            '內政部攜手高市府、台積電慈善基金會合辦「微孝無所不在」企業推動孝行分享會，今天在高雄市鳳山行政中心多媒體視聽會議室舉行。',
+            '葉俊榮、國發會主委陳美伶、高雄市代理市長許立明、台積電慈善基金會董事長張淑芬等人都出席活動，宣傳孝行，也有學校分享教孝的感人故事。',
+            '葉俊榮致詞指出，從小學唱媽媽的歌，如今只要有機會就會哼唱媽媽的歌，感受「媽媽的味道」鼓勵大家及時行孝，讓孝順生活化也成為一種社會價值。',
+            '平常忙於工作，許立明談到孝順，語帶哽咽的自覺愧疚，沒有太多的時間陪同父母，盼此活動可以讓不孝的人有機會檢討。',
+            '張淑芬推廣微孝，也談到台積電參與高雄氣爆、花蓮賑災的救援行動。她分享了地震震垮老伯伯家的屋頂、雨水濕透了他的被褥，因為慈善會的協助，老伯重展笑顏，讓團隊感受到被需要與社會的溫情。',
+            '她呼籲企業響應並認養弱勢家庭，即便每個月新台幣一萬元，也能成為支撐弱勢者活下去的力量。',
+            '張淑芬鼓勵企業及善心者用愛做為揮灑人生的彩筆，讓生命的畫布更為精彩絢麗。',
+            '許立明說高雄市感謝台積電在氣爆時相挺、疼惜，他相信很多企業都會響應這個善行義舉。'
+          ]
+        },
         {
           title: '台積志工動起來 要給花蓮災民安全的住所',
           text: '針對本月6日深夜花蓮發生規模6.0地震所造成的傷害，台積電12日公布震災後協助復原方案，共同與民眾重建家園...',
@@ -617,11 +661,23 @@ export default {
       this.showMessageBoard = true
       this.useOverflow = true
       this.sendData = this.newslist[(this.page - 1) * 6 + index]
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "News",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [觀看"+ this.newslist[(this.page - 1) * 6 + index].title +"] [頁面: 最新動態]"
+      });
     },
     showCoverComment: function () {
       this.showMessageBoard = true
       this.useOverflow = true
       this.sendData = this.coverNew
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "News",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [觀看至頂文章] [頁面: 最新動態]"
+      });
     },
     closeOverlay: function () {
       this.showMessageBoard = false
@@ -812,6 +868,7 @@ h1.bigtitle.bigtitle {
   margin: 0 0 60px 0;
   border-radius: 3px;
   padding: 20px;
+  padding-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px){

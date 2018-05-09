@@ -1,7 +1,7 @@
 <template>
   <FadeInDown>
     <div id="index">
-      <HeadBar :bookmark-display="stickyAnchors" isNews='true' menuSlideFrom="right"></HeadBar>
+      <HeadBar :bookmark-display="stickyAnchors" isNews='true' menuSlideFrom="right" isPage="index"></HeadBar>
       <div class="fullscreen centercenter" style="position: relative; overflow: hidden;">
 <!--         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/bg.json" MOBjsonfile="./index_cover/common/mobile/bg/data.json" PADjsonfile="./index_cover/common/mobile/bg/data.json" style="position: absolute; top: 0; left: 0; z-index: 0; width: 100%;"></Bodymovin> -->
         <Bodymovin pcwidth="880" pcheight="840" jsonfile="./index_cover/common/fly.json" MOBjsonfile="./index_cover/common/mobile/fly/data.json" PADjsonfile="./index_cover/common/mobile/fly/data.json" style="position: absolute; top: 0; left: 0; z-index: 1; width: 100%;"></Bodymovin>
@@ -18,7 +18,7 @@
             <p><br></p>
             <p>「請問，我們可以為你做什麼？」今年二月，強震重創花蓮，台積電慈善基金會董事長張淑芬與志工團挺進第一線，以最直接有效的方式，向災民詢問可幫忙之處，再回頭盤點公司內部員工捐款、「台灣半導體設備暨材料協會」企業成員資源，一周內公布災區復原方案：先讓居民有安全的住所，再進一步重建花蓮觀光產業。</p>
             <div class="subpageLink">
-              <nuxt-link class="btn" to="/news">
+              <nuxt-link class="btn" to="/news" @click.native="handle_toPageGA('index', 'news', '首頁:文章連結')">
                 <span>最新動態
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </span>
@@ -60,7 +60,7 @@
             <p><br/></p>
             <p>更早的八八風災，爾後的八仙事件，台積電做公益一直不是電視上的捐款跑馬燈而已，一路以來，把晶圓廠工程師變成暖男的推手，是張忠謀夫人、台積電慈善基金會董事長張淑芬。</p>
             <div class="subpageLink">
-              <nuxt-link class="btn" to="/aboutus">
+              <nuxt-link class="btn" to="/aboutus" @click.native="handle_toPageGA('index', 'aboutus', '首頁:文章連結')">
                 <span>關於我們
                   <i class="fa fa-arrow-right" aria-hidden="true"></i>
                 </span>
@@ -73,19 +73,19 @@
         <p><br></p>
         <p><br></p>
         <div class="row iconWrapper">
-          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/news">
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/news" @click.native="handle_toPageGA('index', 'news', '首頁: 泡泡連結')">
             <img :src="indexicon4" style="display: block; margin: auto">
             <p>最新動態</p>
           </nuxt-link>
-          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus">
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/aboutus" @click.native="handle_toPageGA('index', 'aboutus', '首頁: 泡泡連結')">
             <img :src="indexicon2" style="display: block; margin: auto">
             <p>公益使命</p>
           </nuxt-link>
-          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns">
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/campaigns" @click.native="handle_toPageGA('index', 'campaigns', '首頁: 泡泡連結')">
             <img :src="indexicon3" style="display: block; margin: auto">
             <p>我們做的事</p>
           </nuxt-link>
-          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners">
+          <nuxt-link class="col-lg-2 col-xs-6 icon" to="/partners" @click.native="handle_toPageGA('index', 'partners', '首頁: 泡泡連結')">
             <img :src="indexicon1" style="display: block; margin: auto">
             <p>把愛傳出去</p>
           </nuxt-link>
@@ -107,6 +107,8 @@
 
 <script>
 import Vue from 'vue'
+import Utils from 'udn-newmedia-utils'
+
 import HeadBar from '~/components/HeadBar.vue'
 import Foot from '~/components/Foot.vue'
 import ContentWrapper from '~/components/Content.vue'
@@ -200,6 +202,15 @@ export default {
     },
     onFBReady: function () {
       this.isFBReady = true
+    },
+    handle_toPageGA (from, to, by) {
+      console.log(from, to)
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "ToPage",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [ "+ from +" ] > [ "+ to +" ]"
+      });
     }
   }
 }

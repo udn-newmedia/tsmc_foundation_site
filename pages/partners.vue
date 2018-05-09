@@ -21,9 +21,10 @@
         </div>
       </ContentWrapper>
       <ContentWrapper class="handSection" id="part_1">
+        <p><br></p>
         <div class="innerHand">
-          <h2>我想幫忙</h2>
           <p><br></p>
+          <h2>我想幫忙</h2>
           <div class="hand">
             <h2>【恆春旅遊醫院】需要您的幫忙！</h2>
             <p><br></p>
@@ -39,14 +40,16 @@
             <p><i class="fa fa-circle fa-1x" aria-hidden="true" style="color: #70cbfa;margin-right: 8px"></i>牡丹鄉部落中央廚房，提供40多戶弱勢長輩供餐</p>
             <p><br></p>
             <p><b>立即伸出援手</b></p>
-            <p>恆春旅遊醫院<a href="tel: 088892704">(08) 889-2704</a></p>
+            <p>恆春旅遊醫院<a href="tel: 088892704">（08） 889-2704</a></p>
             <p>恆春旅遊醫院 高專員<a href="tel: 0933775822">0933-775-822</a></p>
             <p><br></p>
             <div class="handlink-btn">
-              <a href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank">官網連結<span class="glyphicon glyphicon-new-window" style="margin-left: 5px;"></span></a>
+              <a href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank" @click="sentGA('我想幫忙', '恆春醫院', '把愛傳出去')">官網連結<span class="glyphicon glyphicon-new-window" style="margin-left: 5px;"></span></a>
             </div>
+            <p><br></p>
           </div>
         </div>
+        <p><br></p>
       </ContentWrapper>
       <ContentWrapper class="section" id="part_2">
         <h2>愛互聯夥伴</h2>
@@ -55,8 +58,8 @@
               <h3>北部</h3>
           </div>
           <div class="unit">
-              <div class="partner"><a class="btn" href="https://www.vghtpe.gov.tw/Index.action" target="_blank"><span>台北榮民總醫院</span></a></div>
-              <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
+              <div class="partner"><a class="btn" href="https://www.vghtpe.gov.tw/Index.action" target="_blank" @click="sentGA('把愛傳出去', '台北榮民總醫院', '超連結')"><span>台北榮民總醫院</span></a></div>
+              <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank" @click="sentGA('把愛傳出去', '北部老五老基金會', '超連結')"><span>老五老基金會</span></a></div>
           </div>
         </div>
         <br/> <br/>
@@ -65,8 +68,8 @@
                 <h3>竹苗</h3>
             </div>
             <div class="unit">
-                <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank"><span>老五老基金會</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank"><span>部立苗栗醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.ofo.org.tw/" target="_blank" @click="sentGA('把愛傳出去', '竹苗老五老基金會', '超連結')"><span>老五老基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.mil.mohw.gov.tw/index.asp" target="_blank" @click="sentGA('把愛傳出去', '部立苗栗醫院', '超連結')"><span>部立苗栗醫院</span></a></div>
             </div>
         </div>
         <br/> <br/>
@@ -75,10 +78,10 @@
                 <h3>台中</h3>
             </div>
             <div class="unit">
-                <div class="partner"><a class="btn" href="http://www.cmuh.cmu.edu.tw" target="_blank"><span>中國醫藥大學附設醫院</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.fyh.mohw.gov.tw" target="_blank"><span>部立豐原醫院</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.ltl-charity.org.tw" target="_blank"><span>林增連基金會</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank"><span>老五老基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.cmuh.cmu.edu.tw" target="_blank" @click="sentGA('把愛傳出去', '中國醫藥大學附設醫院', '超連結')"><span>中國醫藥大學附設醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.fyh.mohw.gov.tw" target="_blank" @click="sentGA('把愛傳出去', '部立豐原醫院', '超連結')"><span>部立豐原醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.ltl-charity.org.tw" target="_blank" @click="sentGA('把愛傳出去', '林增進基金會', '超連結')"><span>林增連基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.ofo.org.tw" target="_blank" @click="sentGA('把愛傳出去', '中部老五老基金會', '超連結')"><span>老五老基金會</span></a></div>
             </div>
         </div>
         <br/> <br/>
@@ -87,10 +90,10 @@
                 <h3>台南</h3>
             </div>
             <div class="unit">
-                <div class="partner"><a class="btn" href="https://www.facebook.com/puli393" target="_blank"><span>台灣普力關懷協會</span></a></div>
-                <div class="partner"><a class="btn" href="https://www.tnhosp.mohw.gov.tw" target="_blank"><span>部立台南醫院</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.cnpc.mohw.gov.tw" target="_blank"><span>部立嘉南療養院</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.sinlau.org.tw" target="_blank"><span>新樓醫院</span></a></div>
+                <div class="partner"><a class="btn" href="https://www.facebook.com/puli393" target="_blank" @click="sentGA('把愛傳出去', '台灣普力關懷協會', '超連結')"><span>台灣普力關懷協會</span></a></div>
+                <div class="partner"><a class="btn" href="https://www.tnhosp.mohw.gov.tw" target="_blank" @click="sentGA('把愛傳出去', '部立台南醫院', '超連結')"><span>部立台南醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.cnpc.mohw.gov.tw" target="_blank" @click="sentGA('把愛傳出去', '部立嘉南療養院', '超連結')"><span>部立嘉南療養院</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.sinlau.org.tw" target="_blank" @click="sentGA('把愛傳出去', '新樓醫院', '超連結')"><span>新樓醫院</span></a></div>
             </div>
         </div>
         <br/> <br/>
@@ -99,8 +102,8 @@
                 <h3>高屏</h3>
             </div>
             <div class="unit">
-                <div class="partner"><a class="btn" href="http://web.fy.edu.tw/bin/home.php" target="_blank"><span>輔英科技大學</span></a></div>
-                <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank"><span>恆春旅遊醫院</span></a></div>
+                <div class="partner"><a class="btn" href="http://web.fy.edu.tw/bin/home.php" target="_blank" @click="sentGA('把愛傳出去', '輔英科技大學', '超連結')"><span>輔英科技大學</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.pnhb.mohw.gov.tw/?aid=home" target="_blank" @click="sentGA('把愛傳出去', '恆春旅遊醫院', '超連結')"><span>恆春旅遊醫院</span></a></div>
             </div>
         </div>
         <br/>
@@ -110,8 +113,8 @@
                 <h3>花東</h3>
             </div>
             <div class="unit">
-                <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank"><span>基督教門諾會醫院</span></a></div>
-                <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank"><span>門諾基金會</span></a></div>
+                <div class="partner"><a class="btn" href="http://www.mch.org.tw/" target="_blank" @click="sentGA('把愛傳出去', '基督教門諾會醫院', '超連結')"><span>基督教門諾會醫院</span></a></div>
+                <div class="partner"><a class="btn" href="https://mf.eoffering.org.tw" target="_blank" @click="sentGA('把愛傳出去', '門諾基金會', '超連結')"><span>門諾基金會</span></a></div>
             </div>
         </div>
       </ContentWrapper>
@@ -129,6 +132,7 @@
 
 <script>
 import Vue from 'vue'
+import Utils from 'udn-newmedia-utils'
 import HeadBar from '~/components/HeadBar.vue'
 import Foot from '~/components/Foot.vue'
 import ContentWrapper from '~/components/Content.vue'
@@ -190,7 +194,16 @@ export default {
   methods: {
     onFBReady: function () {
       this.isFBReady = true
-    }
+    },
+    sentGA (from, to, by) {
+      ga("send", {
+          "hitType": "event",
+          "eventCategory": "HeadBar",
+          "eventAction": "click",
+          "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]"
+      });
+      console.log("[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]")
+    },
   }
 }
 </script>
@@ -210,17 +223,37 @@ export default {
   background-color: #e4c8a9;
 }
 .handlink-btn{
+  position: relative;
+  z-index: 5;
   box-sizing: content-box;
   padding: 9px;
   width: 95px;
   height: 27px;
   mix-blend-mode: undefined;
-  border-radius: 1.5px;
+  border-radius: 4px;
   background-color: #333333;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &:before{
+    content: '';
+    z-index: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-radius: 4px;
+    background-color: #70cbfa;
+    transition: 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  }
+  &:hover{
+    &:before{
+      width: 100%;
+    }
+  }
   a{
+    z-index: 3;
     color: #fff;
     text-decoration: none;
   }
