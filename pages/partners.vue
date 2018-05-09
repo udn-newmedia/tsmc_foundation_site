@@ -48,6 +48,9 @@
             </div>
             <p><br></p>
           </div>
+          <div class="sideImg">
+            <img :src="partner_event_1">
+          </div>
         </div>
         <p><br></p>
       </ContentWrapper>
@@ -145,6 +148,8 @@ import member02 from '~/assets/member02.png'
 import tsmcLogo from '~/assets/logo_tsmc.svg'
 import titleimg from '~/assets/title_partners.svg'
 
+import partner_event_1 from '~/assets/0425_update/partner_event_1.jpg'
+
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
 }
@@ -168,7 +173,8 @@ export default {
       showfirstimg: true,
       titleimg: titleimg,
       showMessageBoard: false,
-      isFBReady: false
+      isFBReady: false,
+      partner_event_1: partner_event_1
     }
   },
   computed: {
@@ -271,11 +277,32 @@ export default {
   background-color: transparent;
 }
 .innerHand{
+  position: relative;
   width: 100%;
   background-color: #fff;
   padding: 30px 25px;
   @media screen and (min-width: 1024px) {
     width: 70%;
+    padding: 40px 120px 40px 40px;
+  }
+}
+.sideImg{
+  width: 100%;
+  img{
+    width: 100%;
+    height: auto;
+  }
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    img{
+      position: relative;
+      left: -80px;
+      bottom: 80px;
+      max-width: 350px;
+
+    }
   }
 }
 .cover{
