@@ -165,7 +165,7 @@ export default {
   */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners/index.html',
       stickyAnchors: true,
       tsmcLogo: tsmcLogo,
       member01: member01,
@@ -208,7 +208,6 @@ export default {
           "eventAction": "click",
           "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]"
       });
-      console.log("[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]")
     },
   }
 }

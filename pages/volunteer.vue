@@ -50,12 +50,19 @@
         </div>
       </div>
     </ContentWrapper>
-    <FBComment :href="location"></FBComment>
+    <ContentWrapper id="vol_comment" style="padding: 3% 0;position: relative;z-index: 2;background-color: #fff;">
+      <p><br></p>
+      <h2>留言給我們</h2>
+      <p><br></p>
+      <FBComment :href="location"></FBComment>
+      <p><br></p>
+    </ContentWrapper>
     <Foot></Foot>
   </FadeInDown>
 </template>
 
 <script>
+  import Vue from 'vue'
   import Utils from 'udn-newmedia-utils'
   import Cover from '~/components/Cover.vue'
   import ContentWrapper from '~/components/Content.vue'
@@ -77,6 +84,10 @@
   import ImgEvent_2 from '~/assets/0425_update/volunteer_event_2.jpg'
   import ImgEvent_3 from '~/assets/0425_update/volunteer_event_3.jpg'
 
+  if (process.browser) {
+    require('~/plugins/fb-sdk.js')
+  }
+
   export default {
     name: 'volunteer',
     components: {
@@ -89,7 +100,8 @@
     },
     data () {
       return {
-        location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/volunteer',
+        location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/volunteer/index.html',
+        isFBReady: false,
         volunteer_cover: volunteer_cover,
         volunteer_cover_pc: volunteer_cover_pc,
         carousel_interval: null,
@@ -220,9 +232,18 @@
         });
         console.log("[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] ["+ by +"] [" + from + "] [" + to + "]")
       },
+      onFBReady: function () {
+        this.isFBReady = true
+      },
     },
     mounted () {
       this.carousel_interval = setInterval(this.forInterVal, 3333)
+      setTimeout(()=>{
+        this.showfirstimg = !this.showfirstimg
+        this.isFBReady = Vue.FB != undefined
+        Vue.FB.XFBML.parse();
+        window.addEventListener('fb-sdk-ready', this.onFBReady)
+      }, 500)
     },
     beforeDestroy () {
       clearInterval(this.carousel_interval)
@@ -234,6 +255,14 @@
   @font-face {
     font-family: 'GenJyuuGothic';
     src: url('~/static/fonts/GenJyuuGothicL-Monospace-Heavy.ttf');
+  }
+  #vol_comment{
+    line-height: 1.5;
+    font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
+    word-wrap: break-word;
+    text-align: justify;
+    position: relative;
+    background-color: #e4c8a9;
   }
   .v_Cover{
     position: relative;

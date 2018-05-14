@@ -154,7 +154,7 @@ export default {
   },
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/index.html',
       stickyAnchors: true,
       indexvideo: indexvideo,
       indexvideo_mob: indexvideo_mob,

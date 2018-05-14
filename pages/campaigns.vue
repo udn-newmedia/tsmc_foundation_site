@@ -286,7 +286,7 @@ export default {
   */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/campaigns',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/campaigns/index.html',
       stickyAnchors: true,
       mobpic1: mobpic1,
       webpic1: webpic1,

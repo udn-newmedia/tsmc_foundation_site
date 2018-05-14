@@ -189,7 +189,7 @@ export default {
   */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news/index.html',
       stickyAnchors: true,
       useOverflow: false,
       indexMob1: indexMob1,

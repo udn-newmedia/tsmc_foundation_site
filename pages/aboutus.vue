@@ -132,7 +132,7 @@ export default {
   */
   data: function () {
     return {
-      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus',
+      location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus/index.html',
       stickyAnchors: true,
       indexvideo: indexvideo,
       tsmcLogo: tsmcLogo,
