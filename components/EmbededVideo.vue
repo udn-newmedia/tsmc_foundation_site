@@ -11,8 +11,8 @@
         </div>
         <!-- <i class="fa fa-play video-play hidden-md hidden-lg"></i> -->
         <div class="img-say-out volume-text hidden-lg" @click="volumeClick" v-if='customControl' :style="{color: controlColor}">點按開聲音</div>
-        <i class="fa fa-spinner fa-pulse video-wait" :style="{opacity: isOpacity, color: controlColor}"></i>            
-        <i class="fa volume hidden-lg" 
+        <i class="fa fa-spinner fa-pulse video-wait" :style="{opacity: isOpacity, color: controlColor}"></i>
+        <i class="fa volume hidden-lg"
             v-if='customControl' ref='volume' @click="volumeClick" :style="{color: controlColor}"
             :class="{'fa-volume-up': !isMute, 'fa-volume-off': isMute}"></i>
         <i class="fa fa-repeat replay hidden-lg" v-if='customControl' @click="replay" :style="{color: controlColor}"></i>
@@ -47,14 +47,14 @@ export default {
   computed: {
     // source: function () {
     //   if(w < 1024){
-    //     return this.src 
+    //     return this.src
     //   } else {
     //     return this.srcWeb
     //   }
     // },
     // videoPoster: function () {
     //   if(w < 1024){
-    //     return this.poster 
+    //     return this.poster
     //   } else {
     //     return this.posterWeb
     //   }
@@ -138,7 +138,7 @@ export default {
           let curTime = thisvideo.currentTime
           let percent = curTime / thisvideo.duration * 100
           if (percent !== 100) {
-            self.progressWidth = percent        
+            self.progressWidth = percent
           } else {
             self.progressWidth = 0
           }
@@ -150,7 +150,7 @@ export default {
                 "eventCategory": "video",
                 "eventAction": "play",
                 "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + thisvideo.currentSrc + "] [已觀看 " + Math.floor(curTime) + ' / ' + Math.floor(thisvideo.duration) + " 秒]"
-            });          
+            });
           }
         }, 600)
       }
@@ -160,7 +160,7 @@ export default {
       const volume = this.$refs.volume
       if (this.isMute === true) {
         video.muted = false
-        this.isMute = false        
+        this.isMute = false
       } else {
         video.muted = true
         this.isMute = true

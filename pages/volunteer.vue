@@ -44,7 +44,7 @@
       <h2>關於我們</h2>
       <div class="aboutVolunteer">
         <div v-for="item in aboutUs" :key="'about_'+item.id" class="aboutSort">
-          <b><p>{{item.title}}</p></b>
+          <p><b>{{item.title}}</b></p>
           <p class="sortContent">{{item.content}}</p>
           <p class="stackTime">{{item.stackTime}}</p>
         </div>
