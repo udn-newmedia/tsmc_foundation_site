@@ -188,6 +188,8 @@ export default {
     setTimeout(function() {
       Vue.FB.XFBML.parse();
     }, 500)
+    console.log(this.$route)
+    console.log(global.location)
   },
   beforeDestroy: function () {
     this.$eventBus.$off('closeOverlay')
