@@ -2,18 +2,18 @@ module.exports = {
   router: {
     base: '/tsmc_foundation_site/',
     // base: '/upf/newmedia/2018_data/tsmccharity/',
-    extendRoutes (routes, resolve) {
-      routes.push({
-        name: 'html',
-        path: '/index.html',
-        component: resolve(__dirname, 'pages/index.vue')
-      })
-      routes.push({
-        name: 'newhtml',
-        path: '/news/index.html',
-        component: resolve(__dirname, 'pages/news.vue')
-      })
-    },
+    // extendRoutes (routes, resolve) {
+    //   routes.push({
+    //     name: 'html',
+    //     path: '/index.html',
+    //     component: resolve(__dirname, 'pages/index.vue')
+    //   })
+    //   routes.push({
+    //     name: 'newshtml',
+    //     path: '/news/index.html',
+    //     component: resolve(__dirname, 'pages/news.vue')
+    //   })
+    // },
     scrollBehavior (to, from, savedPosition) {
       if (to.hash) {
         return {

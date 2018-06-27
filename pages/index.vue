@@ -218,7 +218,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #index {
   line-height: 1.5;
   font-family: Arial, "微軟正黑體","Microsoft JhengHei", sans-serif;
