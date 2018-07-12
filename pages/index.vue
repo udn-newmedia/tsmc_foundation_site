@@ -141,14 +141,21 @@ export default {
   // 複寫原來nuxt.config.js之meta
   head () {
     return {
-      title: '台積電慈善基金會 ',
+      title: '台積電慈善基金會-把愛送出去',
       meta: [
-        { property: 'fb:admins', content: '1010324812347164' },
-        { property: 'og:title', content: '台積電慈善基金會' },
-        { property: 'og:url', content: 'http://nmdap.udn.com.tw/tsmc_foundation_site/' },
-        { property: 'og:description', content: '' },
-        { hid: 'description', name: 'description', content: '' },
-        { name: 'keywords', content: '' }
+        { property: 'og:title',
+          content: '台積電慈善基金會-把愛送出去'
+        },
+        { property: 'og:description',
+          content: '台積電慈善基金會董事長張淑芬與志工團挺進第一線，做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，以最直接有效的方式，向災民詢問可幫忙之處，再回頭盤點公司內部員工捐款、「台灣半導體設備暨材料協會」企業成員資源，一周內公布災區復原方案：先讓居民有安全的住所，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。台積電慈善基金會-把愛送出去'
+        },
+        { hid: 'description',
+          name: 'description',
+          content: '台積電慈善基金會董事長張淑芬與志工團挺進第一線，做公益，對台積電而言，不只是捐款。一群工程師，選擇步出晶圓廠，走入重災區，以最直接有效的方式，向災民詢問可幫忙之處，再回頭盤點公司內部員工捐款、「台灣半導體設備暨材料協會」企業成員資源，一周內公布災區復原方案：先讓居民有安全的住所，他們發揮最暖心的「職業病」，用工程專業造橋鋪路、重建工廠與學校，近年再挺進花東偏鄉，關懷老人也陪伴孩子，橫越445公里路，全憑一個「助人就要徹底」的信念。台積電慈善基金會-把愛送出去'
+        },
+        { name: 'keywords',
+          content: '台積電、tsmc、公益、慈善、基金會、CSR、倡議、志工、捐款、半導體、工程、UDN、聯合報、張淑芬'
+        },
       ]
     }
   },

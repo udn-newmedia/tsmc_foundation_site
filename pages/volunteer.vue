@@ -98,6 +98,26 @@
       FBComment,
       HeadBar,
     },
+    head () {
+      return {
+        title: '台積電慈善基金會-志工社',
+        meta: [
+          { property: 'og:title',
+            content: '台積電慈善基金會-志工社'
+          },
+          { property: 'og:description',
+            content: '台積電志工，台積電志工社於台積電慈善基金會董事長張淑芬的帶領之下，秉持「選定主題、長期投入」的志工社宗旨，透過志工活動， 讓同仁在工作與生活中，取得平衡。目前志工團隊包含台積導覽志工、導讀志工、節能志工、社區志工、生態志工及廠區專案型志工。台積電慈善基金會-志工社'
+          },
+          { hid: 'description',
+            name: 'description',
+            content: '台積電志工，台積電志工社於台積電慈善基金會董事長張淑芬的帶領之下，秉持「選定主題、長期投入」的志工社宗旨，透過志工活動， 讓同仁在工作與生活中，取得平衡。目前志工團隊包含台積導覽志工、導讀志工、節能志工、社區志工、生態志工及廠區專案型志工。台積電慈善基金會-志工社'
+          },
+          { name: 'keywords',
+            content: '導覽、社區、導讀、節能、生態、廠區、服務、台積電、tsmc、慈善、基金會、CSR、倡議、志工、UDN、聯合報、張淑芬'
+          },
+        ]
+      }
+    },    
     data () {
       return {
         location: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/volunteer/index.html',

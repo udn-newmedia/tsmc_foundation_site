@@ -183,6 +183,26 @@ if (process.browser) {
 }
 
 export default {
+  head () {
+    return {
+      title: '台積電慈善基金會-最新動態',
+      meta: [
+        { property: 'og:title',
+          content: '台積電慈善基金會-最新動態'
+        },
+        { property: 'og:description',
+          content: '除了捐款，台積電還做了哪些事？台積電慈善基金會董事長張淑芬於災害發生後第一時間親臨現場訪視災民，並研擬出台積電對於此次災後復原協助方向。台積電慈善基金會-最新動態'
+        },
+        { hid: 'description',
+          name: 'description',
+          content: '除了捐款，台積電還做了哪些事？台積電慈善基金會董事長張淑芬於災害發生後第一時間親臨現場訪視災民，並研擬出台積電對於此次災後復原協助方向。台積電慈善基金會-最新動態'
+        },
+        { name: 'keywords',
+          content: '新聞、報導、消息、台積電、tsmc、公益、慈善、基金會、CSR、倡議、志工、捐款、UDN、聯合報、張淑芬'
+        },
+      ]
+    }
+  },   
   /**
    * 變數:
    *  - showMessageBoard: (true or false) 是否顯示留言區
