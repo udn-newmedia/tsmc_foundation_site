@@ -17,11 +17,9 @@ export default {
     methods: {
       srcRWD (mob, pc) {
         if(global.innerWidth < 768){
-          console.log("mob")
             return mob
         }
         else{
-          console.log('pc')
             return pc
         }
       },

@@ -4,7 +4,7 @@
         <div class="v_Cover">
             <Cover :bg="remote_cover_m" :bgweb="remote_cover_web"></Cover>
             <ContentWrapper>
-                <h1 class="bigtitle" style="position: absolute; top: 20%;">用科技力<br>照顧獨老的健康</h1>
+                <h1 class="bigtitle title_position" style="position: absolute;">用科技力<br>照顧獨老的健康</h1>
             </ContentWrapper>
         </div>
         <div class="textContent">
@@ -22,6 +22,7 @@
             </div>
             <div class="v_Content">
                 <ContentWrapper>
+                        <p><br></p>
                         <h2>台積電研發遠端關懷設備</h2>
                         <h2>守護長輩的「亞健康」</h2>
                         <p><br></p>
@@ -47,6 +48,7 @@
             </div>
             <div class="v_Content">
                 <ContentWrapper>
+                        <p><br></p>
                         <h2>阿嬤的血壓怎麼還沒回傳？</h2>
                         <h2>無聲警訊&nbsp;&nbsp;成功救命</h2>
                         <p><br></p>
@@ -64,7 +66,9 @@
             <div class="v_Video">
                 <ContentWrapper>
                     <p><br></p>
+                    <p><br></p>
                     <EmbededVideo :src="video" :srcWeb="video"></EmbededVideo>
+                    <p><br></p>
                     <p><br></p>
                 </ContentWrapper>
             </div>
@@ -87,7 +91,9 @@
             </div>
             <div class="v_ColumnOne">
                 <ContentWrapper>
+                        <p><br></p>
                         <ColumnOne :img1="img5_m" :imgweb1="img5_web"></ColumnOne>
+                        <p><br></p>
                 </ContentWrapper>
             </div>
             <p></p>
@@ -106,7 +112,9 @@
             </div>
             <div class="v_ColumnOne">
                 <ContentWrapper>
-                        <ColumnOne :img1="img6_m" :imgweb1="img6_web"></ColumnOne>
+                    <p><br></p>
+                    <ColumnOne :img1="img6_m" :imgweb1="img6_web"></ColumnOne>
+                    <p><br></p>
                 </ContentWrapper>
             </div>
             <p><br></p> 
@@ -120,6 +128,8 @@
                         <p>「我們的終極目標是希望，讓政府接手，大規模的去做，一套就可以更便宜，讓長輩享受健康，真的不必花大錢的。」</p>
                         <p><br></p>
                         <p>張淑芬表示，目前設備在豐原醫院試行成，功協助醫護、志工在一樣的工作時間內，關心到８倍的獨居老人。未來將持續擴大，幫助更多醫療體系，也陪伴更多老人家一起度過健康無憂的老年。</p>
+                        <p><br></p>
+                        <p><br></p>
                         <p><br></p>
                         <p><br></p>
                 </ContentWrapper>
@@ -249,6 +259,9 @@ h1.bigtitle.bigtitle {
   font-family: "GenJyuuGothic";
   font-weight: bold;
   color: #fff2a2;
+}
+.title_position{
+    bottom: 20%;
 }
 // .v_Cover {
 //     h1 {
