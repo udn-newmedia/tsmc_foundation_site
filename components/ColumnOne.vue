@@ -1,6 +1,6 @@
 <template>
   <div class="image-contain">
-    <img :src="imgRWD1()">
+    <img :src="img1src">
     <div class="img-say">{{imgsay}}</div>
   </div>
 </template>
@@ -9,20 +9,29 @@
 export default {
     name: 'ColumnOne',
     props: ['img1', 'imgweb1', 'imgsay'],
-    created: function() {
-      window.addEventListener('resize', () => {
-        this.$forceUpdate()
-      })
+    data () {
+      return {
+        img1src: ''
+      }
     },
     methods: {
-      imgRWD1: function(){
-        if(window.innerWidth <= 768){
-            return this.img1
+      srcRWD (mob, pc) {
+        if(global.innerWidth < 768){
+          console.log("mob")
+            return mob
         }
         else{
-            return this.imgweb1
+          console.log('pc')
+            return pc
         }
-      }
+      },
+    },
+    mounted () {
+      this.img1src = this.srcRWD(this.img1, this.imgweb1)    
+      window.addEventListener('resize', () => {
+        this.img1src = this.srcRWD(this.img1, this.imgweb1)         
+        this.$forceUpdate()
+      })      
     }
 }
 </script>

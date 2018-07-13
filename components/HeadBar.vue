@@ -87,7 +87,7 @@ export default {
           slideMenu: [
             {
               title: "獨老遠距關懷",
-              link: "./"
+              link: "./remote"
             }
           ]
         },
@@ -136,14 +136,6 @@ export default {
         {
           link: "/volunteer/",
           title: "志工社",
-          isNew: false,
-          isBlod: false,
-          isOpen: false,
-          slideMenu: []
-        },
-        {
-          link: "/remote/",
-          title: "公版測試",
           isNew: false,
           isBlod: false,
           isOpen: false,
@@ -287,7 +279,7 @@ export default {
 }
 .redNum {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 35%;
   z-index: 80;
   width: 20px;
@@ -297,7 +289,7 @@ export default {
   align-items: center;
   font-size: 11px;
   color: #fff;
-  margin-top: -17.5px;
+  margin-top: -5.5px;
   border-radius: 50%;
   background-color: #84d4ff;
   animation: jumping 555ms ease-out infinite alternate-reverse;

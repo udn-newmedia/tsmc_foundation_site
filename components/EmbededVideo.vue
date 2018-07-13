@@ -1,7 +1,7 @@
 <template>
   <div class="videocontainer">
     <div class="video-contain" :style="{backgroundColor: backgroundColor}">
-      <video preload="metadata" playsinline
+      <video preload="auto" playsinline muted
               :src="source" :poster="videoPoster"
               @click='handle_clickVideo' ref='video' controls></video>
       <div class="video-control">
