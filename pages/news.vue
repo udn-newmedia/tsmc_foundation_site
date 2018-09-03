@@ -139,6 +139,7 @@ import img13 from '~/assets/13.jpg'
 import img14 from '~/assets/14.jpg'
 import img15 from '~/assets/15.jpg'
 import img16 from '~/assets/16.jpg'
+import img17 from '~/assets/17.jpg'
 
 import CoverNewsMedia from '../assets/news/coverNews.jpg'
 import ArticleMedia_1 from '../assets/news/1.jpg'
@@ -175,6 +176,8 @@ import ArticleMedia_14 from '../assets/news/14.jpg'
 import ArticleMedia_14_2 from '../assets/news/14-2.jpg'
 import ArticleMedia_14_3 from '../assets/news/14-3.jpg'
 import ArticleMedia_14_4 from '../assets/news/14-4.jpg'
+import ArticleMedia_15_1 from '../assets/news/15-1.jpg'
+import ArticleMedia_15_2 from '../assets/news/15-2.jpg'
 
 if (process.browser) {
   require('~/plugins/fb-sdk.js')
@@ -185,8 +188,12 @@ if (process.browser) {
 export default {
   head () {
     return {
-      title: '台積電慈善基金會-最新動態',
+      title: '台積電慈善基金會-最新動態',      
       meta: [
+        {
+          property: 'og:url',
+          content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/news/index.html'
+        },        
         { property: 'og:title',
           content: '台積電慈善基金會-最新動態'
         },
@@ -248,7 +255,30 @@ export default {
           '花蓮地震災後許多地方傳出缺水問題，台積電立即調派10部水車協助，並派遣搬運工幫助災民清理家園。根據台積電擬定的救災三階段方案，農曆年前台積電支援修補水庫，並建立與啟動募款及人力志工招募平台；農曆年後，台積電仿效高雄氣爆的心靈輔導營，帶領災區兒童離開災區；並對政府專業判定的非結構受損住宅，協助修補受損的房舍。有網友在網上發文分享台積電在最短的時間內進場施工、整理災區，協助了200多戶的社區居民，讓他們有家住，不會流落街頭，大讚台積電的高效率。'
         ]
       },
-      newslist: [
+        newslist: [
+        {
+          title: '張忠謀妻張淑芬豪送淹水校 3冰箱20置物櫃還有水閘門',
+          text: '台積電慈善基金會董事長張淑芬日前親自帶隊，前往823水災區的台南市北門區錦湖國小，除致贈3台電冰箱...',
+          link: 'https://udn.com/news/story/12440/3341186',
+          img: img17,
+          ArticleTitle: '張忠謀妻張淑芬豪送淹水校 3冰箱20置物櫃還有水閘門',
+          ArticleTime: '2018-08-31',
+          Article: [
+            '台積電慈善基金會董事長張淑芬親自帶隊，今天到823水災區的台南市北門區錦湖國小進行關懷活動，除致贈3台電冰箱、20個置物櫃，更換㕑房爐心，不致於營養午餐斷炊，還允諾更換鋁合金材質的水閘門。',
+            '錦湖國小校長周志強表示，學校這次淹水約90至100公分，水深及腰，教室全部進水，財損有資訊設備及電器用品、碎紙機等，損失80萬以上，感謝各界的關心。',
+            '周志強說，88水災時，台積電就來幫忙，致贈置物櫃，後來又有不鏽鋼的高腳架，淹大水時可以墊高，的確少了很多災情；張淑芬笑稱「台積電還是有用的」；周志強表示，台積電令人感動。',
+            '張淑芬在到錦湖國小之前，還慰問安南區受災的員工，她說，這次水災讓她學會在家安裝水閘門擋水，提供給政府參考，還說救災，企業與政府一起做會更快。',
+            '張淑芬還提醒周志強，要教小朋友記住在困難時有很多團體幫助，將來長大也要幫助別人，張志強表示持續在做。',
+            {
+              'src': ArticleMedia_15_1,
+              'imgsay': '台積電慈善基金會董事長張淑芬（右）關心小朋友吃營養午餐。記者吳政修/攝影'
+            },
+            {
+              'src': ArticleMedia_15_2,
+              'imgsay': '錦湖國小校長周志強（左二）拿水災照片給台積電慈善基金會董事長張淑芬（左一）看。記者吳政修/攝影'
+            }
+          ]
+        },        
         {
           title: '張淑芬分享微孝與愛 籲企業助花蓮震災戶',
           text: '張淑芬帶著台積電員工「把愛送出去」，也盼企業界一起參與，她把這個想法與業界分享，籲1個月1萬元認養1戶...',

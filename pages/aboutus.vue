@@ -130,6 +130,10 @@ export default {
     return {
       title: '台積電慈善基金會-公益使命',
       meta: [
+        {
+          property: 'og:url',
+          content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/aboutus/index.html'
+        },        
         { property: 'og:title',
           content: '台積電慈善基金會-公益使命'
         },

@@ -283,6 +283,10 @@ export default {
     return {
       title: '台積電慈善基金會-我們做的事',
       meta: [
+        {
+          property: 'og:url',
+          content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/campaigns/index.html'
+        },     
         { property: 'og:title',
           content: '台積電慈善基金會-我們做的事'
         },

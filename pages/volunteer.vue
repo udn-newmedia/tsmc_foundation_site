@@ -102,6 +102,10 @@
       return {
         title: '台積電慈善基金會-志工社',
         meta: [
+          {
+            property: 'og:url',
+            content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/volunteer/index.html'
+          },
           { property: 'og:title',
             content: '台積電慈善基金會-志工社'
           },

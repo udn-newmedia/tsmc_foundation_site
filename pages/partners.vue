@@ -162,6 +162,10 @@ export default {
     return {
       title: '台積電慈善基金會-把愛傳出去',
       meta: [
+        {
+          property: 'og:url',
+          content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/partners/index.html'
+        },        
         { property: 'og:title',
           content: '台積電慈善基金會-把愛傳出去'
         },

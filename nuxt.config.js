@@ -47,7 +47,7 @@ module.exports = {
       { property: 'fb:admins', content: '1010324812347164' },
       { property: 'og:site_name', content: '台積電慈善基金會- 做到最實在 弱勢|獨老|環保|孝道' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:url', content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/'},
+      // { property: 'og:url', content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/'},
       { property: 'og:image', content: 'https://udn.com/upf/newmedia/2018_data/tsmccharity/FB.jpg' },
       // { property: 'og:description', content: '做公益對台積電而言，不只是捐款。我們選擇步出晶圓廠，走入重災區、再挺進偏鄉，用工程專業造橋鋪路、關懷老人也...'}
     ],
