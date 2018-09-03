@@ -50,3 +50,5 @@ $ sublime lottie.js || code lottie.js
 
 ###### 善用Ctrl+F
 
+## After Deploy
+>有一個buildver.txt，如上傳完後更新請在裡面輸入日期+email修改後伺服器會更新
